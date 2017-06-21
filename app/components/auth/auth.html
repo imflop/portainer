@@ -16,7 +16,7 @@
             <!-- comment -->
             <div class="input-group">
               <p style="margin: 5px;">
-                Please specify a password for the <b>admin</b> user account.
+                Укажите пароль для учетной записи <b>администратора</b>.
               </p>
             </div>
             <!-- !comment input -->
@@ -24,7 +24,7 @@
             <div class="input-group">
               <p style="margin: 5px;">
                 <i ng-class="{true: 'fa fa-check green-icon', false: 'fa fa-times red-icon'}[initPasswordData.password.length >= 8]" aria-hidden="true"></i>
-                Your password must be at least 8 characters long
+                Ваш пароль должен быть не менее 8 символов
               </p>
             </div>
             <!-- !comment input -->
@@ -38,7 +38,7 @@
             <div class="input-group">
               <p style="margin: 5px;">
                 <i ng-class="{true: 'fa fa-check green-icon', false: 'fa fa-times red-icon'}[initPasswordData.password !== '' && initPasswordData.password === initPasswordData.password_confirmation]" aria-hidden="true"></i>
-                Confirm your password
+                Подтвердите ваш пароль
               </p>
             </div>
             <!-- !comment input -->
@@ -52,7 +52,7 @@
             <div class="form-group">
               <div class="col-sm-12 controls">
                 <p class="pull-left text-danger" ng-if="initPasswordData.error" style="margin: 5px;">
-                  <i class="fa fa-exclamation-circle" aria-hidden="true"></i> Unable to create default user
+                  <i class="fa fa-exclamation-circle" aria-hidden="true"></i> Не удается создать пользователя по умолчанию
                 </p>
                 <button type="submit" class="btn btn-primary pull-right" ng-disabled="initPasswordData.password.length < 8 || initPasswordData.password !== initPasswordData.password_confirmation" ng-click="createAdminUser()"><i class="fa fa-key" aria-hidden="true"></i> Validate</button>
               </div>
