@@ -44,7 +44,7 @@ angular.module('containers', [])
       $('#loadContainersSpinner').hide();
     }, function (e) {
       $('#loadContainersSpinner').hide();
-      Notifications.error('Failure', e, 'Unable to retrieve containers');
+      Notifications.error('Failure', e, 'Не удалось извлечь контейнеры');
       $scope.containers = [];
     });
   };
@@ -67,17 +67,17 @@ angular.module('containers', [])
             Notifications.success('Container ' + msg, c.Id);
             complete();
           }, function (e) {
-            Notifications.error('Failure', e, 'Unable to start container');
+            Notifications.error('Failure', e, 'Не удалось запустить контейнер');
             complete();
           });
         }
         else if (action === Container.remove) {
           ContainerService.remove(c, $scope.cleanAssociatedVolumes)
           .then(function success() {
-            Notifications.success('Container successfully removed');
+            Notifications.success('Контейнер успешно удален');
           })
           .catch(function error(err) {
-            Notifications.error('Failure', err, 'Unable to remove container');
+            Notifications.error('Failure', err, 'Не удалось удалить контейнер');
           })
           .finally(function final() {
             complete();
@@ -86,13 +86,13 @@ angular.module('containers', [])
         else if (action === Container.pause) {
           action({id: c.Id}, function (d) {
             if (d.message) {
-              Notifications.success('Container is already paused', c.Id);
+              Notifications.success('Контейнер уже приостановлен', c.Id);
             } else {
-              Notifications.success('Container ' + msg, c.Id);
+              Notifications.success('Контейнер ' + msg, c.Id);
             }
             complete();
           }, function (e) {
-            Notifications.error('Failure', e, 'Unable to pause container');
+            Notifications.error('Failure', e, 'Не удается приостановить контейнер');
             complete();
           });
         }
@@ -101,7 +101,7 @@ angular.module('containers', [])
             Notifications.success('Container ' + msg, c.Id);
             complete();
           }, function (e) {
-            Notifications.error('Failure', e, 'An error occured');
+            Notifications.error('Failure', e, 'Произошла ошибка');
             complete();
           });
 
@@ -135,31 +135,31 @@ angular.module('containers', [])
   };
 
   $scope.startAction = function () {
-    batch($scope.containers, Container.start, 'Started');
+    batch($scope.containers, Container.start, 'Начал');
   };
 
   $scope.stopAction = function () {
-    batch($scope.containers, Container.stop, 'Stopped');
+    batch($scope.containers, Container.stop, 'Закончил');
   };
 
   $scope.restartAction = function () {
-    batch($scope.containers, Container.restart, 'Restarted');
+    batch($scope.containers, Container.restart, 'Перезагружен');
   };
 
   $scope.killAction = function () {
-    batch($scope.containers, Container.kill, 'Killed');
+    batch($scope.containers, Container.kill, 'Убит');
   };
 
   $scope.pauseAction = function () {
-    batch($scope.containers, Container.pause, 'Paused');
+    batch($scope.containers, Container.pause, 'Приостановлен');
   };
 
   $scope.unpauseAction = function () {
-    batch($scope.containers, Container.unpause, 'Unpaused');
+    batch($scope.containers, Container.unpause, 'Возобновлен');
   };
 
   $scope.removeAction = function () {
-    batch($scope.containers, Container.remove, 'Removed');
+    batch($scope.containers, Container.remove, 'Удален');
   };
 
   $scope.confirmRemoveAction = function () {
@@ -170,9 +170,9 @@ angular.module('containers', [])
         return;
       }
     });
-    var title = 'You are about to remove one or more container.';
+    var title = 'Вы собираетесь удалить один или несколько контейнеров.';
     if (isOneContainerRunning) {
-      title = 'You are about to remove one or more running containers.';
+      title = 'Вы собираетесь удалить один или несколько запущенных контейнеров.';
     }
     ModalService.confirmContainerDeletion(
       title,
@@ -212,7 +212,7 @@ angular.module('containers', [])
       update({all: $scope.state.displayAll ? 1 : 0});
     })
     .catch(function error(err) {
-      Notifications.error('Failure', err, 'Unable to retrieve cluster information');
+      Notifications.error('Failure', err, 'Не удалось получить информацию о кластере');
     });
   }
 
