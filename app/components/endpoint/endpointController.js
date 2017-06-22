@@ -59,7 +59,7 @@ function ($scope, $state, $stateParams, $filter, EndpointService, Notifications)
       $scope.formValues.TLSKey = data.TLSKey;
     }, function error(err) {
       $('#loadingViewSpinner').hide();
-      Notifications.error('Failure', err, 'Unable to retrieve endpoint details');
+      Notifications.error('Failure', err, 'Не удалось получить сведения о эндпоинте');
     });
   }
 
