@@ -15,7 +15,7 @@ function ($q, $scope, SystemService, Notifications) {
       $scope.info = data.info;
     })
     .catch(function error(err) {
-      Notifications.error('Failure', err, 'Unable to retrieve engine details');
+      Notifications.error('Failure', err, 'Не удалось получить сведения о движке');
     })
     .finally(function final() {
       $('#loadingViewSpinner').hide();
