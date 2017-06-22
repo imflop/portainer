@@ -236,7 +236,7 @@ function ($q, $scope, $state, $stateParams, $filter, Container, ContainerHelper,
     Volume.query({}, function (d) {
       $scope.availableVolumes = d.Volumes;
     }, function (e) {
-      Notifications.error('Failure', e, 'Unable to retrieve volumes');
+      Notifications.error('Failure', e, 'Не удалось получить тома');
     });
 
     Network.query({}, function (d) {
@@ -258,14 +258,14 @@ function ($q, $scope, $state, $stateParams, $filter, Container, ContainerHelper,
         $scope.config.HostConfig.NetworkMode = 'nat';
       }
     }, function (e) {
-      Notifications.error('Failure', e, 'Unable to retrieve networks');
+      Notifications.error('Failure', e, 'Не удается найти сети');
     });
 
     Container.query({}, function (d) {
       var containers = d;
       $scope.runningContainers = containers;
     }, function(e) {
-      Notifications.error('Failure', e, 'Unable to retrieve running containers');
+      Notifications.error('Failure', e, 'Не удалось получить запущенные контейнеры');
     });
 
   }
@@ -308,11 +308,11 @@ function ($q, $scope, $state, $stateParams, $filter, Container, ContainerHelper,
         return ResourceControlService.applyResourceControl('container', containerIdentifier, userId, accessControlData, []);
       })
       .then(function success() {
-        Notifications.success('Container successfully created');
+        Notifications.success('Контейнер успешно создан');
         $state.go('containers', {}, {reload: true});
       })
       .catch(function error(err) {
-        Notifications.error('Failure', err, 'Unable to create container');
+        Notifications.error('Failure', err, 'Не удалось создать контейнер');
       })
       .finally(function final() {
         $('#createContainerSpinner').hide();
