@@ -13,11 +13,11 @@ function ($scope, $stateParams, $state, $timeout, ImageService, RegistryService,
 
 		ImageService.tagImage($stateParams.id, image, registry.URL)
 		.then(function success(data) {
-			Notifications.success('Image successfully tagged');
+			Notifications.success('Образ успешно помечен');
 			$state.go('image', {id: $stateParams.id}, {reload: true});
 		})
 		.catch(function error(err) {
-			Notifications.error('Failure', err, 'Unable to tag image');
+			Notifications.error('Failure', err, 'Не удалось пометить образ');
 		})
 		.finally(function final() {
 			$('#loadingViewSpinner').hide();
@@ -32,10 +32,10 @@ function ($scope, $stateParams, $state, $timeout, ImageService, RegistryService,
 			return ImageService.pushImage(repository, registry);
 		})
 		.then(function success(data) {
-			Notifications.success('Image successfully pushed', repository);
+			Notifications.success('Образ успешно отправлен', repository);
 		})
 		.catch(function error(err) {
-			Notifications.error('Failure', err, 'Unable to push image to repository');
+			Notifications.error('Failure', err, 'Не удалось отправить образ в репозиторий');
 		})
 		.finally(function final() {
 			$('#loadingViewSpinner').hide();
@@ -50,10 +50,10 @@ function ($scope, $stateParams, $state, $timeout, ImageService, RegistryService,
 			return ImageService.pullImage(repository, registry);
 		})
 		.then(function success(data) {
-			Notifications.success('Image successfully pulled', repository);
+			Notifications.success('Образ успешно стянут', repository);
 		})
 		.catch(function error(err) {
-			Notifications.error('Failure', err, 'Unable to pull image');
+			Notifications.error('Failure', err, 'Не удалось стянуть образ');
 		})
 		.finally(function final() {
 			$('#loadingViewSpinner').hide();
@@ -65,15 +65,15 @@ function ($scope, $stateParams, $state, $timeout, ImageService, RegistryService,
 		ImageService.deleteImage(repository, false)
 		.then(function success() {
 			if ($scope.image.RepoTags.length === 1) {
-				Notifications.success('Image successfully deleted', repository);
+				Notifications.success('Образ успешно удален', repository);
 				$state.go('images', {}, {reload: true});
 			} else {
-				Notifications.success('Tag successfully deleted', repository);
+				Notifications.success('Тег успешно удален', repository);
 				$state.go('image', {id: $stateParams.id}, {reload: true});
 			}
 		})
 		.catch(function error(err) {
-			Notifications.error('Failure', err, 'Unable to remove image');
+			Notifications.error('Failure', err, 'Не удалось удалить образ');
 		})
 		.finally(function final() {
 			$('#loadingViewSpinner').hide();
@@ -84,11 +84,11 @@ function ($scope, $stateParams, $state, $timeout, ImageService, RegistryService,
 		$('#loadingViewSpinner').show();
 		ImageService.deleteImage(id, false)
 		.then(function success() {
-			Notifications.success('Image successfully deleted', id);
+			Notifications.success('Образ успешно удален', id);
 			$state.go('images', {}, {reload: true});
 		})
 		.catch(function error(err) {
-			Notifications.error('Failure', err, 'Unable to remove image');
+			Notifications.error('Failure', err, 'Не удалось удалить образ');
 		})
 		.finally(function final() {
 			$('#loadingViewSpinner').hide();
@@ -102,7 +102,7 @@ function ($scope, $stateParams, $state, $timeout, ImageService, RegistryService,
 			$scope.image = data;
 		})
 		.catch(function error(err) {
-			Notifications.error('Failure', err, 'Unable to retrieve image details');
+			Notifications.error('Failure', err, 'Не удалось получить детали образа');
 			$state.go('images');
 		})
 		.finally(function final() {

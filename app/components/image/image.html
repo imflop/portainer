@@ -1,16 +1,16 @@
 <rd-header>
-  <rd-header-title title="Image details">
+  <rd-header-title title="Детали образа">
     <i id="loadingViewSpinner" class="fa fa-cog fa-spin"></i>
   </rd-header-title>
   <rd-header-content>
-    <a ui-sref="images">Images</a> > <a ui-sref="image({id: image.Id})">{{ image.Id }}</a>
+    <a ui-sref="images">Образы</a> > <a ui-sref="image({id: image.Id})">{{ image.Id }}</a>
   </rd-header-content>
 </rd-header>
 
 <div class="row" ng-if="image.RepoTags.length > 0">
   <div class="col-lg-12 col-md-12 col-xs-12">
     <rd-widget>
-      <rd-widget-header icon="fa fa-tags" title="Image tags"></rd-widget-header>
+      <rd-widget-header icon="fa fa-tags" title="Теги образа"></rd-widget-header>
       <rd-widget-body>
         <form class="form-horizontal">
           <div class="form-group">
@@ -19,13 +19,13 @@
                 <div class="input-group col-md-1" style="padding:0 15px">
                   <span class="input-group-addon">{{ tag }}</span>
                   <span class="input-group-btn">
-                    <a data-toggle="tooltip" class="btn btn-primary interactive" title="Push to registry" ng-click="pushTag(tag)">
+                    <a data-toggle="tooltip" class="btn btn-primary interactive" title="Загрузить в реестр" ng-click="pushTag(tag)">
                       <span class="fa fa-upload white-icon" aria-hidden="true"></span>
                     </a>
-                    <a data-toggle="tooltip" class="btn btn-primary interactive" title="Pull from registry" ng-click="pullTag(tag)">
+                    <a data-toggle="tooltip" class="btn btn-primary interactive" title="Стянуть из реестра" ng-click="pullTag(tag)">
                       <span class="fa fa-download white-icon" aria-hidden="true"></span>
                     </a>
-                    <a data-toggle="tooltip" class="btn btn-primary interactive" title="Remove tag" ng-click="removeTag(tag)">
+                    <a data-toggle="tooltip" class="btn btn-primary interactive" title="Удалить тег" ng-click="removeTag(tag)">
                       <span class="fa fa-trash-o white-icon" aria-hidden="true"></span>
                     </a>
                   </span>
@@ -36,9 +36,9 @@
           <div class="form-group">
             <div class="col-sm-12">
               <span class="small text-muted">
-                Note: you can click on the upload icon <span class="fa fa-upload" aria-hidden="true"></span> to push an image
-                or on the download icon <span class="fa fa-download" aria-hidden="true"></span> to pull an image
-                or on the trash icon <span class="fa fa-trash-o" aria-hidden="true"></span> to delete a tag.
+                Примечание: вы можете нажать на значок загрузки <span class="fa fa-upload" aria-hidden="true"></span> чтобы загрузить образ
+                или на другой значок загрузки <span class="fa fa-download" aria-hidden="true"></span> чтобы стянуть образ
+                или на иконку корзины <span class="fa fa-trash-o" aria-hidden="true"></span> чтобы удалить тег.
               </span>
             </div>
           </div>
@@ -51,7 +51,7 @@
 <div class="row">
   <div class="col-lg-12 col-md-12 col-xs-12">
     <rd-widget>
-      <rd-widget-header icon="fa-tag" title="Tag the image"></rd-widget-header>
+      <rd-widget-header icon="fa-tag" title="Тег образа"></rd-widget-header>
       <rd-widget-body>
         <form class="form-horizontal">
           <!-- image-and-registry -->
@@ -62,13 +62,13 @@
           <!-- tag-note -->
           <div class="form-group">
             <div class="col-sm-12">
-              <span class="small text-muted">Note: if you don't specify the tag in the image name, <span class="label label-default">latest</span> will be used.</span>
+              <span class="small text-muted">Примечание. Если вы не укажете тег в имени изображения, <span class="label label-default">latest</span> будет использоваться.</span>
             </div>
           </div>
           <!-- !tag-note -->
           <div class="form-group">
             <div class="col-sm-12">
-              <button type="button" class="btn btn-primary btn-sm" ng-disabled="!formValues.Image" ng-click="tagImage()">Tag</button>
+              <button type="button" class="btn btn-primary btn-sm" ng-disabled="!formValues.Image" ng-click="tagImage()">Тег</button>
               <i id="pullImageSpinner" class="fa fa-cog fa-spin" style="margin-left: 5px; display: none;"></i>
             </div>
           </div>
@@ -81,7 +81,7 @@
 <div class="row">
   <div class="col-lg-12 col-md-12 col-xs-12">
     <rd-widget>
-      <rd-widget-header icon="fa-clone" title="Image details"></rd-widget-header>
+      <rd-widget-header icon="fa-clone" title="Детали образа"></rd-widget-header>
       <rd-widget-body classes="no-padding">
         <table class="table">
           <tbody>
@@ -89,27 +89,27 @@
               <td>ID</td>
               <td>
                 {{ image.Id }}
-                <button class="btn btn-xs btn-danger" ng-click="removeImage(image.Id)"><i class="fa fa-trash space-right" aria-hidden="true"></i>Delete this image</button>
+                <button class="btn btn-xs btn-danger" ng-click="removeImage(image.Id)"><i class="fa fa-trash space-right" aria-hidden="true"></i>Удалить этот образ</button>
               </td>
             </tr>
             <tr ng-if="image.Parent">
-              <td>Parent</td>
+              <td>Родитель</td>
               <td><a ui-sref="image({id: image.Parent})">{{ image.Parent }}</a></td>
             </tr>
             <tr>
-              <td>Size</td>
+              <td>Размер</td>
               <td>{{ image.VirtualSize|humansize }}</td>
             </tr>
             <tr>
-              <td>Created</td>
+              <td>Создать</td>
               <td>{{ image.Created|getisodate }}</td>
             </tr>
             <tr>
-              <td>Build</td>
-              <td>Docker {{ image.DockerVersion }} on {{ image.Os}}, {{ image.Architecture }}</td>
+              <td>Собрать</td>
+              <td>Docker {{ image.DockerVersion }} на {{ image.Os}}, {{ image.Architecture }}</td>
             </tr>
             <tr ng-if="image.Author">
-              <td>Author</td>
+              <td>Авторr</td>
               <td>{{ image.Author }}</td>
             </tr>
           </tbody>
@@ -122,7 +122,7 @@
 <div class="row">
   <div class="col-lg-12 col-md-12 col-xs-12">
     <rd-widget>
-      <rd-widget-header icon="fa-clone" title="Dockerfile details"></rd-widget-header>
+      <rd-widget-header icon="fa-clone" title="Dockerfile детали"></rd-widget-header>
       <rd-widget-body classes="no-padding">
         <table class="table">
           <tbody>
