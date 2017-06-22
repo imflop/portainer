@@ -46,11 +46,11 @@ function ($scope, $state, Notifications, SecretService) {
     $('#createSecretSpinner').show();
     SecretService.create(config)
     .then(function success(data) {
-      Notifications.success('Secret successfully created');
+      Notifications.success('Секрет успешно создан');
       $state.go('secrets', {}, {reload: true});
     })
     .catch(function error(err) {
-      Notifications.error('Failure', err, 'Unable to create secret');
+      Notifications.error('Failure', err, 'Невозможно создать секрет');
     })
     .finally(function final() {
       $('#createSecretSpinner').hide();
