@@ -1,9 +1,9 @@
 <rd-header>
-  <rd-header-title title="Create registry">
+  <rd-header-title title="Создать реестр">
     <i id="loadingViewSpinner" class="fa fa-cog fa-spin" style="display:none"></i>
   </rd-header-title>
   <rd-header-content>
-    <a ui-sref="registries">Registries</a> > Add registry
+    <a ui-sref="registries">Реестры</a> > Добавить реестр
   </rd-header-content>
 </rd-header>
 
@@ -13,7 +13,7 @@
       <rd-widget-body>
         <form class="form-horizontal">
           <div class="col-sm-12 form-section-title">
-            Registry provider
+            Поставщик реестра
           </div>
           <div class="form-group"></div>
           <div class="form-group" style="margin-bottom: 0">
@@ -25,7 +25,7 @@
                     <i class="fa fa-database" aria-hidden="true" style="margin-right: 2px;"></i>
                     Quay.io
                   </div>
-                  <p>Quay container registry</p>
+                  <p>Реестр контейнеров Quay</p>
                 </label>
               </div>
               <div ng-click="selectCustomRegistry()">
@@ -33,28 +33,28 @@
                 <label for="registry_custom">
                   <div class="boxselector_header">
                     <i class="fa fa-database" aria-hidden="true" style="margin-right: 2px;"></i>
-                    Custom registry
+                    Пользовательский реестр
                   </div>
-                  <p>Define your own registry</p>
+                  <p>Определите свой собственный реестр</p>
                 </label>
               </div>
             </div>
           </div>
           <div class="col-sm-12 form-section-title" ng-if="state.RegistryType === 'custom'">
-            Important notice
+            Важное замечание
           </div>
           <div class="form-group" ng-if="state.RegistryType === 'custom'">
             <span class="col-sm-12 text-muted small">
-              Docker requires you to connect to a <a href="https://docs.docker.com/registry/deploying/#running-a-domain-registry" target="_blank">secure registry</a>.
-              You can find more information about how to connect to an insecure registry <a href="https://docs.docker.com/registry/insecure/" target="_blank">in the Docker documentation</a>.
+              Docker требует подключения к <a href="https://docs.docker.com/registry/deploying/#running-a-domain-registry" target="_blank">безопасному реестру</a>.
+              Дополнительную информацию о подключении к небезопасному реестру можно найти <a href="https://docs.docker.com/registry/insecure/" target="_blank">в документации Docker</a>.
             </span>
           </div>
           <div class="col-sm-12 form-section-title">
-            Registry details
+            Сведения о реестре
           </div>
           <!-- name-input -->
           <div class="form-group" ng-if="state.RegistryType === 'custom'">
-            <label for="registry_name" class="col-sm-3 col-lg-2 control-label text-left">Name</label>
+            <label for="registry_name" class="col-sm-3 col-lg-2 control-label text-left">Имя</label>
             <div class="col-sm-9 col-lg-10">
               <input type="text" class="form-control" id="registry_name" ng-model="formValues.Name" placeholder="e.g. my-registry">
             </div>
@@ -63,8 +63,8 @@
           <!-- registry-url-input -->
           <div class="form-group" ng-if="state.RegistryType === 'custom'">
             <label for="registry_url" class="col-sm-3 col-lg-2 control-label text-left">
-              Registry URL
-              <portainer-tooltip position="bottom" message="URL or IP address of a Docker registry. Any protocol will be stripped."></portainer-tooltip>
+              URL-адрес реестра
+              <portainer-tooltip position="bottom" message="URL или IP-адрес реестра Docker. Любой протокол будет удален."></portainer-tooltip>
             </label>
             <div class="col-sm-9 col-lg-10">
               <input type="text" class="form-control" id="registry_url" ng-model="formValues.URL" placeholder="e.g. 10.0.0.10:5000 or myregistry.domain.tld">
@@ -76,7 +76,7 @@
             <div class="col-sm-12">
               <label for="registry_auth" class="control-label text-left">
                 Authentication
-                <portainer-tooltip position="bottom" message="Enable this option if you need to specify credentials to connect to this registry."></portainer-tooltip>
+                <portainer-tooltip position="bottom" message="Включите эту опцию, если вам нужно указать учетные данные для подключения к этому реестру."></portainer-tooltip>
               </label>
               <label class="switch" style="margin-left: 20px;">
                 <input type="checkbox" ng-model="formValues.Authentication"><i></i>
@@ -88,7 +88,7 @@
           <div ng-if="formValues.Authentication || state.RegistryType === 'quay'">
             <!-- credentials-user -->
             <div class="form-group">
-              <label for="credentials_username" class="col-sm-3 col-lg-2 control-label text-left">Username</label>
+              <label for="credentials_username" class="col-sm-3 col-lg-2 control-label text-left">Имя пользователя</label>
               <div class="col-sm-9 col-lg-10">
                 <input type="text" class="form-control" id="credentials_username" ng-model="formValues.Username">
               </div>
@@ -96,7 +96,7 @@
             <!-- !credentials-user -->
             <!-- credentials-password -->
             <div class="form-group">
-              <label for="credentials_password" class="col-sm-3 col-lg-2 control-label text-left">Password</label>
+              <label for="credentials_password" class="col-sm-3 col-lg-2 control-label text-left">Пароль</label>
               <div class="col-sm-9 col-lg-10">
                 <input type="password" class="form-control" id="credentials_password" ng-model="formValues.Password">
               </div>
@@ -106,7 +106,7 @@
           <!-- !authentication-credentials -->
           <div class="form-group">
             <div class="col-sm-12">
-              <button type="button" class="btn btn-primary btn-sm" ng-disabled="!formValues.Name || !formValues.URL || (formValues.Authentication && (!formValues.Username || !formValues.Password))" ng-click="addRegistry()">Add registry</button>
+              <button type="button" class="btn btn-primary btn-sm" ng-disabled="!formValues.Name || !formValues.URL || (formValues.Authentication && (!formValues.Username || !formValues.Password))" ng-click="addRegistry()">Добавить реестр</button>
               <i id="createRegistrySpinner" class="fa fa-cog fa-spin" style="margin-left: 5px; display: none;"></i>
             </div>
           </div>

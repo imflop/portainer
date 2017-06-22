@@ -36,11 +36,11 @@ function ($scope, $state, RegistryService, Notifications) {
 
     RegistryService.createRegistry(registryName, registryURL, authentication, username, password)
     .then(function success(data) {
-      Notifications.success('Registry successfully created');
+      Notifications.success('Реестр успешно создан');
       $state.go('registries');
     })
     .catch(function error(err) {
-      Notifications.error('Failure', err, 'Unable to create registry');
+      Notifications.error('Failure', err, 'Невозможно создать реестр');
     })
     .finally(function final() {
       $('#createRegistrySpinner').hide();
