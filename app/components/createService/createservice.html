@@ -1,9 +1,9 @@
 <rd-header>
-  <rd-header-title title="Create service">
+  <rd-header-title title="Создать сервис">
     <i id="loadingViewSpinner" class="fa fa-cog fa-spin" style="margin-left: 5px;"></i>
   </rd-header-title>
   <rd-header-content>
-    <a ui-sref="services">Services</a> > Add service
+    <a ui-sref="services">Сервисы</a> > Добавить сервис
   </rd-header-content>
 </rd-header>
 
@@ -14,14 +14,14 @@
         <form class="form-horizontal">
           <!-- name-input -->
           <div class="form-group">
-            <label for="service_name" class="col-sm-1 control-label text-left">Name</label>
+            <label for="service_name" class="col-sm-1 control-label text-left">Имя</label>
             <div class="col-sm-11">
               <input type="text" class="form-control" ng-model="formValues.Name" id="service_name" placeholder="e.g. myService">
             </div>
           </div>
           <!-- !name-input -->
           <div class="col-sm-12 form-section-title">
-            Image configuration
+            Конфигурации образа
           </div>
           <!-- image-and-registry -->
           <div class="form-group">
@@ -29,17 +29,17 @@
           </div>
           <!-- !image-and-registry -->
           <div class="col-sm-12 form-section-title">
-            Scheduling
+            Планирование
           </div>
           <!-- scheduling-mode -->
           <div class="form-group">
             <div class="col-sm-12">
               <label class="control-label text-left">
-                Scheduling mode
+                Режим расписания
               </label>
               <div class="btn-group btn-group-sm" style="margin-left: 20px;">
-                <label class="btn btn-primary" ng-model="formValues.Mode" uib-btn-radio="'global'">Global</label>
-                <label class="btn btn-primary" ng-model="formValues.Mode" uib-btn-radio="'replicated'">Replicated</label>
+                <label class="btn btn-primary" ng-model="formValues.Mode" uib-btn-radio="'global'">Глобальный</label>
+                <label class="btn btn-primary" ng-model="formValues.Mode" uib-btn-radio="'replicated'">Реплицированный</label>
               </div>
             </div>
           </div>
@@ -53,14 +53,14 @@
           </div>
           <!-- !scheduling-mode -->
           <div class="col-sm-12 form-section-title">
-            Ports configuration
+            Конфигурация портов
           </div>
           <!-- port-mapping -->
           <div class="form-group">
             <div class="col-sm-12" style="margin-top: 5px;">
-              <label class="control-label text-left">Port mapping</label>
+              <label class="control-label text-left">Отображение портов</label>
               <span class="label label-default interactive" style="margin-left: 10px;" ng-click="addPortBinding()">
-                <i class="fa fa-plus-circle" aria-hidden="true"></i> map additional port
+                <i class="fa fa-plus-circle" aria-hidden="true"></i> добавить дополнительный порт
               </span>
             </div>
             <div class="col-sm-12 form-inline" style="margin-top: 10px;">
@@ -76,7 +76,7 @@
                 </span>
                 <!-- container-port -->
                 <div class="input-group col-sm-3 input-group-sm">
-                  <span class="input-group-addon">container</span>
+                  <span class="input-group-addon">контейнер</span>
                   <input type="text" class="form-control" ng-model="portBinding.TargetPort" placeholder="e.g. 80">
                 </div>
                 <!-- !container-port -->
@@ -87,8 +87,8 @@
                     <label class="btn btn-primary" ng-model="portBinding.Protocol" uib-btn-radio="'udp'">UDP</label>
                   </div>
                   <div class="btn-group btn-group-sm">
-                    <label class="btn btn-primary" ng-model="portBinding.PublishMode" uib-btn-radio="'ingress'">Ingress</label>
-                    <label class="btn btn-primary" ng-model="portBinding.PublishMode" uib-btn-radio="'host'">Host</label>
+                    <label class="btn btn-primary" ng-model="portBinding.PublishMode" uib-btn-radio="'ingress'">Вход</label>
+                    <label class="btn btn-primary" ng-model="portBinding.PublishMode" uib-btn-radio="'host'">Хост</label>
                   </div>
                   <button class="btn btn-sm btn-danger" type="button" ng-click="removePortBinding($index)">
                     <i class="fa fa-trash" aria-hidden="true"></i>
@@ -105,12 +105,12 @@
           <!-- !access-control -->
           <!-- actions -->
           <div class="col-sm-12 form-section-title">
-            Actions
+            Действия
           </div>
           <div class="form-group">
             <div class="col-sm-12">
-              <button type="button" class="btn btn-primary btn-sm" ng-disabled="!formValues.Image" ng-click="create()">Create service</button>
-              <a type="button" class="btn btn-default btn-sm" ui-sref="services">Cancel</a>
+              <button type="button" class="btn btn-primary btn-sm" ng-disabled="!formValues.Image" ng-click="create()">Создать сервис</button>
+              <a type="button" class="btn btn-default btn-sm" ui-sref="services">Отмена</a>
               <i id="createServiceSpinner" class="fa fa-cog fa-spin" style="margin-left: 5px; display: none;"></i>
               <span class="text-danger" ng-if="state.formValidationError" style="margin-left: 5px;">{{ state.formValidationError }}</span>
             </div>
@@ -127,13 +127,13 @@
     <rd-widget>
       <rd-widget-body>
         <ul class="nav nav-pills nav-justified">
-          <li class="active interactive"><a data-target="#command" data-toggle="tab">Command</a></li>
-          <li class="interactive"><a data-target="#volumes" data-toggle="tab">Volumes</a></li>
-          <li class="interactive"><a data-target="#network" data-toggle="tab">Network</a></li>
-          <li class="interactive"><a data-target="#labels" data-toggle="tab">Labels</a></li>
-          <li class="interactive"><a data-target="#update-config" data-toggle="tab">Update config</a></li>
-          <li class="interactive"><a data-target="#secrets" data-toggle="tab" ng-if="applicationState.endpoint.apiVersion >= 1.25">Secrets</a></li>
-          <li class="interactive"><a data-target="#placement" data-toggle="tab">Placement</a></li>
+          <li class="active interactive"><a data-target="#command" data-toggle="tab">Команда</a></li>
+          <li class="interactive"><a data-target="#volumes" data-toggle="tab">Тома</a></li>
+          <li class="interactive"><a data-target="#network" data-toggle="tab">Сеть</a></li>
+          <li class="interactive"><a data-target="#labels" data-toggle="tab">Метки</a></li>
+          <li class="interactive"><a data-target="#update-config" data-toggle="tab">Обновить конфигурацию</a></li>
+          <li class="interactive"><a data-target="#secrets" data-toggle="tab" ng-if="applicationState.endpoint.apiVersion >= 1.25">Секреты</a></li>
+          <li class="interactive"><a data-target="#placement" data-toggle="tab">Размещение</a></li>
         </ul>
         <!-- tab-content -->
         <div class="tab-content">
@@ -142,7 +142,7 @@
             <form class="form-horizontal" style="margin-top: 15px;">
               <!-- command-input -->
               <div class="form-group">
-                <label for="service_command" class="col-sm-2 col-lg-1 control-label text-left">Command</label>
+                <label for="service_command" class="col-sm-2 col-lg-1 control-label text-left">Команда</label>
                 <div class="col-sm-9">
                   <input type="text" class="form-control" ng-model="formValues.Command" id="service_command" placeholder="e.g. /usr/bin/nginx -t -c /mynginx.conf">
                 </div>
@@ -150,7 +150,7 @@
               <!-- !command-input -->
               <!-- entrypoint-input -->
               <div class="form-group">
-                <label for="service_entrypoint" class="col-sm-2 col-lg-1 control-label text-left">Entrypoint</label>
+                <label for="service_entrypoint" class="col-sm-2 col-lg-1 control-label text-left">Точка входа</label>
                 <div class="col-sm-9">
                   <input type="text" class="form-control" ng-model="formValues.EntryPoint" id="service_entrypoint" placeholder="e.g. /bin/sh -c">
                 </div>
@@ -158,11 +158,11 @@
               <!-- !entrypoint-input -->
               <!-- workdir-user-input -->
               <div class="form-group">
-                <label for="service_workingdir" class="col-sm-2 col-lg-1 control-label text-left">Working Dir</label>
+                <label for="service_workingdir" class="col-sm-2 col-lg-1 control-label text-left">Рабочая директория</label>
                 <div class="col-sm-4">
                   <input type="text" class="form-control" ng-model="formValues.WorkingDir" id="service_workingdir" placeholder="e.g. /myapp">
                 </div>
-                <label for="service_user" class="col-sm-1 control-label text-left">User</label>
+                <label for="service_user" class="col-sm-1 control-label text-left">Пользователь</label>
                 <div class="col-sm-4">
                   <input type="text" class="form-control" ng-model="formValues.User" id="service_user" placeholder="e.g. nginx">
                 </div>
@@ -171,20 +171,20 @@
               <!-- environment-variables -->
               <div class="form-group">
                 <div class="col-sm-12" style="margin-top: 5px;">
-                  <label class="control-label text-left">Environment variables</label>
+                  <label class="control-label text-left">Переменные окружения</label>
                   <span class="label label-default interactive" style="margin-left: 10px;" ng-click="addEnvironmentVariable()">
-                    <i class="fa fa-plus-circle" aria-hidden="true"></i> add environment variable
+                    <i class="fa fa-plus-circle" aria-hidden="true"></i> добавить переменную окружения
                   </span>
                 </div>
                 <!-- environment-variable-input-list -->
                 <div class="col-sm-12 form-inline" style="margin-top: 10px;">
                   <div ng-repeat="variable in formValues.Env" style="margin-top: 2px;">
                     <div class="input-group col-sm-5 input-group-sm">
-                      <span class="input-group-addon">name</span>
+                      <span class="input-group-addon">имя</span>
                       <input type="text" class="form-control" ng-model="variable.name" placeholder="e.g. FOO">
                     </div>
                     <div class="input-group col-sm-5 input-group-sm">
-                      <span class="input-group-addon">value</span>
+                      <span class="input-group-addon">значение</span>
                       <input type="text" class="form-control" ng-model="variable.value" placeholder="e.g. bar">
                     </div>
                     <button class="btn btn-sm btn-danger" type="button" ng-click="removeEnvironmentVariable($index)">
@@ -204,9 +204,9 @@
               <!-- volumes -->
               <div class="form-group">
                 <div class="col-sm-12" style="margin-top: 5px;">
-                  <label class="control-label text-left">Volume mapping</label>
+                  <label class="control-label text-left">Отображение томов</label>
                   <span class="label label-default interactive" style="margin-left: 10px;" ng-click="addVolume()">
-                    <i class="fa fa-plus-circle" aria-hidden="true"></i> map additional volume
+                    <i class="fa fa-plus-circle" aria-hidden="true"></i> добавить дополнительный том
                   </span>
                 </div>
                 <!-- volumes-input-list -->
@@ -217,15 +217,15 @@
                       <div class="col-sm-12 form-inline">
                         <!-- container-path -->
                         <div class="input-group input-group-sm col-sm-6">
-                          <span class="input-group-addon">container</span>
+                          <span class="input-group-addon">контейнер</span>
                           <input type="text" class="form-control" ng-model="volume.Target" placeholder="e.g. /path/in/container">
                         </div>
                         <!-- !container-path -->
                         <!-- volume-type -->
                         <div class="input-group col-sm-5" style="margin-left: 5px;">
                           <div class="btn-group btn-group-sm">
-                            <label class="btn btn-primary" ng-model="volume.Type" uib-btn-radio="'volume'" ng-click="volume.name = ''">Volume</label>
-                            <label class="btn btn-primary" ng-model="volume.Type" uib-btn-radio="'bind'" ng-click="volume.Id = ''">Bind</label>
+                            <label class="btn btn-primary" ng-model="volume.Type" uib-btn-radio="'volume'" ng-click="volume.name = ''">Том</label>
+                            <label class="btn btn-primary" ng-model="volume.Type" uib-btn-radio="'bind'" ng-click="volume.Id = ''">Привязать</label>
                           </div>
                           <button class="btn btn-sm btn-danger" type="button" ng-click="removeVolume($index)">
                             <i class="fa fa-trash" aria-hidden="true"></i>
@@ -239,9 +239,9 @@
                         <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
                         <!-- volume -->
                         <div class="input-group input-group-sm col-sm-6" ng-if="volume.Type === 'volume'">
-                          <span class="input-group-addon">volume</span>
+                          <span class="input-group-addon">том</span>
                           <select class="form-control" ng-model="volume.Source">
-                            <option selected disabled hidden value="">Select a volume</option>
+                            <option selected disabled hidden value="">Выбрать том</option>
                             <option ng-repeat="vol in availableVolumes" ng-value="vol.Name">{{ vol.Name|truncate:30}}</option>
                           </select>
                         </div>
@@ -255,8 +255,8 @@
                         <!-- read-only -->
                         <div class="input-group input-group-sm col-sm-5" style="margin-left: 5px;">
                           <div class="btn-group btn-group-sm">
-                            <label class="btn btn-primary" ng-model="volume.ReadOnly" uib-btn-radio="false">Writable</label>
-                            <label class="btn btn-primary" ng-model="volume.ReadOnly" uib-btn-radio="true">Read-only</label>
+                            <label class="btn btn-primary" ng-model="volume.ReadOnly" uib-btn-radio="false">Доступный для записи</label>
+                            <label class="btn btn-primary" ng-model="volume.ReadOnly" uib-btn-radio="true">Только для чтения</label>
                           </div>
                         </div>
                         <!-- !read-only -->
@@ -276,10 +276,10 @@
             <form class="form-horizontal" style="margin-top: 15px;">
               <!-- network-input -->
               <div class="form-group">
-                <label for="container_network" class="col-sm-2 col-lg-1 control-label text-left">Network</label>
+                <label for="container_network" class="col-sm-2 col-lg-1 control-label text-left">Сеть</label>
                 <div class="col-sm-9">
                   <select class="form-control" ng-model="formValues.Network">
-                    <option selected disabled hidden value="">Select a network</option>
+                    <option selected disabled hidden value="">Выбрать сеть</option>
                     <option ng-repeat="net in availableNetworks" ng-value="net.Name">{{ net.Name }}</option>
                   </select>
                 </div>
@@ -289,16 +289,16 @@
               <!-- extra-networks -->
               <div class="form-group">
                 <div class="col-sm-12" style="margin-top: 5px;">
-                  <label class="control-label text-left">Extra networks</label>
+                  <label class="control-label text-left">Дополнительная сеть</label>
                   <span class="label label-default interactive" style="margin-left: 10px;" ng-click="addExtraNetwork()">
-                    <i class="fa fa-plus-circle" aria-hidden="true"></i> add extra network
+                    <i class="fa fa-plus-circle" aria-hidden="true"></i> добавить дополнительную сеть
                   </span>
                 </div>
                 <!-- network-input-list -->
                 <div class="col-sm-12 form-inline" style="margin-top: 10px;">
                   <div ng-repeat="network in formValues.ExtraNetworks" style="margin-top: 2px;">
                     <select class="form-control" ng-model="network.Name">
-                      <option selected disabled hidden value="">Select a network</option>
+                      <option selected disabled hidden value="">Выбрать сеть</option>
                       <option ng-repeat="net in availableNetworks" ng-value="net.Name">{{ net.Name }}</option>
                     </select>
                     <button class="btn btn-sm btn-danger" type="button" ng-click="removeExtraNetwork($index)">
@@ -318,20 +318,20 @@
               <!-- labels -->
               <div class="form-group">
                 <div class="col-sm-12" style="margin-top: 5px;">
-                  <label class="control-label text-left">Service labels</label>
+                  <label class="control-label text-left">Сервисные метки</label>
                   <span class="label label-default interactive" style="margin-left: 10px;" ng-click="addLabel()">
-                    <i class="fa fa-plus-circle" aria-hidden="true"></i> add service label
+                    <i class="fa fa-plus-circle" aria-hidden="true"></i> добавить сервисную метку
                   </span>
                 </div>
                 <!-- labels-input-list -->
                 <div class="col-sm-12 form-inline" style="margin-top: 10px;">
                   <div ng-repeat="label in formValues.Labels" style="margin-top: 2px;">
                     <div class="input-group col-sm-5 input-group-sm">
-                      <span class="input-group-addon">name</span>
+                      <span class="input-group-addon">имя</span>
                       <input type="text" class="form-control" ng-model="label.name" placeholder="e.g. com.example.foo">
                     </div>
                     <div class="input-group col-sm-5 input-group-sm">
-                      <span class="input-group-addon">value</span>
+                      <span class="input-group-addon">значение</span>
                       <input type="text" class="form-control" ng-model="label.value" placeholder="e.g. bar">
                     </div>
                     <button class="btn btn-sm btn-danger" type="button" ng-click="removeLabel($index)">
@@ -345,20 +345,20 @@
               <!-- container-labels -->
               <div class="form-group">
                 <div class="col-sm-12" style="margin-top: 5px;">
-                  <label class="control-label text-left">Container labels</label>
+                  <label class="control-label text-left">Метки контейнера</label>
                   <span class="label label-default interactive" style="margin-left: 10px;" ng-click="addContainerLabel()">
-                    <i class="fa fa-plus-circle" aria-hidden="true"></i> add container label
+                    <i class="fa fa-plus-circle" aria-hidden="true"></i> добавить метку контейнера
                   </span>
                 </div>
                 <!-- container-labels-input-list -->
                 <div class="col-sm-12 form-inline" style="margin-top: 10px;">
                   <div ng-repeat="label in formValues.ContainerLabels" style="margin-top: 2px;">
                     <div class="input-group col-sm-5 input-group-sm">
-                      <span class="input-group-addon">name</span>
+                      <span class="input-group-addon">имя</span>
                       <input type="text" class="form-control" ng-model="label.name" placeholder="e.g. com.example.foo">
                     </div>
                     <div class="input-group col-sm-5 input-group-sm">
-                      <span class="input-group-addon">value</span>
+                      <span class="input-group-addon">значение</span>
                       <input type="text" class="form-control" ng-model="label.value" placeholder="e.g. bar">
                     </div>
                     <button class="btn btn-sm btn-danger" type="button" ng-click="removeContainerLabel($index)">
@@ -377,26 +377,26 @@
             <form class="form-horizontal" style="margin-top: 15px;">
               <!-- parallelism-input -->
               <div class="form-group">
-                <label for="parallelism" class="col-sm-2 col-lg-1 control-label text-left">Parallelism</label>
+                <label for="parallelism" class="col-sm-2 col-lg-1 control-label text-left">Параллелизм</label>
                 <div class="col-sm-2">
                   <input type="number" class="form-control" ng-model="formValues.Parallelism" id="parallelism" placeholder="e.g. 1">
                 </div>
                 <div class="col-sm-8">
                   <p class="small text-muted" style="margin-top: 10px;">
-                    Maximum number of tasks to be updated simultaneously (0 to update all at once).
+                    Максимальное количество задач, подлежащих обновлению одновременно (0 для обновления всего сразу).
                   </p>
                 </div>
               </div>
               <!-- !parallelism-input -->
               <!-- delay-input -->
               <div class="form-group">
-                <label for="update-delay" class="col-sm-2 col-lg-1 control-label text-left">Delay</label>
+                <label for="update-delay" class="col-sm-2 col-lg-1 control-label text-left">Задержка</label>
                 <div class="col-sm-2">
                   <input type="number" class="form-control" ng-model="formValues.UpdateDelay" id="update-delay" placeholder="e.g. 10">
                 </div>
                 <div class="col-sm-8">
                   <p class="small text-muted" style="margin-top: 10px;">
-                    Amount of time between updates.
+                    Количество времени между обновлениями.
                   </p>
                 </div>
               </div>
@@ -404,10 +404,10 @@
               <!-- failureAction-input -->
               <div class="form-group">
                 <div class="col-sm-12">
-                  <label class="control-label text-left">Failure action</label>
+                  <label class="control-label text-left">Действия при сбое</label>
                   <div class="btn-group btn-group-sm" style="margin-left: 20px;">
-                    <label class="btn btn-primary" ng-model="formValues.FailureAction" uib-btn-radio="'continue'">Continue</label>
-                    <label class="btn btn-primary" ng-model="formValues.FailureAction" uib-btn-radio="'pause'">Pause</label>
+                    <label class="btn btn-primary" ng-model="formValues.FailureAction" uib-btn-radio="'continue'">Продолжить</label>
+                    <label class="btn btn-primary" ng-model="formValues.FailureAction" uib-btn-radio="'pause'">Пауза</label>
                   </div>
                 </div>
               </div>

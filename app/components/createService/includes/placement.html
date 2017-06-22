@@ -1,15 +1,15 @@
 <form class="form-horizontal" style="margin-top: 15px;">
   <div class="form-group">
     <div class="col-sm-12" style="margin-top: 5px;">
-      <label class="control-label text-left">Placement constraints</label>
+      <label class="control-label text-left">Ограничения места размещения</label>
       <span class="label label-default interactive" style="margin-left: 10px;" ng-click="addPlacementConstraint()">
-        <i class="fa fa-plus-circle" aria-hidden="true"></i> placement constraint
+        <i class="fa fa-plus-circle" aria-hidden="true"></i> ограничение размещения
       </span>
     </div>
     <div class="col-sm-12 form-inline" style="margin-top: 10px;">
       <div ng-repeat="constraint in formValues.PlacementConstraints" style="margin-top: 2px;">
         <div class="input-group col-sm-4 input-group-sm">
-          <span class="input-group-addon">name</span>
+          <span class="input-group-addon">имя</span>
           <input type="text" class="form-control" ng-model="constraint.key" placeholder="e.g. node.role">
         </div>
         <div class="input-group col-sm-1 input-group-sm">

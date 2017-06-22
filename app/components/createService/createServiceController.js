@@ -268,11 +268,11 @@ function ($q, $scope, $state, Service, ServiceHelper, SecretHelper, SecretServic
       return ResourceControlService.applyResourceControl('service', serviceIdentifier, userId, accessControlData, []);
     })
     .then(function success() {
-      Notifications.success('Service successfully created');
+      Notifications.success('Сервис успешно создан');
       $state.go('services', {}, {reload: true});
     })
     .catch(function error(err) {
-      Notifications.error('Failure', err, 'Unable to create service');
+      Notifications.error('Failure', err, 'Невозможно создать сервис');
     })
     .finally(function final() {
       $('#createServiceSpinner').hide();
@@ -320,7 +320,7 @@ function ($q, $scope, $state, Service, ServiceHelper, SecretHelper, SecretServic
       $scope.availableSecrets = data.secrets;
     })
     .catch(function error(err) {
-      Notifications.error('Failure', err, 'Unable to initialize view');
+      Notifications.error('Failure', err, 'Не удалось инициализировать представление');
     })
     .finally(function final() {
       $('#loadingViewSpinner').hide();
