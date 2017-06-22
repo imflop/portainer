@@ -1,23 +1,23 @@
 <rd-header>
-  <rd-header-title title="Network list">
+  <rd-header-title title="Список сетей">
     <a data-toggle="tooltip" title="Refresh" ui-sref="networks" ui-sref-opts="{reload: true}">
       <i class="fa fa-refresh" aria-hidden="true"></i>
     </a>
     <i id="loadNetworksSpinner" class="fa fa-cog fa-spin" style="margin-left: 5px;"></i>
   </rd-header-title>
-  <rd-header-content>Networks</rd-header-content>
+  <rd-header-content>Сети</rd-header-content>
 </rd-header>
 
 <div class="row">
   <div class="col-lg-12 col-md-12 col-xs-12">
     <rd-widget>
-      <rd-widget-header icon="fa-plus" title="Add a network">
+      <rd-widget-header icon="fa-plus" title="Добавить сеть">
       </rd-widget-header>
       <rd-widget-body>
         <form class="form-horizontal">
           <!-- name-input -->
           <div class="form-group">
-            <label for="network_name" class="col-sm-1 control-label text-left">Name</label>
+            <label for="network_name" class="col-sm-1 control-label text-left">Имя</label>
             <div class="col-sm-11">
               <input type="text" class="form-control" ng-model="config.Name" id="network_name" placeholder="e.g. myNetwork">
             </div>
@@ -26,19 +26,19 @@
           <!-- tag-note -->
           <div class="form-group" ng-if="applicationState.endpoint.mode.provider === 'DOCKER_SWARM' || applicationState.endpoint.mode.provider === 'DOCKER_SWARM_MODE'">
             <div class="col-sm-12">
-              <span class="small text-muted">Note: The network will be created using the overlay driver and will allow containers to communicate across the hosts of your cluster.</span>
+              <span class="small text-muted">Примечание. Сеть будет создана с использованием драйвера наложения и позволит контейнерам связываться через хосты вашего кластера.</span>
             </div>
           </div>
           <div class="form-group" ng-if="applicationState.endpoint.mode.provider === 'DOCKER_STANDALONE'">
             <div class="col-sm-12">
-              <span class="small text-muted">Note: The network will be created using the bridge driver.</span>
+              <span class="small text-muted">Примечание. Сеть будет создана с использованием драйвера моста.</span>
             </div>
           </div>
           <!-- !tag-note -->
           <div class="form-group">
             <div class="col-sm-12">
-              <button type="button" class="btn btn-primary btn-sm" ng-disabled="!config.Name" ng-click="createNetwork()">Create</button>
-              <button type="button" class="btn btn-primary btn-sm" ui-sref="actions.create.network">Advanced settings...</button>
+              <button type="button" class="btn btn-primary btn-sm" ng-disabled="!config.Name" ng-click="createNetwork()">Создать</button>
+              <button type="button" class="btn btn-primary btn-sm" ui-sref="actions.create.network">Расширенные настройки...</button>
               <i id="createNetworkSpinner" class="fa fa-cog fa-spin" style="margin-left: 5px; display: none;"></i>
             </div>
           </div>
@@ -51,11 +51,11 @@
 <div class="row">
   <div class="col-lg-12 col-md-12 col-xs-12">
     <rd-widget>
-      <rd-widget-header icon="fa-sitemap" title="Networks">
+      <rd-widget-header icon="fa-sitemap" title="Сети">
         <div class="pull-right">
-          Items per page:
+          Количество элементов на странице:
           <select ng-model="state.pagination_count" ng-change="changePaginationCount()">
-            <option value="0">All</option>
+            <option value="0">Все</option>
             <option value="10">10</option>
             <option value="25">25</option>
             <option value="50">50</option>
@@ -65,7 +65,7 @@
       </rd-widget-header>
       <rd-widget-taskbar classes="col-lg-12">
         <div class="pull-left">
-          <button type="button" class="btn btn-danger" ng-click="removeAction()" ng-disabled="!state.selectedItemCount"><i class="fa fa-trash space-right" aria-hidden="true"></i>Remove</button>
+          <button type="button" class="btn btn-danger" ng-click="removeAction()" ng-disabled="!state.selectedItemCount"><i class="fa fa-trash space-right" aria-hidden="true"></i>Удалить</button>
         </div>
         <div class="pull-right">
           <input type="text" id="filter" ng-model="state.filter" placeholder="Filter..." class="form-control input-sm" />
@@ -81,7 +81,7 @@
                 </th>
                 <th>
                   <a ui-sref="networks" ng-click="order('Name')">
-                    Name
+                    Имя
                     <span ng-show="sortType == 'Name' && !sortReverse" class="glyphicon glyphicon-chevron-down"></span>
                     <span ng-show="sortType == 'Name' && sortReverse" class="glyphicon glyphicon-chevron-up"></span>
                   </a>
@@ -95,35 +95,35 @@
                 </th>
                 <th>
                   <a ui-sref="networks" ng-click="order('Scope')">
-                    Scope
+                    Охват
                     <span ng-show="sortType == 'Scope' && !sortReverse" class="glyphicon glyphicon-chevron-down"></span>
                     <span ng-show="sortType == 'Scope' && sortReverse" class="glyphicon glyphicon-chevron-up"></span>
                   </a>
                 </th>
                 <th>
                   <a ui-sref="networks" ng-click="order('Driver')">
-                    Driver
+                    Драйвер
                     <span ng-show="sortType == 'Driver' && !sortReverse" class="glyphicon glyphicon-chevron-down"></span>
                     <span ng-show="sortType == 'Driver' && sortReverse" class="glyphicon glyphicon-chevron-up"></span>
                   </a>
                 </th>
                 <th>
                   <a ui-sref="networks" ng-click="order('IPAM.Driver')">
-                    IPAM Driver
+                    IPAM Драйвер
                     <span ng-show="sortType == 'IPAM.Driver' && !sortReverse" class="glyphicon glyphicon-chevron-down"></span>
                     <span ng-show="sortType == 'IPAM.Driver' && sortReverse" class="glyphicon glyphicon-chevron-up"></span>
                   </a>
                 </th>
                 <th>
                   <a ui-sref="networks" ng-click="order('IPAM.Config[0].Subnet')">
-                    IPAM Subnet
+                    IPAM Подсеть
                     <span ng-show="sortType == 'IPAM.Config[0].Subnet' && !sortReverse" class="glyphicon glyphicon-chevron-down"></span>
                     <span ng-show="sortType == 'IPAM.Config[0].Subnet' && sortReverse" class="glyphicon glyphicon-chevron-up"></span>
                   </a>
                 </th>
                 <th>
                   <a ui-sref="networks" ng-click="order('IPAM.Config[0].Gateway')">
-                    IPAM Gateway
+                    IPAM Шлюз
                     <span ng-show="sortType == 'IPAM.Config[0].Gateway' && !sortReverse" class="glyphicon glyphicon-chevron-down"></span>
                     <span ng-show="sortType == 'IPAM.Config[0].Gateway' && sortReverse" class="glyphicon glyphicon-chevron-up"></span>
                   </a>
@@ -142,10 +142,10 @@
                 <td>{{ network.IPAM.Config[0].Gateway ? network.IPAM.Config[0].Gateway : '-' }}</td>
               </tr>
               <tr ng-if="!networks">
-                <td colspan="8" class="text-center text-muted">Loading...</td>
+                <td colspan="8" class="text-center text-muted">Загрузка...</td>
               </tr>
               <tr ng-if="networks.length == 0">
-                <td colspan="8" class="text-center text-muted">No networks available.</td>
+                <td colspan="8" class="text-center text-muted">Нет доступных сетей.</td>
               </tr>
             </tbody>
           </table>

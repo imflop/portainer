@@ -34,15 +34,15 @@ function ($scope, $state, Network, Notifications, Pagination) {
     Network.create(config, function (d) {
       if (d.message) {
         $('#createNetworkSpinner').hide();
-        Notifications.error('Unable to create network', {}, d.message);
+        Notifications.error('Не удалось создать сеть', {}, d.message);
       } else {
-        Notifications.success('Network created', d.Id);
+        Notifications.success('Сеть создана', d.Id);
         $('#createNetworkSpinner').hide();
         $state.reload();
       }
     }, function (e) {
       $('#createNetworkSpinner').hide();
-      Notifications.error('Failure', e, 'Unable to create network');
+      Notifications.error('Failure', e, 'Не удалось создать сеть');
     });
   };
 
@@ -82,15 +82,15 @@ function ($scope, $state, Network, Notifications, Pagination) {
         counter = counter + 1;
         Network.remove({id: network.Id}, function (d) {
           if (d.message) {
-            Notifications.error('Error', d, 'Unable to remove network');
+            Notifications.error('Error', d, 'Не удалось удалить сеть');
           } else {
-            Notifications.success('Network removed', network.Id);
+            Notifications.success('Сеть удалена', network.Id);
             var index = $scope.networks.indexOf(network);
             $scope.networks.splice(index, 1);
           }
           complete();
         }, function (e) {
-          Notifications.error('Failure', e, 'Unable to remove network');
+          Notifications.error('Failure', e, 'Не удалось удалить сеть');
           complete();
         });
       }
@@ -104,7 +104,7 @@ function ($scope, $state, Network, Notifications, Pagination) {
       $('#loadNetworksSpinner').hide();
     }, function (e) {
       $('#loadNetworksSpinner').hide();
-      Notifications.error('Failure', e, 'Unable to retrieve networks');
+      Notifications.error('Failure', e, 'Не удается найти сети');
       $scope.networks = [];
     });
   }
