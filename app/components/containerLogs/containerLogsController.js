@@ -14,7 +14,7 @@ function ($scope, $stateParams, $anchorScroll, ContainerLogs, Container) {
     $('#loadingViewSpinner').hide();
   }, function (e) {
     $('#loadingViewSpinner').hide();
-    Notifications.error('Failure', e, 'Unable to retrieve container info');
+    Notifications.error('Failure', e, 'Не удалось получить информацию о контейнере');
   });
 
   function getLogs() {
