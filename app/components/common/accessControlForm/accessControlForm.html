@@ -1,13 +1,13 @@
 <div ng-controller="AccessControlFormController">
   <div class="col-sm-12 form-section-title">
-    Access control
+    Контроль доступа
   </div>
   <!-- access-control-switch -->
   <div class="form-group">
     <div class="col-sm-12">
       <label for="ownership" class="control-label text-left">
-        Enable access control
-        <portainer-tooltip position="bottom" message="When enabled, you can restrict the access and management of this resource."></portainer-tooltip>
+        Включить контроль доступа
+        <portainer-tooltip position="bottom" message="Когда включено, вы можете ограничить доступ и управление этим ресурсом."></portainer-tooltip>
       </label>
       <label class="switch" style="margin-left: 20px;">
         <input name="ownership" type="checkbox" ng-model="formValues.enableAccessControl" ng-click="synchronizeFormData()"><i></i>
@@ -23,9 +23,9 @@
         <label for="access_administrators">
           <div class="boxselector_header">
             <i ng-class="'administrators' | ownershipicon" aria-hidden="true" style="margin-right: 2px;"></i>
-            Administrators
+            Администраторы
           </div>
-          <p>I want to restrict the management of this resource to administrators only</p>
+          <p>Я хочу ограничить управление этим ресурсом только администраторам</p>
         </label>
       </div>
       <div ng-if="isAdmin">
@@ -33,10 +33,10 @@
         <label for="access_restricted">
           <div class="boxselector_header">
             <i ng-class="'restricted' | ownershipicon" aria-hidden="true" style="margin-right: 2px;"></i>
-            Restricted
+            Ограниченный
           </div>
           <p>
-            I want to restrict the management of this resource to a set of users and/or teams
+            Я хочу ограничить управление этим ресурсом набором пользователей и/или команды
           </p>
         </label>
       </div>
@@ -45,10 +45,10 @@
         <label for="access_private">
           <div class="boxselector_header">
             <i ng-class="'private' | ownershipicon" aria-hidden="true" style="margin-right: 2px;"></i>
-            Private
+            Приватный
           </div>
           <p>
-            I want to this resource to be manageable by myself only
+            Я хочу, чтобы этот ресурс мог управляться только мной
           </p>
         </label>
       </div>
@@ -57,13 +57,13 @@
         <label for="access_restricted">
           <div class="boxselector_header">
             <i ng-class="'restricted' | ownershipicon" aria-hidden="true" style="margin-right: 2px;"></i>
-            Restricted
+            Ограниченный
           </div>
           <p ng-if="availableTeams.length === 1">
-            I want any member of my team (<b>{{ availableTeams[0].Name }}</b>) to be able to manage this resource
+            Я хочу, чтобы любой член моей команды (<b>{{ availableTeams[0].Name }}</b>) управлял этим ресурсом
           </p>
           <p ng-if="availableTeams.length > 1">
-            I want to restrict the management of this resource to one or more of my teams
+            Я хочу ограничить управление этим ресурсом одной или несколькими моими командами
           </p>
         </label>
       </div>
@@ -75,11 +75,11 @@
     <div class="col-sm-12">
       <label for="group-access" class="control-label text-left">
         Authorized teams
-        <portainer-tooltip ng-if="isAdmin && availableTeams.length > 0" position="bottom" message="You can select which teams(s) will be able to manage this resource."></portainer-tooltip>
-        <portainer-tooltip ng-if="!isAdmin && availableTeams.length > 1" position="bottom" message="As you are a member of multiple teams, you can select which teams(s) will be able to manage this resource."></portainer-tooltip>
+        <portainer-tooltip ng-if="isAdmin && availableTeams.length > 0" position="bottom" message="Вы можете выбрать, какие команды смогут управлять этим ресурсом."></portainer-tooltip>
+        <portainer-tooltip ng-if="!isAdmin && availableTeams.length > 1" position="bottom" message="Поскольку вы являетесь членом нескольких команд, вы можете выбрать, какие команды смогут управлять этим ресурсом."></portainer-tooltip>
       </label>
       <span ng-if="isAdmin && availableTeams.length === 0" class="small text-muted" style="margin-left: 20px;">
-        You have not yet created any team. Head over the <a ui-sref="teams">teams view</a> to manage user teams.</span>
+        Вы еще не создали команды. Глава <a ui-sref="teams">команды</a>  для управления командами пользователей.</span>
       </span>
       <span isteven-multi-select
       ng-if="(isAdmin && availableTeams.length > 0) || (!isAdmin && availableTeams.length > 1)"
@@ -102,10 +102,10 @@
   <div class="col-sm-12">
     <label for="group-access" class="control-label text-left">
       Authorized users
-      <portainer-tooltip ng-if="isAdmin && availableUsers.length > 0" position="bottom" message="You can select which user(s) will be able to manage this resource."></portainer-tooltip>
+      <portainer-tooltip ng-if="isAdmin && availableUsers.length > 0" position="bottom" message="Вы можете выбрать, какие пользователи смогут управлять этим ресурсом."></portainer-tooltip>
     </label>
     <span ng-if="availableUsers.length === 0" class="small text-muted" style="margin-left: 20px;">
-      You have not yet created any user. Head over the <a ui-sref="users">users view</a> to manage users.</span>
+      Вы еще не создали пользователя. Глава <a ui-sref="users">команды</a> для управления пользователями.</span>
     </span>
     <span isteven-multi-select
     ng-if="availableUsers.length > 0"

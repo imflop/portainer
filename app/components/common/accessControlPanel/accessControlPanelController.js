@@ -77,11 +77,11 @@ function ($q, $scope, $state, UserService, ResourceControlService, Notifications
     ResourceControlService.applyResourceControlChange(accessControlData.resourceType, resourceId,
       $scope.resourceControl, ownershipParameters)
     .then(function success(data) {
-      Notifications.success('Access control successfully updated');
+      Notifications.success('Контроль доступа успешно обновлен');
       $state.reload();
     })
     .catch(function error(err) {
-      Notifications.error('Failure', err, 'Unable to update access control');
+      Notifications.error('Failure', err, 'Не удалось обновить управление доступом');
     })
     .finally(function final() {
       $('#loadingViewSpinner').hide();
@@ -147,7 +147,7 @@ function ($q, $scope, $state, UserService, ResourceControlService, Notifications
       $scope.state.displayAccessControlPanel = true;
     })
     .catch(function error(err) {
-      Notifications.error('Failure', err, 'Unable to retrieve access control information');
+      Notifications.error('Failure', err, 'Не удается получить информацию управления доступом');
     })
     .finally(function final() {
       $('#loadingViewSpinner').hide();

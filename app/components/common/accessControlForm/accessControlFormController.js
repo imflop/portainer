@@ -44,7 +44,7 @@ function ($q, $scope, $state, UserService, ResourceControlService, Notifications
       $scope.synchronizeFormData();
     })
     .catch(function error(err) {
-      Notifications.error('Failure', err, 'Unable to retrieve access control information');
+      Notifications.error('Failure', err, 'Не удается получить информацию управления доступом');
     })
     .finally(function final() {
       $('#loadingViewSpinner').hide();
