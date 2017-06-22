@@ -69,11 +69,11 @@ function ($scope, $state, $stateParams, LabelHelper, Node, NodeHelper, Task, Pag
 
     Node.update({ id: node.Id, version: node.Version }, config, function (data) {
       $('#loadServicesSpinner').hide();
-      Notifications.success('Node successfully updated', 'Node updated');
+      Notifications.success('Узел успешно обновлен', 'Обновлен узел');
       $state.go('node', {id: node.Id}, {reload: true});
     }, function (e) {
       $('#loadServicesSpinner').hide();
-      Notifications.error('Failure', e, 'Failed to update node');
+      Notifications.error('Failure', e, 'Не удалось обновить узел');
     });
   };
 
@@ -82,7 +82,7 @@ function ($scope, $state, $stateParams, LabelHelper, Node, NodeHelper, Task, Pag
     if ($scope.applicationState.endpoint.mode.provider === 'DOCKER_SWARM_MODE') {
       Node.get({ id: $stateParams.id}, function(d) {
         if (d.message) {
-          Notifications.error('Failure', e, 'Unable to inspect the node');
+          Notifications.error('Failure', e, 'Не удалось проверить узел');
         } else {
           var node = new NodeViewModel(d);
           originalNode = angular.copy(node);
@@ -103,7 +103,7 @@ function ($scope, $state, $stateParams, LabelHelper, Node, NodeHelper, Task, Pag
           return new TaskViewModel(task);
         });
       }, function (e) {
-        Notifications.error('Failure', e, 'Unable to retrieve tasks associated to the node');
+        Notifications.error('Failure', e, 'Невозможно получить задачи, связанные с узлом');
       });
     }
   }
