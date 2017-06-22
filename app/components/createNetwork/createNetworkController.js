@@ -50,7 +50,7 @@ function ($scope, $state, Notifications, Network) {
       }
     }, function (e) {
       $('#createNetworkSpinner').hide();
-      Notifications.error('Failure', e, 'Unable to create network');
+      Notifications.error('Failure', e, 'Не удалось создать сеть');
     });
   }
 
