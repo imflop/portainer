@@ -78,7 +78,7 @@ function ($scope, $q, Container, ContainerHelper, Image, Network, Volume, System
       $('#loadingViewSpinner').hide();
     }, function(e) {
       $('#loadingViewSpinner').hide();
-      Notifications.error('Failure', e, 'Unable to load dashboard data');
+      Notifications.error('Failure', e, 'Не удалось загрузить данные панели мониторинга');
     });
   }
 
