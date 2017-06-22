@@ -1,9 +1,9 @@
 <rd-header>
-  <rd-header-title title="Create volume">
+  <rd-header-title title="Создать том">
     <i id="loadingViewSpinner" class="fa fa-cog fa-spin"></i>
   </rd-header-title>
   <rd-header-content>
-    <a ui-sref="volumes">Volumes</a> > Add volume
+    <a ui-sref="volumes">Тома</a> > Добавить том
   </rd-header-content>
 </rd-header>
 
@@ -14,21 +14,21 @@
         <form class="form-horizontal">
           <!-- name-input -->
           <div class="form-group">
-            <label for="volume_name" class="col-sm-1 control-label text-left">Name</label>
+            <label for="volume_name" class="col-sm-1 control-label text-left">Имя</label>
             <div class="col-sm-11">
               <input type="text" class="form-control" ng-model="formValues.Name" id="volume_name" placeholder="e.g. myVolume">
             </div>
           </div>
           <!-- !name-input -->
           <div class="col-sm-12 form-section-title">
-            Driver configuration
+            Конфигурация драйвера
           </div>
           <!-- driver-input -->
           <div class="form-group">
-            <label for="volume_driver" class="col-sm-1 control-label text-left">Driver</label>
+            <label for="volume_driver" class="col-sm-1 control-label text-left">Драйвер</label>
             <div class="col-sm-11">
               <select class="form-control" ng-options="driver for driver in availableVolumeDrivers" ng-model="formValues.Driver" ng-if="availableVolumeDrivers.length > 0">
-                <option disabled hidden value="">Select a driver</option>
+                <option disabled hidden value="">Выбрать драйвер</option>
               </select>
               <input type="text" class="form-control" ng-model="formValues.Driver" id="volume_driver" placeholder="e.g. driverName" ng-if="availableVolumeDrivers.length === 0">
             </div>
@@ -38,18 +38,18 @@
           <div class="form-group">
             <div class="col-sm-12" style="margin-top: 5px;">
               <label class="control-label text-left">
-                Driver options
-                <portainer-tooltip position="bottom" message="Driver options are specific to the selected driver. Please refer to the selected driver documentation."></portainer-tooltip>
+                Опции драйвера
+                <portainer-tooltip position="bottom" message="Параметры драйвера зависят от выбранного драйвера. Пожалуйста, обратитесь к документации выбранного драйвера."></portainer-tooltip>
               </label>
               <span class="label label-default interactive" style="margin-left: 10px;" ng-click="addDriverOption()">
-                <i class="fa fa-plus-circle" aria-hidden="true"></i> add driver option
+                <i class="fa fa-plus-circle" aria-hidden="true"></i> добавить опции драйвера
               </span>
             </div>
             <!-- driver-options-input-list -->
             <div class="col-sm-12 form-inline" style="margin-top: 10px;">
               <div ng-repeat="option in formValues.DriverOptions" style="margin-top: 2px;">
                 <div class="input-group col-sm-5 input-group-sm">
-                  <span class="input-group-addon">name</span>
+                  <span class="input-group-addon">имя</span>
                   <input type="text" class="form-control" ng-model="option.name" placeholder="e.g. mountpoint">
                 </div>
                 <div class="input-group col-sm-5 input-group-sm">
@@ -69,12 +69,12 @@
           <!-- !access-control -->
           <!-- actions -->
           <div class="col-sm-12 form-section-title">
-            Actions
+            Действия
           </div>
           <div class="form-group">
             <div class="col-sm-12">
-              <button type="button" class="btn btn-primary btn-sm" ng-click="create()">Create volume</button>
-              <a type="button" class="btn btn-default btn-sm" ui-sref="volumes">Cancel</a>
+              <button type="button" class="btn btn-primary btn-sm" ng-click="create()">Создать том</button>
+              <a type="button" class="btn btn-default btn-sm" ui-sref="volumes">Отмена</a>
               <i id="createVolumeSpinner" class="fa fa-cog fa-spin" style="margin-left: 5px; display: none;"></i>
               <span class="text-danger" ng-if="state.formValidationError" style="margin-left: 5px;">{{ state.formValidationError }}</span>
             </div>

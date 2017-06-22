@@ -56,11 +56,11 @@ function ($scope, $state, VolumeService, SystemService, ResourceControlService, 
       return ResourceControlService.applyResourceControl('volume', volumeIdentifier, userId, accessControlData, []);
     })
     .then(function success(data) {
-      Notifications.success('Volume successfully created');
+      Notifications.success('Том успешно создан');
       $state.go('volumes', {}, {reload: true});
     })
     .catch(function error(err) {
-      Notifications.error('Failure', err, 'An error occured during volume creation');
+      Notifications.error('Failure', err, 'Ошибка при создании тома');
     })
     .finally(function final() {
       $('#createVolumeSpinner').hide();
@@ -74,7 +74,7 @@ function ($scope, $state, VolumeService, SystemService, ResourceControlService, 
       $scope.availableVolumeDrivers = data;
     })
     .catch(function error(err) {
-      Notifications.error('Failure', err, 'Unable to retrieve volume drivers');
+      Notifications.error('Failure', err, 'Не удается получить драйверы тома');
     })
     .finally(function final() {
       $('#loadingViewSpinner').hide();
