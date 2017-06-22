@@ -7,15 +7,15 @@ function ($scope, $state, $stateParams, $filter, Network, Container, ContainerHe
     Network.remove({id: $stateParams.id}, function (d) {
       if (d.message) {
         $('#loadingViewSpinner').hide();
-        Notifications.error('Error', d, 'Unable to remove network');
+        Notifications.error('Error', d, 'Не удалось удалить сеть');
       } else {
         $('#loadingViewSpinner').hide();
-        Notifications.success('Network removed', $stateParams.id);
+        Notifications.success('Сеть удалена', $stateParams.id);
         $state.go('networks', {});
       }
     }, function (e) {
       $('#loadingViewSpinner').hide();
-      Notifications.error('Failure', e, 'Unable to remove network');
+      Notifications.error('Failure', e, 'Не удалось удалить сеть');
     });
   };
 
@@ -24,15 +24,15 @@ function ($scope, $state, $stateParams, $filter, Network, Container, ContainerHe
     Network.disconnect({id: $stateParams.id}, { Container: containerId, Force: false }, function (d) {
       if (d.message) {
         $('#loadingViewSpinner').hide();
-        Notifications.error('Error', d, 'Unable to disconnect container from network');
+        Notifications.error('Error', d, 'Невозможно отключить контейнер от сети');
       } else {
         $('#loadingViewSpinner').hide();
-        Notifications.success('Container left network', $stateParams.id);
+        Notifications.success('Контейнер покинул сеть', $stateParams.id);
         $state.go('network', {id: network.Id}, {reload: true});
       }
     }, function (e) {
       $('#loadingViewSpinner').hide();
-      Notifications.error('Failure', e, 'Unable to disconnect container from network');
+      Notifications.error('Failure', e, 'Невозможно отключить контейнер от сети');
     });
   };
 
@@ -63,7 +63,7 @@ function ($scope, $state, $stateParams, $filter, Network, Container, ContainerHe
           $('#loadingViewSpinner').hide();
         }, function error(err) {
           $('#loadingViewSpinner').hide();
-          Notifications.error('Failure', err, 'Unable to retrieve containers in network');
+          Notifications.error('Failure', err, 'Невозможно получить контейнеры в сети');
         });
       } else {
         Container.query({
@@ -73,7 +73,7 @@ function ($scope, $state, $stateParams, $filter, Network, Container, ContainerHe
           $('#loadingViewSpinner').hide();
         }, function error(err) {
           $('#loadingViewSpinner').hide();
-          Notifications.error('Failure', err, 'Unable to retrieve containers in network');
+          Notifications.error('Failure', err, 'Невозможно получить контейнеры в сети');
         });
       }
     }
@@ -86,7 +86,7 @@ function ($scope, $state, $stateParams, $filter, Network, Container, ContainerHe
       getContainersInNetwork(data);
     }, function error(err) {
       $('#loadingViewSpinner').hide();
-      Notifications.error('Failure', err, 'Unable to retrieve network info');
+      Notifications.error('Failure', err, 'Не удалось получить информацию о сети');
     });
   }
 

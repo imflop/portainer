@@ -1,44 +1,44 @@
 <rd-header>
-  <rd-header-title title="Network details">
+  <rd-header-title title="Детали сети">
     <i id="loadingViewSpinner" class="fa fa-cog fa-spin"></i>
   </rd-header-title>
   <rd-header-content>
-    <a ui-sref="networks">Networks</a> > <a ui-sref="network({id: network.Id})">{{ network.Name }}</a>
+    <a ui-sref="networks">Сети</a> > <a ui-sref="network({id: network.Id})">{{ network.Name }}</a>
   </rd-header-content>
 </rd-header>
 
 <div class="row">
   <div class="col-lg-12 col-md-12 col-xs-12">
     <rd-widget>
-      <rd-widget-header icon="fa-sitemap" title="Network details"></rd-widget-header>
+      <rd-widget-header icon="fa-sitemap" title="Детали сети"></rd-widget-header>
       <rd-widget-body classes="no-padding">
         <table class="table">
           <tbody>
             <tr>
-              <td>Name</td>
+              <td>Имя</td>
               <td>{{ network.Name }}</td>
             </tr>
             <tr>
               <td>ID</td>
               <td>
                 {{ network.Id }}
-                <button class="btn btn-xs btn-danger" ng-click="removeNetwork(network.Id)"><i class="fa fa-trash space-right" aria-hidden="true"></i>Delete this network</button>
+                <button class="btn btn-xs btn-danger" ng-click="removeNetwork(network.Id)"><i class="fa fa-trash space-right" aria-hidden="true"></i>Удалить эту сеть</button>
               </td>
             </tr>
             <tr>
-              <td>Driver</td>
+              <td>Драйвер</td>
               <td>{{ network.Driver }}</td>
             </tr>
             <tr>
-              <td>Scope</td>
+              <td>Охват</td>
               <td>{{ network.Scope }}</td>
             </tr>
             <tr ng-if="network.IPAM.Config[0].Subnet">
-              <td>Subnet</td>
+              <td>Подсеть</td>
               <td>{{ network.IPAM.Config[0].Subnet }}</td>
             </tr>
             <tr ng-if="network.IPAM.Config[0].Gateway">
-              <td>Gateway</td>
+              <td>Шлюз</td>
               <td>{{ network.IPAM.Config[0].Gateway }}</td>
             </tr>
           </tbody>
@@ -51,7 +51,7 @@
 <div class="row" ng-if="!(network.Options | emptyobject)">
   <div class="col-lg-12 col-md-12 col-xs-12">
     <rd-widget>
-      <rd-widget-header icon="fa-cogs" title="Network options"></rd-widget-header>
+      <rd-widget-header icon="fa-cogs" title="Опции сети"></rd-widget-header>
       <rd-widget-body classes="no-padding">
         <table class="table">
           <tbody>
@@ -70,15 +70,15 @@
 <div class="row" ng-if="!(network.Containers | emptyobject)">
   <div class="col-lg-12 col-md-12 col-xs-12">
     <rd-widget>
-      <rd-widget-header icon="fa-server" title="Containers in network"></rd-widget-header>
+      <rd-widget-header icon="fa-server" title="Контейнеры в сети"></rd-widget-header>
       <rd-widget-body classes="no-padding">
         <table class="table">
           <thead>
-            <th>Container Name</th>
-            <th>IPv4 Address</th>
-            <th>IPv6 Address</th>
-            <th>MacAddress</th>
-            <th>Actions</th>
+            <th>Имя контейнера</th>
+            <th>IPv4 Адрес</th>
+            <th>IPv6 Адрес</th>
+            <th>Mac Адрес</th>
+            <th>События</th>
           </thead>
           <tbody>
             <tr ng-repeat="container in containersInNetwork">
@@ -87,7 +87,7 @@
               <td>{{ container.IPv6Address || '-' }}</td>
               <td>{{ container.MacAddress || '-' }}</td>
               <td>
-                <button type="button" class="btn btn-xs btn-danger" ng-click="containerLeaveNetwork(network, container.Id)"><i class="fa fa-trash space-right" aria-hidden="true"></i>Leave Network</button>
+                <button type="button" class="btn btn-xs btn-danger" ng-click="containerLeaveNetwork(network, container.Id)"><i class="fa fa-trash space-right" aria-hidden="true"></i>Оставить сеть</button>
               </td>
             </tr>
           </tbody>
