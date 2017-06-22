@@ -44,11 +44,11 @@ function ($scope, $state, ImageService, Notifications, Pagination, ModalService)
     var registry = $scope.formValues.Registry;
     ImageService.pullImage(image, registry)
     .then(function success(data) {
-      Notifications.success('Image successfully pulled', image);
+      Notifications.success('Образ успешно стянут', image);
       $state.reload();
     })
     .catch(function error(err) {
-      Notifications.error('Failure', err, 'Unable to pull image');
+      Notifications.error('Failure', err, 'Не удается стянуть образ');
     })
     .finally(function final() {
       $('#pullImageSpinner').hide();
@@ -77,12 +77,12 @@ function ($scope, $state, ImageService, Notifications, Pagination, ModalService)
         counter = counter + 1;
         ImageService.deleteImage(i.Id, force)
         .then(function success(data) {
-          Notifications.success('Image deleted', i.Id);
+          Notifications.success('Образ удален', i.Id);
           var index = $scope.images.indexOf(i);
           $scope.images.splice(index, 1);
         })
         .catch(function error(err) {
-          Notifications.error('Failure', err, 'Unable to remove image');
+          Notifications.error('Failure', err, 'Не удается удалить образ');
         })
         .finally(function final() {
           complete();
@@ -98,7 +98,7 @@ function ($scope, $state, ImageService, Notifications, Pagination, ModalService)
       $scope.images = data;
     })
     .catch(function error(err) {
-      Notifications.error('Failure', err, 'Unable to retrieve images');
+      Notifications.error('Failure', err, 'Не удалось получить образ');
       $scope.images = [];
     })
     .finally(function final() {

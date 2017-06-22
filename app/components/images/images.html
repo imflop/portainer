@@ -1,17 +1,17 @@
 <rd-header>
-  <rd-header-title title="Image list">
-    <a data-toggle="tooltip" title="Refresh" ui-sref="images" ui-sref-opts="{reload: true}">
+  <rd-header-title title="Список образов">
+    <a data-toggle="tooltip" title="Обновление" ui-sref="images" ui-sref-opts="{reload: true}">
       <i class="fa fa-refresh" aria-hidden="true"></i>
     </a>
     <i id="loadImagesSpinner" class="fa fa-cog fa-spin" style="margin-left: 5px;"></i>
   </rd-header-title>
-  <rd-header-content>Images</rd-header-content>
+  <rd-header-content>Образы</rd-header-content>
 </rd-header>
 
 <div class="row">
   <div class="col-lg-12 col-md-12 col-xs-12">
     <rd-widget>
-      <rd-widget-header icon="fa-download" title="Pull image ">
+      <rd-widget-header icon="fa-download" title="Стянуть образ ">
       </rd-widget-header>
       <rd-widget-body>
         <form class="form-horizontal">
@@ -23,13 +23,13 @@
           <!-- tag-note -->
           <div class="form-group">
             <div class="col-sm-12">
-              <span class="small text-muted">Note: if you don't specify the tag in the image name, <span class="label label-default">latest</span> will be used.</span>
+              <span class="small text-muted">Примечание: если вы не укажете тег в имени образа <span class="label label-default">latest</span> будет использован.</span>
             </div>
           </div>
           <!-- !tag-note -->
           <div class="form-group">
             <div class="col-sm-12">
-              <button type="button" class="btn btn-primary btn-sm" ng-disabled="!formValues.Image" ng-click="pullImage()">Pull</button>
+              <button type="button" class="btn btn-primary btn-sm" ng-disabled="!formValues.Image" ng-click="pullImage()">Стянуть</button>
               <i id="pullImageSpinner" class="fa fa-cog fa-spin" style="margin-left: 5px; display: none;"></i>
             </div>
           </div>
@@ -42,11 +42,11 @@
 <div class="row">
   <div class="col-lg-12 col-md-12 col-xs-12">
     <rd-widget>
-      <rd-widget-header icon="fa-clone" title="Images">
+      <rd-widget-header icon="fa-clone" title="Образы">
         <div class="pull-right">
-          Items per page:
+          Количество элементов на странице:
           <select ng-model="state.pagination_count" ng-change="changePaginationCount()">
-            <option value="0">All</option>
+            <option value="0">Все</option>
             <option value="10">10</option>
             <option value="25">25</option>
             <option value="50">50</option>
@@ -57,13 +57,13 @@
       <rd-widget-taskbar classes="col-lg-12">
         <div class="pull-left">
           <div class="btn-group">
-            <button type="button" class="btn btn-danger" ng-click="removeAction()" ng-disabled="!state.selectedItemCount"><i class="fa fa-trash space-right" aria-hidden="true"></i>Remove</button>
+            <button type="button" class="btn btn-danger" ng-click="removeAction()" ng-disabled="!state.selectedItemCount"><i class="fa fa-trash space-right" aria-hidden="true"></i>Удалить</button>
             <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ng-disabled="!state.selectedItemCount" >
               <span class="caret"></span>
-              <span class="sr-only">Toggle Dropdown</span>
+              <span class="sr-only">Переключить раскрывающееся меню</span>
             </button>
             <ul class="dropdown-menu">
-              <li><a ng-click="confirmRemovalAction(true)" ng-disabled="!state.selectedItemCount" >Force Remove</a></li>
+              <li><a ng-click="confirmRemovalAction(true)" ng-disabled="!state.selectedItemCount" >Принудительное удаление</a></li>
             </ul>
           </div>
         </div>
@@ -120,10 +120,10 @@
                 <td>{{ image.Created|getisodatefromtimestamp }}</td>
               </tr>
               <tr ng-if="!images">
-                <td colspan="5" class="text-center text-muted">Loading...</td>
+                <td colspan="5" class="text-center text-muted">Загрузка...</td>
               </tr>
               <tr ng-if="images.length == 0">
-                <td colspan="5" class="text-center text-muted">No images available.</td>
+                <td colspan="5" class="text-center text-muted">Нет тоступных образов.</td>
               </tr>
             </tbody>
           </table>
