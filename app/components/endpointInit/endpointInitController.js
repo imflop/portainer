@@ -38,7 +38,7 @@ function ($scope, $state, EndpointService, StateManager, EndpointProvider, Notif
     .catch(function error(err) {
       EndpointService.deleteEndpoint(endpointID)
       .then(function success() {
-        showErrorMessage('Unable to connect to the Docker endpoint');
+        showErrorMessage('Не удалось подключиться к эндпоинту Docker');
       });
     });
   }
@@ -55,7 +55,7 @@ function ($scope, $state, EndpointService, StateManager, EndpointProvider, Notif
       var endpointID = data.Id;
       updateEndpointState(data.Id);
     }, function error() {
-      $scope.state.error = 'Unable to create endpoint';
+      $scope.state.error = 'Не удалось создать эндпоинт';
     })
     .finally(function final() {
       $('#initEndpointSpinner').hide();
