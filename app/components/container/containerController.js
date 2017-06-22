@@ -45,7 +45,7 @@ function ($scope, $state, $stateParams, $filter, Container, ContainerCommit, Con
       $('#loadingViewSpinner').hide();
     }, function (e) {
       $('#loadingViewSpinner').hide();
-      Notifications.error('Failure', e, 'Unable to retrieve container info');
+      Notifications.error('Failure', e, 'Не удалось получить информацию о контейнере');
     });
   };
 
@@ -53,10 +53,10 @@ function ($scope, $state, $stateParams, $filter, Container, ContainerCommit, Con
     $('#loadingViewSpinner').show();
     Container.start({id: $scope.container.Id}, {}, function (d) {
       update();
-      Notifications.success('Container started', $stateParams.id);
+      Notifications.success('Контенер запущен', $stateParams.id);
     }, function (e) {
       update();
-      Notifications.error('Failure', e, 'Unable to start container');
+      Notifications.error('Failure', e, 'Не удалось запустить контейнер');
     });
   };
 
@@ -64,10 +64,10 @@ function ($scope, $state, $stateParams, $filter, Container, ContainerCommit, Con
     $('#loadingViewSpinner').show();
     Container.stop({id: $stateParams.id}, function (d) {
       update();
-      Notifications.success('Container stopped', $stateParams.id);
+      Notifications.success('Контейнер остановлен', $stateParams.id);
     }, function (e) {
       update();
-      Notifications.error('Failure', e, 'Unable to stop container');
+      Notifications.error('Failure', e, 'Не удалось остановить контейнер');
     });
   };
 
@@ -78,7 +78,7 @@ function ($scope, $state, $stateParams, $filter, Container, ContainerCommit, Con
       Notifications.success('Container killed', $stateParams.id);
     }, function (e) {
       update();
-      Notifications.error('Failure', e, 'Unable to kill container');
+      Notifications.error('Failure', e, 'Не удалось убить контейнер');
     });
   };
 
@@ -90,11 +90,11 @@ function ($scope, $state, $stateParams, $filter, Container, ContainerCommit, Con
     ContainerCommit.commit({id: $stateParams.id, tag: imageConfig.tag, repo: imageConfig.repo}, function (d) {
       $('#createImageSpinner').hide();
       update();
-      Notifications.success('Container commited', $stateParams.id);
+      Notifications.success('Контенер зафиксирован', $stateParams.id);
     }, function (e) {
       $('#createImageSpinner').hide();
       update();
-      Notifications.error('Failure', e, 'Unable to commit container');
+      Notifications.error('Failure', e, 'Не удалось фиксировать контейнер');
     });
   };
 
@@ -102,10 +102,10 @@ function ($scope, $state, $stateParams, $filter, Container, ContainerCommit, Con
     $('#loadingViewSpinner').show();
     Container.pause({id: $stateParams.id}, function (d) {
       update();
-      Notifications.success('Container paused', $stateParams.id);
+      Notifications.success('Контейнер приостановлен', $stateParams.id);
     }, function (e) {
       update();
-      Notifications.error('Failure', e, 'Unable to pause container');
+      Notifications.error('Failure', e, 'Не удается приостановить контейнер');
     });
   };
 
@@ -113,17 +113,17 @@ function ($scope, $state, $stateParams, $filter, Container, ContainerCommit, Con
     $('#loadingViewSpinner').show();
     Container.unpause({id: $stateParams.id}, function (d) {
       update();
-      Notifications.success('Container unpaused', $stateParams.id);
+      Notifications.success('Контейнер сняли с паузы', $stateParams.id);
     }, function (e) {
       update();
-      Notifications.error('Failure', e, 'Unable to unpause container');
+      Notifications.error('Failure', e, 'Не удалось возобновить контейнер');
     });
   };
 
   $scope.confirmRemove = function () {
-    var title = 'You are about to remove a container.';
+    var title = 'Вы собираетесь удалить контейнер.';
     if ($scope.container.State.Running) {
-      title = 'You are about to remove a running container.';
+      title = 'Вы собираетесь удалить запущенный контейнер.';
     }
     ModalService.confirmContainerDeletion(
       title,
@@ -142,11 +142,11 @@ function ($scope, $state, $stateParams, $filter, Container, ContainerCommit, Con
     $('#loadingViewSpinner').show();
     ContainerService.remove($scope.container, cleanAssociatedVolumes)
     .then(function success() {
-      Notifications.success('Container successfully removed');
+      Notifications.success('Контейнер успешно удален');
       $state.go('containers', {}, {reload: true});
     })
     .catch(function error(err) {
-      Notifications.error('Failure', err, 'Unable to remove container');
+      Notifications.error('Failure', err, 'Не удалось удалить контейнер');
     })
     .finally(function final() {
       $('#loadingViewSpinner').hide();
@@ -157,10 +157,10 @@ function ($scope, $state, $stateParams, $filter, Container, ContainerCommit, Con
     $('#loadingViewSpinner').show();
     Container.restart({id: $stateParams.id}, function (d) {
       update();
-      Notifications.success('Container restarted', $stateParams.id);
+      Notifications.success('Контейнер перезагружен', $stateParams.id);
     }, function (e) {
       update();
-      Notifications.error('Failure', e, 'Unable to restart container');
+      Notifications.error('Failure', e, 'Не удалось перезагрузить контейнер');
     });
   };
 
@@ -169,13 +169,13 @@ function ($scope, $state, $stateParams, $filter, Container, ContainerCommit, Con
     Container.rename({id: $stateParams.id, 'name': container.newContainerName}, function (d) {
       if (d.message) {
         container.newContainerName = container.Name;
-        Notifications.error('Unable to rename container', {}, d.message);
+        Notifications.error('Не удалось переименовать контейнер', {}, d.message);
       } else {
         container.Name = container.newContainerName;
-        Notifications.success('Container successfully renamed', container.Name);
+        Notifications.success('Контейнер успешно переименован', container.Name);
       }
     }, function (e) {
-      Notifications.error('Failure', e, 'Unable to rename container');
+      Notifications.error('Failure', e, 'Невозможно переименовать контейнер');
     });
     $scope.container.edit = false;
   };
@@ -185,15 +185,15 @@ function ($scope, $state, $stateParams, $filter, Container, ContainerCommit, Con
     Network.disconnect({id: networkId}, { Container: $stateParams.id, Force: false }, function (d) {
       if (container.message) {
         $('#loadingViewSpinner').hide();
-        Notifications.error('Error', d, 'Unable to disconnect container from network');
+        Notifications.error('Error', d, 'Не удается отключить контейнер от сети');
       } else {
         $('#loadingViewSpinner').hide();
-        Notifications.success('Container left network', $stateParams.id);
+        Notifications.success('Контейнер покинул сеть', $stateParams.id);
         $state.go('container', {id: $stateParams.id}, {reload: true});
       }
     }, function (e) {
       $('#loadingViewSpinner').hide();
-      Notifications.error('Failure', e, 'Unable to disconnect container from network');
+      Notifications.error('Failure', e, 'Не удается отключить контейнер от сети');
     });
   };
 
