@@ -17,7 +17,7 @@ function ($scope, $stateParams, Container, Image, Exec, $timeout, EndpointProvid
   Container.get({id: $stateParams.id}, function(d) {
     $scope.container = d;
     if (d.message) {
-      Notifications.error('Error', d, 'Unable to retrieve container details');
+      Notifications.error('Error', d, 'Не удалось получить сведения о контейнере');
       $('#loadingViewSpinner').hide();
     } else {
       Image.get({id: d.Image}, function(imgData) {
@@ -26,12 +26,12 @@ function ($scope, $stateParams, Container, Image, Exec, $timeout, EndpointProvid
         $scope.state.loaded = true;
         $('#loadingViewSpinner').hide();
       }, function (e) {
-        Notifications.error('Failure', e, 'Unable to retrieve image details');
+        Notifications.error('Failure', e, 'Не удалось получить детали образа');
         $('#loadingViewSpinner').hide();
       });
     }
   }, function (e) {
-    Notifications.error('Failure', e, 'Unable to retrieve container details');
+    Notifications.error('Failure', e, 'Не удалось получить сведения о контейнере');
     $('#loadingViewSpinner').hide();
   });
 
@@ -65,7 +65,7 @@ function ($scope, $stateParams, Container, Image, Exec, $timeout, EndpointProvid
       }
     }, function (e) {
       $('#loadConsoleSpinner').hide();
-      Notifications.error('Failure', e, 'Unable to start an exec instance');
+      Notifications.error('Failure', e, 'Не удалось запустить экземпляр exec');
     });
   };
 
@@ -83,10 +83,10 @@ function ($scope, $stateParams, Container, Image, Exec, $timeout, EndpointProvid
     $timeout(function() {
       Exec.resize({id: execId, height: height, width: width}, function (d) {
         if (d.message) {
-          Notifications.error('Error', {}, 'Unable to resize TTY');
+          Notifications.error('Error', {}, 'Невозможно изменить размер TTY');
         }
       }, function (e) {
-        Notifications.error('Failure', {}, 'Unable to resize TTY');
+        Notifications.error('Failure', {}, 'Невозможно изменить размер TTY');
       });
     }, 2000);
 
