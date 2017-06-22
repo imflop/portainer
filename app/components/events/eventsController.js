@@ -25,7 +25,7 @@ function ($scope, Notifications, SystemService, Pagination) {
       $scope.events = data;
     })
     .catch(function error(err) {
-      Notifications.error('Failure', err, 'Unable to load events');
+      Notifications.error('Failure', err, 'Невозможно загрузить события');
     })
     .finally(function final() {
       $('#loadEventsSpinner').hide();

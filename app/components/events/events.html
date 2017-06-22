@@ -1,21 +1,21 @@
 <rd-header>
-  <rd-header-title title="Event list">
-    <a data-toggle="tooltip" title="Refresh" ui-sref="events" ui-sref-opts="{reload: true}">
+  <rd-header-title title="Список событий">
+    <a data-toggle="tooltip" title="Обновление" ui-sref="events" ui-sref-opts="{reload: true}">
       <i class="fa fa-refresh" aria-hidden="true"></i>
     </a>
     <i id="loadEventsSpinner" class="fa fa-cog fa-spin" style="margin-left: 5px;"></i>
   </rd-header-title>
-  <rd-header-content>Events</rd-header-content>
+  <rd-header-content>События</rd-header-content>
 </rd-header>
 
 <div class="row">
   <div class="col-lg-12 col-md-12 col-xs-12">
     <rd-widget>
-      <rd-widget-header icon="fa-history" title="Events">
+      <rd-widget-header icon="fa-history" title="События">
         <div class="pull-right">
-          Items per page:
+          Количество элементов на странице:
           <select ng-model="state.pagination_count" ng-change="changePaginationCount()">
-            <option value="0">All</option>
+            <option value="0">Все</option>
             <option value="10">10</option>
             <option value="25">25</option>
             <option value="50">50</option>
@@ -35,21 +35,21 @@
               <tr>
                 <th>
                   <a ui-sref="events" ng-click="order('Time')">
-                    Date
+                    Дата
                     <span ng-show="sortType == 'Time' && !sortReverse" class="glyphicon glyphicon-chevron-down"></span>
                     <span ng-show="sortType == 'Time' && sortReverse" class="glyphicon glyphicon-chevron-up"></span>
                   </a>
                 </th>
                 <th>
                   <a ui-sref="events" ng-click="order('Type')">
-                    Category
+                    Категория
                     <span ng-show="sortType == 'Type' && !sortReverse" class="glyphicon glyphicon-chevron-down"></span>
                     <span ng-show="sortType == 'Type' && sortReverse" class="glyphicon glyphicon-chevron-up"></span>
                   </a>
                 </th>
                 <th>
                   <a ui-sref="events" ng-click="order('Details')">
-                    Details
+                    Детали
                     <span ng-show="sortType == 'Details' && !sortReverse" class="glyphicon glyphicon-chevron-down"></span>
                     <span ng-show="sortType == 'Details' && sortReverse" class="glyphicon glyphicon-chevron-up"></span>
                   </a>
