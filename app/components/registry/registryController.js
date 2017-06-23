@@ -7,11 +7,11 @@ function ($scope, $state, $stateParams, $filter, RegistryService, Notifications)
     var registry = $scope.registry;
     RegistryService.updateRegistry(registry)
     .then(function success(data) {
-      Notifications.success('Registry successfully updated');
+      Notifications.success('Реестр успешно обновлен');
       $state.go('registries');
     })
     .catch(function error(err) {
-      Notifications.error('Failure', err, 'Unable to update registry');
+      Notifications.error('Failure', err, 'Не удалось обновить реестр');
     })
     .finally(function final() {
       $('#updateRegistrySpinner').hide();
@@ -26,7 +26,7 @@ function ($scope, $state, $stateParams, $filter, RegistryService, Notifications)
       $scope.registry = data;
     })
     .catch(function error(err) {
-      Notifications.error('Failure', err, 'Unable to retrieve registry details');
+      Notifications.error('Failure', err, 'Не удалось получить сведения о реестре');
     })
     .finally(function final() {
       $('#loadingViewSpinner').hide();

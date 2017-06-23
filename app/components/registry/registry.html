@@ -1,9 +1,9 @@
 <rd-header>
-  <rd-header-title title="Registry details">
+  <rd-header-title title="Сведения о реестре">
     <i id="loadingViewSpinner" class="fa fa-cog fa-spin"></i>
   </rd-header-title>
   <rd-header-content>
-    <a ui-sref="registries">Registries</a> > <a ui-sref="registry({id: registry.Id})">{{ registry.Name }}</a>
+    <a ui-sref="registries">Реестры</a> > <a ui-sref="registry({id: registry.Id})">{{ registry.Name }}</a>
   </rd-header-content>
 </rd-header>
 
@@ -14,7 +14,7 @@
         <form class="form-horizontal">
           <!-- name-input -->
           <div class="form-group">
-            <label for="registry_name" class="col-sm-3 col-lg-2 control-label text-left">Name</label>
+            <label for="registry_name" class="col-sm-3 col-lg-2 control-label text-left">Имя</label>
             <div class="col-sm-9 col-lg-10">
               <input type="text" class="form-control" id="registry_name" ng-model="registry.Name" placeholder="e.g. my-registry">
             </div>
@@ -23,8 +23,8 @@
           <!-- registry-url-input -->
           <div class="form-group">
             <label for="registry_url" class="col-sm-3 col-lg-2 control-label text-left">
-              Registry URL
-              <portainer-tooltip position="bottom" message="URL or IP address of a Docker registry."></portainer-tooltip>
+              URL реестра
+              <portainer-tooltip position="bottom" message="URL или IP-адрес реестра Docker."></portainer-tooltip>
             </label>
             <div class="col-sm-9 col-lg-10">
               <input type="text" class="form-control" id="registry_url" ng-model="registry.URL" placeholder="e.g. 10.0.0.10:5000 or myregistry.domain.tld">
@@ -35,8 +35,8 @@
           <div class="form-group">
             <div class="col-sm-12">
               <label for="registry_auth" class="control-label text-left">
-                Authentication
-                <portainer-tooltip position="bottom" message="Enable this option if you need to specify credentials to connect to this registry."></portainer-tooltip>
+                Аутентификация
+                <portainer-tooltip position="bottom" message="Включите эту опцию, если вам нужно указать учетные данные для подключения к этому реестру."></portainer-tooltip>
               </label>
               <label class="switch" style="margin-left: 20px;">
                 <input type="checkbox" ng-model="registry.Authentication"><i></i>
@@ -48,7 +48,7 @@
           <div ng-if="registry.Authentication">
             <!-- credentials-user -->
             <div class="form-group">
-              <label for="credentials_username" class="col-sm-3 col-lg-2 control-label text-left">Username</label>
+              <label for="credentials_username" class="col-sm-3 col-lg-2 control-label text-left">Имя пользователя</label>
               <div class="col-sm-9 col-lg-10">
                 <input type="text" class="form-control" id="credentials_username" ng-model="registry.Username">
               </div>
@@ -56,7 +56,7 @@
             <!-- !credentials-user -->
             <!-- credentials-password -->
             <div class="form-group">
-              <label for="credentials_password" class="col-sm-3 col-lg-2 control-label text-left">Password</label>
+              <label for="credentials_password" class="col-sm-3 col-lg-2 control-label text-left">Пароль</label>
               <div class="col-sm-9 col-lg-10">
                 <input type="password" class="form-control" id="credentials_password" ng-model="registry.Password">
               </div>
