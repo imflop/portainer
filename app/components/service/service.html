@@ -1,20 +1,20 @@
 <rd-header>
-  <rd-header-title title="Service details">
-    <a data-toggle="tooltip" title="Refresh" ui-sref="service({id: service.Id})" ui-sref-opts="{reload: true}">
+  <rd-header-title title="Детали обслуживания">
+    <a data-toggle="tooltip" title="Обновление" ui-sref="service({id: service.Id})" ui-sref-opts="{reload: true}">
       <i class="fa fa-refresh" aria-hidden="true"></i>
     </a>
     <i id="loadingViewSpinner" class="fa fa-cog fa-spin"></i>
   </rd-header-title>
   <rd-header-content>
-    <a ui-sref="services">Services</a> > <a ui-sref="service({id: service.Id})">{{ service.Name }}</a>
+    <a ui-sref="services">Сервисы</a> > <a ui-sref="service({id: service.Id})">{{ service.Name }}</a>
   </rd-header-content>
 </rd-header>
 
 <div class="row">
   <div ng-if="isUpdating" class="col-lg-12 col-md-12 col-xs-12">
     <div class="alert alert-info" role="alert" id="service-update-alert">
-      <p>This service is being updated. Editing this service is currently disabled.</p>
-      <a ui-sref="service({id: service.Id}, {reload: true})">Refresh to see if this service has finished updated.</a>
+      <p>Этот сервис обновляется. Редактирование этой службы в настоящее время отключено.</p>
+      <a ui-sref="service({id: service.Id}, {reload: true})">Обновить, чтобы увидеть, если этот сервис закончит обновляться.</a>
     </div>
   </div>
 </div>
@@ -22,12 +22,12 @@
 <div class="row">
   <div class="col-lg-9 col-md-9 col-xs-9">
     <rd-widget>
-      <rd-widget-header icon="fa-list-alt" title="Service details"></rd-widget-header>
+      <rd-widget-header icon="fa-list-alt" title="Детали обслуживания"></rd-widget-header>
       <rd-widget-body classes="no-padding">
         <table class="table">
           <tbody>
             <tr>
-              <td>Name</td>
+              <td>Имя</td>
               <td ng-if="applicationState.endpoint.apiVersion <= 1.24">
                 <input type="text" class="form-control" ng-model="service.Name" ng-change="updateServiceAttribute(service, 'Name')" ng-disabled="isUpdating">
               </td>
@@ -39,27 +39,27 @@
               <td>ID</td>
               <td>
                 {{ service.Id }}
-                <button class="btn btn-xs btn-danger" ng-click="removeService()"><i class="fa fa-trash space-right" aria-hidden="true" ng-disabled="isUpdating"></i>Delete this service</button>
+                <button class="btn btn-xs btn-danger" ng-click="removeService()"><i class="fa fa-trash space-right" aria-hidden="true" ng-disabled="isUpdating"></i>Удалить этот сервис</button>
               </td>
             </tr>
             <tr ng-if="service.CreatedAt">
-              <td>Created at</td>
+              <td>Создан в</td>
               <td>{{ service.CreatedAt|getisodate}}</td>
             </tr>
             <tr ng-if="service.UpdatedAt">
-              <td>Last updated at</td>
+              <td>Последнее обновление</td>
               <td>{{ service.UpdatedAt|getisodate }}</td>
             </tr>
             <tr ng-if="service.Version">
-              <td>Version</td>
+              <td>Версия</td>
               <td>{{ service.Version }}</td>
             </tr>
             <tr>
-              <td>Scheduling mode</td>
+              <td>Режим расписания</td>
               <td>{{ service.Mode }}</td>
             </tr>
             <tr ng-if="service.Mode === 'replicated'">
-              <td>Replicas</td>
+              <td>Реплики</td>
               <td>
                 <span ng-if="service.Mode === 'replicated'">
                   <input class="input-sm" type="number" ng-model="service.Replicas" ng-change="updateServiceAttribute(service, 'Replicas')" ng-disabled="isUpdating" />
@@ -67,7 +67,7 @@
               </td>
             </tr>
             <tr>
-              <td>Image</td>
+              <td>Образ</td>
               <td>
                 <input type="text" class="form-control" ng-model="service.Image" ng-change="updateServiceAttribute(service, 'Image')" ng-disabled="isUpdating" />
               </td>
@@ -77,17 +77,17 @@
       </rd-widget-body>
       <rd-widget-footer>
         <p class="small text-muted">
-          Do you need help? View the Docker Service documentation <a href="https://docs.docker.com/engine/reference/commandline/service_update/" target="self">here</a>.
+          Просмотр документации обслуживания Docker <a href="https://docs.docker.com/engine/reference/commandline/service_update/" target="self">здесь</a>.
         </p>
         <div class="btn-toolbar" role="toolbar">
           <div class="btn-group" role="group">
-            <button type="button" class="btn btn-primary" ng-disabled="!hasChanges(service, ['Mode', 'Replicas', 'Image', 'Name'])" ng-click="updateService(service)">Apply changes</button>
+            <button type="button" class="btn btn-primary" ng-disabled="!hasChanges(service, ['Mode', 'Replicas', 'Image', 'Name'])" ng-click="updateService(service)">Применить изменения</button>
             <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <span class="caret"></span>
             </button>
             <ul class="dropdown-menu">
-              <li><a ng-click="cancelChanges(service, ['Mode', 'Replicas', 'Image', 'Name'])">Reset changes</a></li>
-              <li><a ng-click="cancelChanges(service)">Reset all changes</a></li>
+              <li><a ng-click="cancelChanges(service, ['Mode', 'Replicas', 'Image', 'Name'])">Сбросить изменения</a></li>
+              <li><a ng-click="cancelChanges(service)">Сбросить все изменения</a></li>
             </ul>
           </div>
         </div>
@@ -97,20 +97,20 @@
 
   <div class="col-lg-3 col-md-3 col-xs-3">
     <rd-widget>
-      <rd-widget-header icon="fa-bars" title="Quick navigation"></rd-widget-header>
+      <rd-widget-header icon="fa-bars" title="Быстрая навигация"></rd-widget-header>
       <rd-widget-body classes="no-padding">
         <ul class="nav nav-pills nav-stacked">
-          <li><a href ng-click="goToItem('service-env-variables')">Environment variables</a></li>
-          <li><a href ng-click="goToItem('service-container-labels')">Container labels</a></li>
-          <li><a href ng-click="goToItem('service-mounts')">Mounts</a></li>
-          <li><a href ng-click="goToItem('service-network-specs')">Network &amp; published ports</a></li>
-          <li><a href ng-click="goToItem('service-resources')">Resource limits &amp; reservations</a></li>
-          <li><a href ng-click="goToItem('service-placement-constraints')">Placement constraints</a></li>
-          <li><a href ng-click="goToItem('service-restart-policy')">Restart policy</a></li>
-          <li><a href ng-click="goToItem('service-update-config')">Update configuration</a></li>
-          <li><a href ng-click="goToItem('service-labels')">Service labels</a></li>
-          <li><a href ng-click="goToItem('service-secrets')">Secrets</a></li>
-          <li><a href ng-click="goToItem('service-tasks')">Tasks</a></li>
+          <li><a href ng-click="goToItem('service-env-variables')">Переменные окружения</a></li>
+          <li><a href ng-click="goToItem('service-container-labels')">Метки контейнера</a></li>
+          <li><a href ng-click="goToItem('service-mounts')">Точки монтирования</a></li>
+          <li><a href ng-click="goToItem('service-network-specs')">Сеть и открытые порты</a></li>
+          <li><a href ng-click="goToItem('service-resources')">Ограничения и резервирование ресурсов</a></li>
+          <li><a href ng-click="goToItem('service-placement-constraints')">Ограничения места размещения</a></li>
+          <li><a href ng-click="goToItem('service-restart-policy')">Политика перезагрузки</a></li>
+          <li><a href ng-click="goToItem('service-update-config')">Параметры обновления</a></li>
+          <li><a href ng-click="goToItem('service-labels')">Сервисные метки</a></li>
+          <li><a href ng-click="goToItem('service-secrets')">Секреты</a></li>
+          <li><a href ng-click="goToItem('service-tasks')">Задания</a></li>
         </ul>
       </rd-widget-body>
     </rd-widget>
@@ -122,7 +122,7 @@
 <div class="row">
   <hr>
   <div class="col-lg-12 col-md-12 col-xs-12">
-    <h3 id="container-specs">Container specification</h3>
+    <h3 id="container-specs">Спецификация контейнера</h3>
     <div id="service-container-spec" class="padding-top" ng-include="'app/components/service/includes/container-specs.html'"></div>
     <div id="service-env-variables" class="padding-top" ng-include="'app/components/service/includes/environmentvariables.html'"></div>
     <div id="service-container-labels" class="padding-top" ng-include="'app/components/service/includes/containerlabels.html'"></div>
@@ -133,7 +133,7 @@
 <div class="row">
   <hr>
   <div class="col-lg-12 col-md-12 col-xs-12">
-    <h3 id="service-network-specs">Networks &amp; ports</h3>
+    <h3 id="service-network-specs">Сеть и порты</h3>
     <div id="service-networks" class="padding-top" ng-include="'app/components/service/includes/networks.html'"></div>
     <div id="service-published-ports" class="padding-top" ng-include="'app/components/service/includes/ports.html'"></div>
   </div>
@@ -142,7 +142,7 @@
 <div class="row">
   <hr>
   <div class="col-lg-12 col-md-12 col-xs-12">
-    <h3 id="service-specs">Service specification</h3>
+    <h3 id="service-specs">Техническая спецификация</h3>
     <div id="service-resources" class="padding-top" ng-include="'app/components/service/includes/resources.html'"></div>
     <div id="service-placement-constraints" class="padding-top" ng-include="'app/components/service/includes/constraints.html'"></div>
     <div id="service-restart-policy" class="padding-top" ng-include="'app/components/service/includes/restart.html'"></div>

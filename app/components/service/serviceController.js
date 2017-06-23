@@ -227,18 +227,18 @@ function ($q, $scope, $stateParams, $state, $location, $timeout, $anchorScroll, 
 
     Service.update({ id: service.Id, version: service.Version }, config, function (data) {
       $('#loadingViewSpinner').hide();
-      Notifications.success('Service successfully updated', 'Service updated');
+      Notifications.success('Сервис успешно обновлен', 'Сервис обновлен');
       $scope.cancelChanges({});
       initView();
     }, function (e) {
       $('#loadingViewSpinner').hide();
-      Notifications.error('Failure', e, 'Unable to update service');
+      Notifications.error('Failure', e, 'Не удалось обновить сервис');
     });
   };
 
   $scope.removeService = function() {
     ModalService.confirmDeletion(
-      'Do you want to remove this service? All the containers associated to this service will be removed too.',
+      'Вы хотите удалить эту услугу? Все контейнеры, связанные с этой службой, также будут удалены.',
       function onConfirm(confirmed) {
         if(!confirmed) { return; }
         removeService();
@@ -250,11 +250,11 @@ function ($q, $scope, $stateParams, $state, $location, $timeout, $anchorScroll, 
     $('#loadingViewSpinner').show();
     ServiceService.remove($scope.service)
     .then(function success(data) {
-      Notifications.success('Service successfully deleted');
+      Notifications.success('Сервис успешно удален');
       $state.go('services', {});
     })
     .catch(function error(err) {
-      Notifications.error('Failure', err, 'Unable to remove service');
+      Notifications.error('Failure', err, 'Невозможно удалить сервис');
     })
     .finally(function final() {
       $('#loadingViewSpinner').hide();
@@ -307,7 +307,7 @@ function ($q, $scope, $stateParams, $state, $location, $timeout, $anchorScroll, 
     })
     .catch(function error(err) {
       $scope.secrets = [];
-      Notifications.error('Failure', err, 'Unable to retrieve service details');
+      Notifications.error('Failure', err, 'Не удалось получить данные сервиса');
     })
     .finally(function final() {
 
@@ -324,7 +324,7 @@ function ($q, $scope, $stateParams, $state, $location, $timeout, $anchorScroll, 
       $('#loadSecretsSpinner').hide();
     }, function(e) {
       $('#loadSecretsSpinner').hide();
-      Notifications.error('Failure', e, 'Unable to retrieve secrets');
+      Notifications.error('Failure', e, 'Не удалось получить секреты');
       $scope.secrets = [];
     });
   }
