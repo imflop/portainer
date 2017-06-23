@@ -35,7 +35,7 @@ function ($q, $scope, $state, $stateParams, TeamService, UserService, TeamMember
 
   $scope.deleteTeam = function() {
     ModalService.confirmDeletion(
-      'Do you want to delete this team? Users in this team will not be deleted.',
+      'Вы хотите удалить эту команду? Пользователи этой команды не будут удалены.',
       function onConfirm(confirmed) {
         if(!confirmed) { return; }
         deleteTeam();
@@ -49,10 +49,10 @@ function ($q, $scope, $state, $stateParams, TeamService, UserService, TeamMember
     .then(function success(data) {
       $scope.leaderCount++;
       user.TeamRole = 'Leader';
-      Notifications.success('User is now team leader', user.Username);
+      Notifications.success('Пользователь теперь является лидером команды', user.Username);
     })
     .catch(function error(err) {
-      Notifications.error('Failure', err, 'Unable to update user role');
+      Notifications.error('Failure', err, 'Не удалось обновить роль пользователя');
     })
     .finally(function final() {
       $('#loadingViewSpinner').hide();
@@ -65,10 +65,10 @@ function ($q, $scope, $state, $stateParams, TeamService, UserService, TeamMember
     .then(function success(data) {
       user.TeamRole = 'Member';
       $scope.leaderCount--;
-      Notifications.success('User is now team member', user.Username);
+      Notifications.success('Пользователь теперь является членом команды', user.Username);
     })
     .catch(function error(err) {
-      Notifications.error('Failure', err, 'Unable to update user role');
+      Notifications.error('Failure', err, 'Не удалось обновить роль пользователя');
     })
     .finally(function final() {
       $('#loadingViewSpinner').hide();
@@ -91,10 +91,10 @@ function ($q, $scope, $state, $stateParams, TeamService, UserService, TeamMember
       }
       $scope.teamMembers = $scope.teamMembers.concat(users);
       $scope.users = [];
-      Notifications.success('All users successfully added');
+      Notifications.success('Все пользователи успешно добавлены');
     })
     .catch(function error(err) {
-      Notifications.error('Failure', err, 'Unable to update team members');
+      Notifications.error('Failure', err, 'Не удалось обновить членов команды');
     })
     .finally(function final() {
       $('#loadingViewSpinner').hide();
@@ -109,10 +109,10 @@ function ($q, $scope, $state, $stateParams, TeamService, UserService, TeamMember
       user.TeamRole = 'Member';
       user.MembershipId = data.Id;
       $scope.teamMembers.push(user);
-      Notifications.success('User added to team', user.Username);
+      Notifications.success('Пользователь добавлен в команду', user.Username);
     })
     .catch(function error(err) {
-      Notifications.error('Failure', err, 'Unable to update team members');
+      Notifications.error('Failure', err, 'Не удалось обновить членов команды');
     })
     .finally(function final() {
       $('#loadingViewSpinner').hide();
@@ -129,10 +129,10 @@ function ($q, $scope, $state, $stateParams, TeamService, UserService, TeamMember
     .then(function success(data) {
       $scope.users = $scope.users.concat($scope.teamMembers);
       $scope.teamMembers = [];
-      Notifications.success('All users successfully removed');
+      Notifications.success('Все пользователи успешно удалены');
     })
     .catch(function error(err) {
-      Notifications.error('Failure', err, 'Unable to update team members');
+      Notifications.error('Failure', err, 'Не удалось обновить членов команды');
     })
     .finally(function final() {
       $('#loadingViewSpinner').hide();
@@ -145,10 +145,10 @@ function ($q, $scope, $state, $stateParams, TeamService, UserService, TeamMember
     .then(function success() {
       removeUserFromArray(user.Id, $scope.teamMembers);
       $scope.users.push(user);
-      Notifications.success('User removed from team', user.Username);
+      Notifications.success('Пользователь удален из команды', user.Username);
     })
     .catch(function error(err) {
-      Notifications.error('Failure', err, 'Unable to update team members');
+      Notifications.error('Failure', err, 'Не удалось обновить членов команды');
     })
     .finally(function final() {
       $('#loadingViewSpinner').hide();
@@ -159,11 +159,11 @@ function ($q, $scope, $state, $stateParams, TeamService, UserService, TeamMember
     $('#loadingViewSpinner').show();
     TeamService.deleteTeam($scope.team.Id)
     .then(function success(data) {
-      Notifications.success('Team successfully deleted', $scope.team.Name);
+      Notifications.success('Команда успешно удалена', $scope.team.Name);
       $state.go('teams');
     })
     .catch(function error(err) {
-      Notifications.error('Failure', err, 'Unable to remove team');
+      Notifications.error('Failure', err, 'Не удалось удалить команду');
     })
     .finally(function final() {
       $('#loadingViewSpinner').hide();
@@ -218,7 +218,7 @@ function ($q, $scope, $state, $stateParams, TeamService, UserService, TeamMember
       assignUsersAndMembers(users, data.memberships);
     })
     .catch(function error(err) {
-      Notifications.error('Failure', err, 'Unable to retrieve team details');
+      Notifications.error('Failure', err, 'Не удалось получить сведения о команде');
     })
     .finally(function final() {
       $('#loadingViewSpinner').hide();

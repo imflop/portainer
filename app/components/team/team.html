@@ -1,32 +1,32 @@
 <rd-header>
-  <rd-header-title title="Team details">
+  <rd-header-title title="Информация о команде">
     <i id="loadingViewSpinner" class="fa fa-cog fa-spin"></i>
   </rd-header-title>
   <rd-header-content>
-    <a ui-sref="teams">Teams</a> > <a ui-sref="team({id: team.Id})">{{ team.Name }}</a>
+    <a ui-sref="teams">Команды</a> > <a ui-sref="team({id: team.Id})">{{ team.Name }}</a>
   </rd-header-content>
 </rd-header>
 
 <div class="row">
   <div class="col-lg-12 col-md-12 col-xs-12">
     <rd-widget>
-      <rd-widget-header icon="fa-users" title="Team details"></rd-widget-header>
+      <rd-widget-header icon="fa-users" title="Информация о команде"></rd-widget-header>
       <rd-widget-body classes="no-padding">
         <table class="table">
           <tbody>
             <tr>
-              <td>Name</td>
+              <td>Имя</td>
               <td>
                 {{ team.Name }}
-                <button class="btn btn-xs btn-danger" ng-if="isAdmin" ng-click="deleteTeam()"><i class="fa fa-trash space-right" aria-hidden="true"></i>Delete this team</button>
+                <button class="btn btn-xs btn-danger" ng-if="isAdmin" ng-click="deleteTeam()"><i class="fa fa-trash space-right" aria-hidden="true"></i>Удалить эту команду</button>
               </td>
             </tr>
             <tr>
-              <td>Leaders</td>
+              <td>Лидеры</td>
               <td>{{ leaderCount }}</td>
             </tr>
             <tr>
-              <td>Total users in team</td>
+              <td>Количество пользователей в команде</td>
               <td>{{ teamMembers.length }}</td>
             </tr>
           </tbody>
@@ -39,11 +39,11 @@
 <div class="row" ng-if="team">
   <div class="col-sm-6">
     <rd-widget>
-      <rd-widget-header classes="col-sm-12 col-md-6 nopadding" icon="fa-users" title="Users">
+      <rd-widget-header classes="col-sm-12 col-md-6 nopadding" icon="fa-users" title="Пользователи">
         <div class="pull-md-right pull-lg-right">
-          Items per page:
+          Количество элементов на странице:
           <select ng-model="state.pagination_count_users" ng-change="changePaginationCountUsers()">
-            <option value="0">All</option>
+            <option value="0">Все</option>
             <option value="10">10</option>
             <option value="25">25</option>
             <option value="50">50</option>
@@ -53,7 +53,7 @@
       </rd-widget-header>
       <rd-widget-taskbar classes="col-sm-12 nopadding">
         <div class="col-sm-12 col-md-6 nopadding">
-          <button class="btn btn-primary btn-sm" ng-click="addAllUsers()" ng-if="isAdmin" ng-disabled="users.length ===  0 || filteredUsers.length === 0"><i class="fa fa-user-plus space-right" aria-hidden="true"></i>Add all users</button>
+          <button class="btn btn-primary btn-sm" ng-click="addAllUsers()" ng-if="isAdmin" ng-disabled="users.length ===  0 || filteredUsers.length === 0"><i class="fa fa-user-plus space-right" aria-hidden="true"></i>Добавить всех пользователей</button>
         </div>
         <div class="col-sm-12 col-md-6 nopadding">
           <input type="text" id="filter" ng-model="state.filterUsers" placeholder="Filter..." class="form-control input-sm" />
@@ -66,7 +66,7 @@
               <tr>
                 <th>
                   <a ui-sref="endpoint.access({id: endpoint.Id})" ng-click="orderUsers('Username')">
-                    Name
+                    Имя
                     <span ng-show="sortTypeUsers == 'Username' && !sortReverseUsers" class="glyphicon glyphicon-chevron-down"></span>
                     <span ng-show="sortTypeUsers == 'Username' && sortReverseUsers" class="glyphicon glyphicon-chevron-up"></span>
                   </a>
@@ -78,15 +78,15 @@
                 <td>
                   {{ user.Username }}
                   <span style="margin-left: 5px;">
-                    <a class="btn-outline-secondary" ng-click="addUser(user)"><i class="fa fa-plus-circle space-right" aria-hidden="true"></i>Add</a>
+                    <a class="btn-outline-secondary" ng-click="addUser(user)"><i class="fa fa-plus-circle space-right" aria-hidden="true"></i>Добавить</a>
                   </span>
                 </td>
               </tr>
               <tr ng-if="!users">
-                <td colspan="2" class="text-center text-muted">Loading...</td>
+                <td colspan="2" class="text-center text-muted">Загрузка...</td>
               </tr>
               <tr ng-if="users.length === 0 || (users | filter:state.filterUsers).length === 0">
-                <td colspan="2" class="text-center text-muted">No users.</td>
+                <td colspan="2" class="text-center text-muted">Нет пользователей.</td>
               </tr>
             </tbody>
           </table>
@@ -99,11 +99,11 @@
   </div>
   <div class="col-sm-6">
     <rd-widget>
-      <rd-widget-header classes="col-sm-12 col-md-6 nopadding" icon="fa-users" title="Team members">
+      <rd-widget-header classes="col-sm-12 col-md-6 nopadding" icon="fa-users" title="Члены команды">
         <div class="pull-md-right pull-lg-right">
-          Items per page:
+          Количество элементов на странице:
           <select ng-model="state.pagination_count_members" ng-change="changePaginationCountGroupMembers()">
-            <option value="0">All</option>
+            <option value="0">Все</option>
             <option value="10">10</option>
             <option value="25">25</option>
             <option value="50">50</option>
@@ -113,7 +113,7 @@
       </rd-widget-header>
       <rd-widget-taskbar classes="col-sm-12 nopadding">
         <div class="col-sm-12 col-md-6 nopadding">
-          <button class="btn btn-primary btn-sm" ng-click="removeAllUsers()" ng-if="isAdmin" ng-disabled="teamMembers.length ===  0 || filteredGroupMembers.length === 0"><i class="fa fa-user-times space-right" aria-hidden="true"></i>Remove all users</button>
+          <button class="btn btn-primary btn-sm" ng-click="removeAllUsers()" ng-if="isAdmin" ng-disabled="teamMembers.length ===  0 || filteredGroupMembers.length === 0"><i class="fa fa-user-times space-right" aria-hidden="true"></i>Удалить всех пользователей</button>
         </div>
         <div class="col-sm-12 col-md-6 nopadding">
           <input type="text" id="filter" ng-model="state.filterGroupMembers" placeholder="Filter..." class="form-control input-sm" />
@@ -126,14 +126,14 @@
               <tr>
                 <th>
                   <a ui-sref="team({id: team.Id})" ng-click="orderGroupMembers('Username')">
-                    Name
+                    Имя
                     <span ng-show="sortTypeGroupMembers == 'Username' && !sortReverseGroupMembers" class="glyphicon glyphicon-chevron-down"></span>
                     <span ng-show="sortTypeGroupMembers == 'Username' && sortReverseGroupMembers" class="glyphicon glyphicon-chevron-up"></span>
                   </a>
                 </th>
                 <th>
                   <a ui-sref="team({id: team.Id})" ng-click="orderGroupMembers('TeamRole')">
-                    Team Role
+                    Роль команды
                     <span ng-show="sortTypeGroupMembers == 'TeamRole' && !sortReverseGroupMembers" class="glyphicon glyphicon-chevron-down"></span>
                     <span ng-show="sortTypeGroupMembers == 'TeamRole' && sortReverseGroupMembers" class="glyphicon glyphicon-chevron-up"></span>
                   </a>
@@ -145,7 +145,7 @@
                 <td>
                   {{ user.Username }}
                   <span style="margin-left: 5px;" ng-if="isAdmin || user.TeamRole === 'Member'")>
-                    <a class="btn-outline-secondary" ng-click="removeUser(user)"><i class="fa fa-minus-circle space-right" aria-hidden="true"></i>Remove</a>
+                    <a class="btn-outline-secondary" ng-click="removeUser(user)"><i class="fa fa-minus-circle space-right" aria-hidden="true"></i>Удалить</a>
                   </span>
                 </td>
                 <td>
@@ -153,16 +153,16 @@
                   <i ng-if="user.TeamRole === 'Member'" class="fa fa-user" aria-hidden="true" style="margin-right: 2px;"></i>
                   {{ user.TeamRole }}
                   <span style="margin-left: 5px;" ng-if="isAdmin">
-                    <a class="btn-outline-secondary" style="margin-left: 5px;" ng-click="promoteToLeader(user)" ng-if="user.TeamRole === 'Member'"><i class="fa fa-user-plus space-right" aria-hidden="true"></i>Leader</a>
-                    <a class="btn-outline-secondary" style="margin-left: 5px;" ng-click="demoteToMember(user)" ng-if="user.TeamRole === 'Leader'"><i class="fa fa-user-times space-right" aria-hidden="true"></i>Member</a>
+                    <a class="btn-outline-secondary" style="margin-left: 5px;" ng-click="promoteToLeader(user)" ng-if="user.TeamRole === 'Member'"><i class="fa fa-user-plus space-right" aria-hidden="true"></i>Лидер</a>
+                    <a class="btn-outline-secondary" style="margin-left: 5px;" ng-click="demoteToMember(user)" ng-if="user.TeamRole === 'Leader'"><i class="fa fa-user-times space-right" aria-hidden="true"></i>Член</a>
                   </span>
                 </td>
               </tr>
               <tr ng-if="!teamMembers">
-                <td colspan="2" class="text-center text-muted">Loading...</td>
+                <td colspan="2" class="text-center text-muted">Загрузка...</td>
               </tr>
               <tr ng-if="teamMembers.length === 0 || (teamMembers | filter:state.filterGroupMembers).length === 0">
-                <td colspan="2" class="text-center text-muted">No team members.</td>
+                <td colspan="2" class="text-center text-muted">Нет членов в команде.</td>
               </tr>
             </tbody>
           </table>
