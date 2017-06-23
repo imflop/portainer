@@ -1,10 +1,10 @@
 <div ng-if="tasks.length > 0 && nodes" id="service-tasks">
   <rd-widget>
-    <rd-widget-header icon="fa-tasks" title="Associated tasks">
+    <rd-widget-header icon="fa-tasks" title="Связанные задачи">
       <div class="pull-right">
-      Items per page:
+        Количество элементов на странице:
       <select ng-model="state.pagination_count" ng-change="changePaginationCount()">
-        <option value="0">All</option>
+        <option value="0">Все</option>
         <option value="10">10</option>
         <option value="25">25</option>
         <option value="50">50</option>
@@ -19,28 +19,28 @@
         <th>Id</th>
         <th>
           <a ng-click="order('Status.State')">
-          Status
+          Статус
           <span ng-show="sortType == 'Status.State' && !sortReverse" class="glyphicon glyphicon-chevron-down"></span>
           <span ng-show="sortType == 'Status.State' && sortReverse" class="glyphicon glyphicon-chevron-up"></span>
           </a>
         </th>
         <th ng-if="service.Mode !== 'global'">
           <a ng-click="order('Slot')">
-          Slot
+          Слот
           <span ng-show="sortType == 'Slot' && !sortReverse" class="glyphicon glyphicon-chevron-down"></span>
           <span ng-show="sortType == 'Slot' && sortReverse" class="glyphicon glyphicon-chevron-up"></span>
           </a>
         </th>
         <th>
           <a ng-click="order('NodeId')">
-          Node
+          Узел
           <span ng-show="sortType == 'NodeId' && !sortReverse" class="glyphicon glyphicon-chevron-down"></span>
           <span ng-show="sortType == 'NodeId' && sortReverse" class="glyphicon glyphicon-chevron-up"></span>
           </a>
         </th>
         <th>
           <a ng-click="order('Updated')">
-          Last update
+          Последнее обновление
           <span ng-show="sortType == 'Updated' && !sortReverse" class="glyphicon glyphicon-chevron-down"></span>
           <span ng-show="sortType == 'Updated' && sortReverse" class="glyphicon glyphicon-chevron-up"></span>
           </a>

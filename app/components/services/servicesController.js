@@ -30,19 +30,19 @@ function ($q, $scope, $stateParams, $state, Service, ServiceService, ServiceHelp
     config.Mode.Replicated.Replicas = service.Replicas;
     Service.update({ id: service.Id, version: service.Version }, config, function (data) {
       $('#loadServicesSpinner').hide();
-      Notifications.success('Service successfully scaled', 'New replica count: ' + service.Replicas);
+      Notifications.success('Сервис успешно масштабирован', 'Новый счетчик реплик:' + service.Replicas);
       $state.reload();
     }, function (e) {
       $('#loadServicesSpinner').hide();
       service.Scale = false;
       service.Replicas = service.ReplicaCount;
-      Notifications.error('Failure', e, 'Unable to scale service');
+      Notifications.error('Failure', e, 'Невозможно масштабировать сервис');
     });
   };
 
   $scope.removeAction = function() {
     ModalService.confirmDeletion(
-      'Do you want to remove the selected service(s)? All the containers associated to the selected service(s) will be removed too.',
+      'Вы хотите удалить выбранные службы? Все контейнеры, связанные с выбранными службами, также будут удалены.',
       function onConfirm(confirmed) {
         if(!confirmed) { return; }
         removeServices();
@@ -64,12 +64,12 @@ function ($q, $scope, $stateParams, $state, Service, ServiceService, ServiceHelp
         counter = counter + 1;
         ServiceService.remove(service)
         .then(function success(data) {
-          Notifications.success('Service successfully deleted');
+          Notifications.success('Сервис успешно удален');
           var index = $scope.services.indexOf(service);
           $scope.services.splice(index, 1);
         })
         .catch(function error(err) {
-          Notifications.error('Failure', err, 'Unable to remove service');
+          Notifications.error('Failure', err, 'Не удалось обновить сервис');
         })
         .finally(function final() {
           complete();
@@ -114,7 +114,7 @@ function ($q, $scope, $stateParams, $state, Service, ServiceService, ServiceHelp
     })
     .catch(function error(err) {
       $scope.services = [];
-      Notifications.error('Failure', err, 'Unable to retrieve services');
+      Notifications.error('Failure', err, 'Не удается получить сервисы');
     })
     .finally(function final() {
       $('#loadServicesSpinner').hide();

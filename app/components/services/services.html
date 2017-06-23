@@ -1,21 +1,21 @@
 <rd-header>
-  <rd-header-title title="Service list">
-    <a data-toggle="tooltip" title="Refresh" ui-sref="services" ui-sref-opts="{reload: true}">
+  <rd-header-title title="Список служб">
+    <a data-toggle="tooltip" title="Обновление" ui-sref="services" ui-sref-opts="{reload: true}">
       <i class="fa fa-refresh" aria-hidden="true"></i>
     </a>
     <i id="loadServicesSpinner" class="fa fa-cog fa-spin" style="margin-left: 5px;"></i>
   </rd-header-title>
-  <rd-header-content>Services</rd-header-content>
+  <rd-header-content>Сервисы</rd-header-content>
 </rd-header>
 
 <div class="row">
   <div class="col-lg-12 col-md-12 col-xs-12">
     <rd-widget>
-      <rd-widget-header icon="fa-list-alt" title="Services">
+      <rd-widget-header icon="fa-list-alt" title="Сервисы">
         <div class="pull-right">
-          Items per page:
+          Количество элементов на странице:
           <select ng-model="state.pagination_count" ng-change="changePaginationCount()">
-            <option value="0">All</option>
+            <option value="0">Все</option>
             <option value="10">10</option>
             <option value="25">25</option>
             <option value="50">50</option>
@@ -25,8 +25,8 @@
       </rd-widget-header>
       <rd-widget-taskbar classes="col-lg-12 col-md-12 col-xs-12">
         <div class="pull-left">
-          <button type="button" class="btn btn-danger" ng-click="removeAction()" ng-disabled="!state.selectedItemCount"><i class="fa fa-trash space-right" aria-hidden="true"></i>Remove</button>
-          <a class="btn btn-primary" type="button" ui-sref="actions.create.service"><i class="fa fa-plus space-right" aria-hidden="true"></i>Add service</a>
+          <button type="button" class="btn btn-danger" ng-click="removeAction()" ng-disabled="!state.selectedItemCount"><i class="fa fa-trash space-right" aria-hidden="true"></i>Удалить</button>
+          <a class="btn btn-primary" type="button" ui-sref="actions.create.service"><i class="fa fa-plus space-right" aria-hidden="true"></i>Добавить сервис</a>
         </div>
         <div class="pull-right">
           <input type="text" id="filter" ng-model="state.filter" placeholder="Filter..." class="form-control input-sm" />
@@ -39,42 +39,42 @@
               <th></th>
               <th>
                 <a ui-sref="services" ng-click="order('Name')">
-                  Name
+                  Имя
                   <span ng-show="sortType == 'Name' && !sortReverse" class="glyphicon glyphicon-chevron-down"></span>
                   <span ng-show="sortType == 'Name' && sortReverse" class="glyphicon glyphicon-chevron-up"></span>
                 </a>
               </th>
               <th>
                 <a ui-sref="services" ng-click="order('Image')">
-                  Image
+                  Образ
                   <span ng-show="sortType == 'Image' && !sortReverse" class="glyphicon glyphicon-chevron-down"></span>
                   <span ng-show="sortType == 'Image' && sortReverse" class="glyphicon glyphicon-chevron-up"></span>
                 </a>
               </th>
               <th>
                 <a ui-sref="services" ng-click="order('Mode')">
-                  Scheduling mode
+                  Режим расписания
                   <span ng-show="sortType == 'Mode' && !sortReverse" class="glyphicon glyphicon-chevron-down"></span>
                   <span ng-show="sortType == 'Mode' && sortReverse" class="glyphicon glyphicon-chevron-up"></span>
                 </a>
               </th>
               <th>
                 <a ui-sref="services" ng-click="order('Ports')">
-                  Published Ports
+                  Открытые порты
                   <span ng-show="sortType == 'Ports' && !sortReverse" class="glyphicon glyphicon-chevron-down"></span>
                   <span ng-show="sortType == 'Ports' && sortReverse" class="glyphicon glyphicon-chevron-up"></span>
                 </a>
               </th>
               <th>
                 <a ui-sref="services" ng-click="order('UpdatedAt')">
-                  Updated at
+                  Обновленно в
                   <span ng-show="sortType == 'UpdatedAt' && !sortReverse" class="glyphicon glyphicon-chevron-down"></span>
                   <span ng-show="sortType == 'UpdatedAt' && sortReverse" class="glyphicon glyphicon-chevron-up"></span>
                 </a>
               </th>
               <th ng-if="applicationState.application.authentication">
                 <a ui-sref="services" ng-click="order('ResourceControl.Ownership')">
-                  Ownership
+                  Права
                   <span ng-show="sortType == 'ResourceControl.Ownership' && !sortReverse" class="glyphicon glyphicon-chevron-down"></span>
                   <span ng-show="sortType == 'ResourceControl.Ownership' && sortReverse" class="glyphicon glyphicon-chevron-up"></span>
                 </a>
@@ -87,11 +87,11 @@
                 <td>{{ service.Image | hideshasum }}</td>
                 <td>
                   {{ service.Mode }}
-                  <code data-toggle="tooltip" title="Replicas">{{ service.Running }}</code>
+                  <code data-toggle="tooltip" title="Реплики">{{ service.Running }}</code>
                   /
-                  <code data-toggle="tooltip" title="Replicas">{{ service.Replicas }}</code>
+                  <code data-toggle="tooltip" title="Реплики">{{ service.Replicas }}</code>
                   <span ng-if="service.Mode === 'replicated' && !service.Scale">
-                    <a class="interactive" ng-click="service.Scale = true; service.ReplicaCount = service.Replicas;"><i class="fa fa-arrows-v" aria-hidden="true"></i> Scale</a>
+                    <a class="interactive" ng-click="service.Scale = true; service.ReplicaCount = service.Replicas;"><i class="fa fa-arrows-v" aria-hidden="true"></i> Масштаб</a>
                   </span>
                   <span ng-if="service.Mode === 'replicated' && service.Scale">
                     <input class="input-sm" type="number" ng-model="service.Replicas" />
@@ -116,10 +116,10 @@
                 </td>
               </tr>
               <tr ng-if="!services">
-                <td colspan="7" class="text-center text-muted">Loading...</td>
+                <td colspan="7" class="text-center text-muted">Загрузка...</td>
               </tr>
               <tr ng-if="services.length == 0">
-                <td colspan="7" class="text-center text-muted">No services available.</td>
+                <td colspan="7" class="text-center text-muted">Нет доступных служб.</td>
               </tr>
             </tbody>
           </table>

@@ -1,32 +1,32 @@
 <div ng-if="service.ServiceMounts" id="service-mounts">
   <rd-widget>
-    <rd-widget-header icon="fa-tasks" title="Mounts">
+    <rd-widget-header icon="fa-tasks" title="Точки монтирования">
       <div class="nopadding">
         <a class="btn btn-default btn-sm pull-right" ng-click="isUpdating ||addMount(service)" ng-disabled="isUpdating">
-          <i class="fa fa-plus-circle" aria-hidden="true"></i> mount
+          <i class="fa fa-plus-circle" aria-hidden="true"></i> точки монтирования
         </a>
       </div>
     </rd-widget-header>
     <rd-widget-body ng-if="service.ServiceMounts.length === 0">
-      <p>There are no mounts for this service.</p>
+      <p>Для этой службы нет точек монтирования.</p>
     </rd-widget-body>
     <rd-widget-body ng-if="service.ServiceMounts.length > 0" classes="no-padding">
       <table class="table" >
         <thead>
           <tr>
-            <th>Type</th>
-            <th>Source</th>
-            <th>Target</th>
-            <th>Read only</th>
-            <th>Actions</th>
+            <th>Тип</th>
+            <th>Источник</th>
+            <th>Цель</th>
+            <th>Только для чтения</th>
+            <th>Действия</th>
           </tr>
         </thead>
         <tbody>
           <tr ng-repeat="mount in service.ServiceMounts">
             <td>
               <select name="mountType" class="form-control" ng-model="mount.Type" ng-disabled="isUpdating">
-                <option value="volume">Volume</option>
-                <option value="bind">Bind</option>
+                <option value="volume">Том</option>
+                <option value="bind">Привязать</option>
               </select>
             </td>
             <td>
@@ -52,13 +52,13 @@
     <rd-widget-footer>
       <div class="btn-toolbar" role="toolbar">
         <div class="btn-group" role="group">
-          <button type="button" class="btn btn-primary btn-sm" ng-disabled="!hasChanges(service, ['ServiceMounts'])" ng-click="updateService(service)">Apply changes</button>
+          <button type="button" class="btn btn-primary btn-sm" ng-disabled="!hasChanges(service, ['ServiceMounts'])" ng-click="updateService(service)">Применить изменения</button>
           <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <span class="caret"></span>
           </button>
           <ul class="dropdown-menu">
-            <li><a ng-click="cancelChanges(service, ['ServiceMounts'])">Reset changes</a></li>
-            <li><a ng-click="cancelChanges(service)">Reset all changes</a></li>
+            <li><a ng-click="cancelChanges(service, ['ServiceMounts'])">Сбросить изменения</a></li>
+            <li><a ng-click="cancelChanges(service)">Сбросить все изменения</a></li>
           </ul>
         </div>
       </div>

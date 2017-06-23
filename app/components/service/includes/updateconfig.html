@@ -1,49 +1,49 @@
 <div id="service-update-config">
   <rd-widget>
-    <rd-widget-header icon="fa-list-alt" title="Update configuration">
+    <rd-widget-header icon="fa-list-alt" title="Обновить конфигурацию">
     </rd-widget-header>
     <rd-widget-body classes="no-padding">
       <table class="table">
         <tbody>
           <tr>
-            <td>Update Parallelism</td>
+            <td>Обновить параллелизм</td>
             <td>
               <input class="input-sm" type="number" ng-model="service.UpdateParallelism" ng-change="updateServiceAttribute(service, 'UpdateParallelism')" ng-disabled="isUpdating"/>
             </td>
             <td>
               <p class="small text-muted" style="margin-top: 10px;">
-                Maximum number of tasks to be updated simultaneously (0 to update all at once).
+                Максимальное количество задач, подлежащих обновлению одновременно (0 для обновления всего сразу).
               </p>
             </td>
           </tr>
           <tr>
-            <td>Update Delay</td>
+            <td>Задержка обновления</td>
             <td>
               <input class="input-sm" type="number" ng-model="service.UpdateDelay" ng-change="updateServiceAttribute(service, 'UpdateDelay')" ng-disabled="isUpdating"/>
             </td>
             <td>
               <p class="small text-muted" style="margin-top: 10px;">
-                Amount of time between updates.
+                Количество времени между обновлениями.
               </p>
             </td>
           </tr>
           <tr>
-            <td>Update Failure Action</td>
+            <td>Обновление действия сбоя</td>
             <td>
               <div class="form-group">
                 <label class="radio-inline">
                   <input type="radio" name="failure_action" ng-model="service.UpdateFailureAction" value="continue" ng-change="updateServiceAttribute(service, 'UpdateFailureAction')" ng-disabled="isUpdating">
-                  Continue
+                  Продолжить
                 </label>
                 <label class="radio-inline">
                   <input type="radio" name="failure_action" ng-model="service.UpdateFailureAction" value="pause" ng-change="updateServiceAttribute(service, 'UpdateFailureAction')" ng-disabled="isUpdating">
-                  Pause
+                  Пауза
                 </label>
               </div>
             </td>
             <td>
               <p class="small text-muted" style="margin-top: 10px;">
-                Action taken on failure to start after update.
+                Действие после сбоя после обновления.
               </p>
             </td>
           </tr>
@@ -53,13 +53,13 @@
     <rd-widget-footer>
       <div class="btn-toolbar" role="toolbar">
         <div class="btn-group" role="group">
-          <button type="button" class="btn btn-primary btn-sm" ng-disabled="!hasChanges(service, ['UpdateFailureAction', 'UpdateDelay', 'UpdateParallelism'])" ng-click="updateService(service)">Apply changes</button>
+          <button type="button" class="btn btn-primary btn-sm" ng-disabled="!hasChanges(service, ['UpdateFailureAction', 'UpdateDelay', 'UpdateParallelism'])" ng-click="updateService(service)">Применить изменения</button>
           <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <span class="caret"></span>
           </button>
           <ul class="dropdown-menu">
-            <li><a ng-click="cancelChanges(service, ['UpdateFailureAction', 'UpdateDelay', 'UpdateParallelism'])">Reset changes</a></li>
-            <li><a ng-click="cancelChanges(service)">Reset all changes</a></li>
+            <li><a ng-click="cancelChanges(service, ['UpdateFailureAction', 'UpdateDelay', 'UpdateParallelism'])">Сбросить изменения</a></li>
+            <li><a ng-click="cancelChanges(service)">Сбросить все изменения</a></li>
           </ul>
         </div>
       </div>

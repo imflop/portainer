@@ -1,46 +1,46 @@
 <div id="service-restart-policy">
   <rd-widget>
-    <rd-widget-header icon="fa-list-alt" title="Restart policy">
+    <rd-widget-header icon="fa-list-alt" title="Политика перезагрузки">
     </rd-widget-header>
     <rd-widget-body classes="no-padding">
       <table class="table">
         <tbody>
           <tr>
-            <td>Restart condition</td>
+            <td>Состояние перезагрузки</td>
             <td>
               <div class="input-group input-group-sm">
                 <select class="selectpicker form-control" ng-model="service.RestartCondition" ng-change="updateServiceAttribute(service, 'RestartCondition')" ng-disabled="isUpdating">
                   <option value="none">None</option>
-                  <option value="on-failure">On failure</option>
-                  <option value="any">Any</option>
+                  <option value="on-failure">При отказе</option>
+                  <option value="any">Любые</option>
                 </select>
               </div>
             </td>
             <td>
               <p class="small text-muted" style="margin-top: 10px;">
-                Condition for restart.
+                Условие для перезапуска.
               </p>
             </td>
           </tr>
           <tr>
-            <td>Restart delay</td>
+            <td>Задержка перезапуска</td>
             <td>
               <input class="input-sm" type="number" ng-model="service.RestartDelay" ng-change="updateServiceAttribute(service, 'RestartDelay')" ng-disabled="isUpdating"/>
             </td>
             <td>
               <p class="small text-muted" style="margin-top: 10px;">
-                Delay between restart attempts. Time in seconds.
+                Задержка между попытками перезапуска. Время в секундах.
               </p>
             </td>
           </tr>
           <tr>
-            <td>Restart max attempts</td>
+            <td>Максимальные попытки перезапуска</td>
             <td>
               <input class="input-sm" type="number" ng-model="service.RestartMaxAttempts" ng-change="updateServiceAttribute(service, 'RestartMaxAttempts')" ng-disabled="isUpdating"/>
             </td>
             <td>
               <p class="small text-muted" style="margin-top: 10px;">
-                Maximum attempts to restart a given container before giving up (default value is 0, which is ignored).
+                Максимальные попытки перезапуска данного контейнера перед отказом (значение по умолчанию равно 0, которое игнорируется).
               </p>
             </td>
           </tr>
@@ -51,7 +51,7 @@
             </td>
             <td>
               <p class="small text-muted" style="margin-top: 10px;">
-                The time window used to evaluate the restart policy (default value is 0, which is unbounded).
+                Временное окно, используемое для оценки политики перезапуска (значение по умолчанию равно 0, что является неограниченным).
               </p>
             </td>
           </tr>
@@ -61,13 +61,13 @@
     <rd-widget-footer>
       <div class="btn-toolbar" role="toolbar">
         <div class="btn-group" role="group">
-          <button type="button" class="btn btn-primary btn-sm" ng-disabled="!hasChanges(service, ['RestartCondition', 'RestartDelay', 'RestartMaxAttempts', 'RestartWindow'])" ng-click="updateService(service)">Apply changes</button>
+          <button type="button" class="btn btn-primary btn-sm" ng-disabled="!hasChanges(service, ['RestartCondition', 'RestartDelay', 'RestartMaxAttempts', 'RestartWindow'])" ng-click="updateService(service)">Применить изменения</button>
           <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <span class="caret"></span>
           </button>
           <ul class="dropdown-menu">
-            <li><a ng-click="cancelChanges(service, ['RestartCondition', 'RestartDelay', 'RestartMaxAttempts', 'RestartWindow'])">Reset changes</a></li>
-            <li><a ng-click="cancelChanges(service)">Reset all changes</a></li>
+            <li><a ng-click="cancelChanges(service, ['RestartCondition', 'RestartDelay', 'RestartMaxAttempts', 'RestartWindow'])">Сбросить изменения</a></li>
+            <li><a ng-click="cancelChanges(service)">Сбросить все изменения</a></li>
           </ul>
         </div>
       </div>
