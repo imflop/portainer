@@ -49,12 +49,12 @@ function ($q, $scope, VolumeService, Notifications, Pagination) {
         counter = counter + 1;
         VolumeService.remove(volume)
         .then(function success() {
-          Notifications.success('Volume deleted', volume.Id);
+          Notifications.success('Том удален', volume.Id);
           var index = $scope.volumes.indexOf(volume);
           $scope.volumes.splice(index, 1);
         })
         .catch(function error(err) {
-          Notifications.error('Failure', err, 'Unable to remove volume');
+          Notifications.error('Failure', err, 'Не удалось удалить том');
         })
         .finally(function final() {
           complete();
@@ -70,7 +70,7 @@ function ($q, $scope, VolumeService, Notifications, Pagination) {
       $scope.volumes = data;
     })
     .catch(function error(err) {
-      Notifications.error('Failure', err, 'Unable to retrieve volumes');
+      Notifications.error('Failure', err, 'Не удалось получить тома');
       $scope.volumes = [];
     })
     .finally(function final() {

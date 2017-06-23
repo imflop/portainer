@@ -1,20 +1,20 @@
 <rd-header>
-  <rd-header-title title="Volume list">
-    <a data-toggle="tooltip" title="Refresh" ui-sref="volumes" ui-sref-opts="{reload: true}">
+  <rd-header-title title="Список томов">
+    <a data-toggle="tooltip" title="Обновление" ui-sref="volumes" ui-sref-opts="{reload: true}">
       <i class="fa fa-refresh" aria-hidden="true"></i>
     </a>
     <i id="loadVolumesSpinner" class="fa fa-cog fa-spin" style="margin-left: 5px;"></i>
   </rd-header-title>
-  <rd-header-content>Volumes</rd-header-content>
+  <rd-header-content>Тома</rd-header-content>
 </rd-header>
 
 <div class="col-lg-12">
   <rd-widget>
-    <rd-widget-header icon="fa-cubes" title="Volumes">
+    <rd-widget-header icon="fa-cubes" title="Тома">
       <div class="pull-right">
-        Items per page:
+        Количество элементов на странице:
         <select ng-model="state.pagination_count" ng-change="changePaginationCount()">
-          <option value="0">All</option>
+          <option value="0">Все</option>
           <option value="10">10</option>
           <option value="25">25</option>
           <option value="50">50</option>
@@ -24,8 +24,8 @@
     </rd-widget-header>
     <rd-widget-taskbar classes="col-lg-12">
       <div class="pull-left">
-        <button type="button" class="btn btn-danger" ng-click="removeAction()" ng-disabled="!state.selectedItemCount"><i class="fa fa-trash space-right" aria-hidden="true"></i>Remove</button>
-        <a class="btn btn-primary" type="button" ui-sref="actions.create.volume"><i class="fa fa-plus space-right" aria-hidden="true"></i>Add volume</a>
+        <button type="button" class="btn btn-danger" ng-click="removeAction()" ng-disabled="!state.selectedItemCount"><i class="fa fa-trash space-right" aria-hidden="true"></i>Удалить</button>
+        <a class="btn btn-primary" type="button" ui-sref="actions.create.volume"><i class="fa fa-plus space-right" aria-hidden="true"></i>Добавить том</a>
       </div>
       <div class="pull-right">
         <input type="text" id="filter" ng-model="state.filter" placeholder="Filter..." class="form-control input-sm" />
@@ -75,10 +75,10 @@
               </td>
             </tr>
             <tr ng-if="!volumes">
-              <td colspan="6" class="text-center text-muted">Loading...</td>
+              <td colspan="6" class="text-center text-muted">Загрузка...</td>
             </tr>
             <tr ng-if="volumes.length == 0">
-              <td colspan="6" class="text-center text-muted">No volumes available.</td>
+              <td colspan="6" class="text-center text-muted">Нет доступных томов.</td>
             </tr>
           </tbody>
         </table>
