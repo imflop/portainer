@@ -1,16 +1,16 @@
 <rd-header>
-  <rd-header-title title="Task details">
+  <rd-header-title title="Сведения о задаче">
     <i id="loadingViewSpinner" class="fa fa-cog fa-spin"></i>
   </rd-header-title>
   <rd-header-content ng-if="task && service">
-    <a ui-sref="services">Services</a> > <a ui-sref="service({id: service.Id })">{{ service.Name }}</a> > {{ task.Id }}
+    <a ui-sref="services">Сервисы</a> > <a ui-sref="service({id: service.Id })">{{ service.Name }}</a> > {{ task.Id }}
   </rd-header-content>
 </rd-header>
 
 <div class="row" ng-if="task && service">
   <div class="col-lg-12 col-md-12 col-xs-12">
     <rd-widget>
-      <rd-widget-header icon="fa-tasks" title="Task status"></rd-widget-header>
+      <rd-widget-header icon="fa-tasks" title="Статус задачи"></rd-widget-header>
       <rd-widget-body classes="no-padding">
         <table class="table">
           <tbody>
@@ -19,31 +19,31 @@
               <td>{{ task.Id }}</td>
             </tr>
             <tr>
-              <td>State</td>
+              <td>Состояние</td>
               <td><span class="label label-{{ task.Status.State|taskstatusbadge }}">{{ task.Status.State }}</span></td>
             </tr>
             <tr>
-              <td>State Message</td>
+              <td>Сообщение о состоянии</td>
               <td>{{ task.Status.Message }}</td>
             </tr>
             <tr ng-if="task.Status.Err">
-              <td>Error message</td>
+              <td>Сообщение об ошибке</td>
               <td><code>{{ task.Status.Err }}</code></td>
             </tr>
             <tr>
-              <td>Image</td>
+              <td>Образ</td>
               <td>{{ task.Spec.ContainerSpec.Image | hideshasum }}</td>
             </tr>
             <tr ng-if="service.Mode !== 'global'">
-              <td>Slot</td>
+              <td>Слот</td>
               <td>{{ task.Slot }}</td>
             </tr>
             <tr>
-              <td>Created</td>
+              <td>Создан</td>
               <td>{{ task.Created|getisodate }}</td>
             </tr>
             <tr ng-if="task.Status.ContainerStatus.ContainerID">
-              <td>Container ID</td>
+              <td>ID контейнера</td>
               <td>{{ task.Status.ContainerStatus.ContainerID }}</td>
             </tr>
           </tbody>

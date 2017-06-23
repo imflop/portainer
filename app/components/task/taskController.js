@@ -15,7 +15,7 @@ function ($scope, $stateParams, TaskService, Service, Notifications) {
       $scope.service = service;
     })
     .catch(function error(err) {
-      Notifications.error('Failure', err, 'Unable to retrieve task details');
+      Notifications.error('Failure', err, 'Не удалось получить сведения о задаче');
     })
     .finally(function final() {
       $('#loadingViewSpinner').hide();
