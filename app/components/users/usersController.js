@@ -53,7 +53,7 @@ function ($q, $scope, $state, $sanitize, UserService, TeamService, TeamMembershi
       }
     }
     $scope.state.validUsername = valid;
-    $scope.state.userCreationError = valid ? '' : 'Username already taken';
+    $scope.state.userCreationError = valid ? '' : 'Данное имя пользователя уже занято';
   };
 
   $scope.addUser = function() {
@@ -68,11 +68,11 @@ function ($q, $scope, $state, $sanitize, UserService, TeamService, TeamMembershi
     });
     UserService.createUser(username, password, role, teamIds)
     .then(function success(data) {
-      Notifications.success('User successfully created', username);
+      Notifications.success('Пользователь успешно создан', username);
       $state.reload();
     })
     .catch(function error(err) {
-      Notifications.error('Failure', err, 'Unable to create user');
+      Notifications.error('Failure', err, 'Не удалось создать пользователя');
     })
     .finally(function final() {
       $('#createUserSpinner').hide();
@@ -95,10 +95,10 @@ function ($q, $scope, $state, $sanitize, UserService, TeamService, TeamMembershi
         .then(function success(data) {
           var index = $scope.users.indexOf(user);
           $scope.users.splice(index, 1);
-          Notifications.success('User successfully deleted', user.Username);
+          Notifications.success('Пользователь успешно удален', user.Username);
         })
         .catch(function error(err) {
-          Notifications.error('Failure', err, 'Unable to remove user');
+          Notifications.error('Failure', err, 'Не удалось удалить пользователя');
         })
         .finally(function final() {
           complete();
@@ -109,7 +109,7 @@ function ($q, $scope, $state, $sanitize, UserService, TeamService, TeamMembershi
 
   $scope.removeAction = function () {
     ModalService.confirmDeletion(
-      'Do you want to remove the selected users? They will not be able to login into Portainer anymore.',
+      'Вы хотите удалить выбранных пользователей? Они больше не смогут войти в Portainer.',
       function onConfirm(confirmed) {
         if(!confirmed) { return; }
         deleteSelectedUsers();
@@ -149,7 +149,7 @@ function ($q, $scope, $state, $sanitize, UserService, TeamService, TeamMembershi
       $scope.teams = data.teams;
     })
     .catch(function error(err) {
-      Notifications.error('Failure', err, 'Unable to retrieve users and teams');
+      Notifications.error('Failure', err, 'Не удалось получить пользователей и команды');
       $scope.users = [];
       $scope.teams = [];
     })
