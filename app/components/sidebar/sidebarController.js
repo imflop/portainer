@@ -63,7 +63,7 @@ function ($q, $scope, $state, Settings, EndpointService, StateManager, EndpointP
       checkPermissions(data);
     })
     .catch(function error(err) {
-      Notifications.error('Failure', err, 'Unable to retrieve endpoints');
+      Notifications.error('Failure', err, 'Не удалось получить эндпоинты');
     });
   }
 

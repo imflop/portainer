@@ -9,42 +9,42 @@
       </a>
     </li>
     <li class="sidebar-title">
-      <span>Active endpoint</span>
+      <span>Активные эндпоинты</span>
     </li>
     <li class="sidebar-title">
       <select class="select-endpoint form-control" ng-options="endpoint.Name for endpoint in endpoints" ng-model="activeEndpoint" ng-change="switchEndpoint(activeEndpoint)">
       </select>
     </li>
-    <li class="sidebar-title"><span>Endpoint actions</span></li>
+    <li class="sidebar-title"><span>Действия эндпоинта</span></li>
     <li class="sidebar-list">
-      <a ui-sref="dashboard" ui-sref-active="active">Dashboard <span class="menu-icon fa fa-tachometer"></span></a>
+      <a ui-sref="dashboard" ui-sref-active="active">Доска мониторинга <span class="menu-icon fa fa-tachometer"></span></a>
     </li>
     <li class="sidebar-list">
-      <a ui-sref="templates" ui-sref-active="active">App Templates <span class="menu-icon fa fa-rocket"></span></a>
+      <a ui-sref="templates" ui-sref-active="active">Шаблоны приложения <span class="menu-icon fa fa-rocket"></span></a>
       <div class="sidebar-sublist" ng-if="toggle && displayExternalContributors && ($state.current.name === 'templates' || $state.current.name === 'templates_linuxserver')">
         <a ui-sref="templates_linuxserver" ui-sref-active="active">LinuxServer.io</a>
       </div>
     </li>
     <li class="sidebar-list" ng-if="applicationState.endpoint.mode.provider === 'DOCKER_SWARM_MODE'">
-      <a ui-sref="services" ui-sref-active="active">Services <span class="menu-icon fa fa-list-alt"></span></a>
+      <a ui-sref="services" ui-sref-active="active">Сервисы <span class="menu-icon fa fa-list-alt"></span></a>
     </li>
     <li class="sidebar-list">
-      <a ui-sref="containers" ui-sref-active="active">Containers <span class="menu-icon fa fa-server"></span></a>
+      <a ui-sref="containers" ui-sref-active="active">Контейнеры <span class="menu-icon fa fa-server"></span></a>
     </li>
     <li class="sidebar-list">
-      <a ui-sref="images" ui-sref-active="active">Images <span class="menu-icon fa fa-clone"></span></a>
+      <a ui-sref="images" ui-sref-active="active">Образы <span class="menu-icon fa fa-clone"></span></a>
     </li>
     <li class="sidebar-list">
-      <a ui-sref="networks" ui-sref-active="active">Networks <span class="menu-icon fa fa-sitemap"></span></a>
+      <a ui-sref="networks" ui-sref-active="active">Сети <span class="menu-icon fa fa-sitemap"></span></a>
     </li>
     <li class="sidebar-list">
-      <a ui-sref="volumes" ui-sref-active="active">Volumes <span class="menu-icon fa fa-cubes"></span></a>
+      <a ui-sref="volumes" ui-sref-active="active">Тома <span class="menu-icon fa fa-cubes"></span></a>
     </li>
     <li class="sidebar-list" ng-if="applicationState.endpoint.apiVersion >= 1.25 && applicationState.endpoint.mode.provider === 'DOCKER_SWARM_MODE'">
-      <a ui-sref="secrets" ui-sref-active="active">Secrets <span class="menu-icon fa fa-user-secret"></span></a>
+      <a ui-sref="secrets" ui-sref-active="active">Секреты <span class="menu-icon fa fa-user-secret"></span></a>
     </li>
     <li class="sidebar-list" ng-if="applicationState.endpoint.mode.provider === 'DOCKER_STANDALONE'">
-      <a ui-sref="events" ui-sref-active="active">Events <span class="menu-icon fa fa-history"></span></a>
+      <a ui-sref="events" ui-sref-active="active">События <span class="menu-icon fa fa-history"></span></a>
     </li>
     <li class="sidebar-list" ng-if="applicationState.endpoint.mode.provider === 'DOCKER_SWARM' || (applicationState.endpoint.mode.provider === 'DOCKER_SWARM_MODE' && applicationState.endpoint.mode.role === 'MANAGER')">
       <a ui-sref="swarm" ui-sref-active="active">Swarm <span class="menu-icon fa fa-object-group"></span></a>
@@ -56,19 +56,19 @@
       <span>Portainer settings</span>
     </li>
     <li class="sidebar-list" ng-if="applicationState.application.authentication && (isAdmin || isTeamLeader)">
-      <a ui-sref="users" ui-sref-active="active">User management <span class="menu-icon fa fa-users"></span></a>
+      <a ui-sref="users" ui-sref-active="active">Управление пользователями <span class="menu-icon fa fa-users"></span></a>
       <div class="sidebar-sublist" ng-if="toggle && ($state.current.name === 'users' || $state.current.name === 'user' || $state.current.name === 'teams' || $state.current.name === 'team')">
-        <a ui-sref="teams" ui-sref-active="active">Teams</span></a>
+        <a ui-sref="teams" ui-sref-active="active">Команды</span></a>
       </div>
     </li>
     <li class="sidebar-list" ng-if="!applicationState.application.authentication || isAdmin">
-      <a ui-sref="endpoints" ui-sref-active="active">Endpoints <span class="menu-icon fa fa-plug"></span></a>
+      <a ui-sref="endpoints" ui-sref-active="active">Эндпоинты <span class="menu-icon fa fa-plug"></span></a>
     </li>
     <li class="sidebar-list" ng-if="!applicationState.application.authentication || isAdmin">
-      <a ui-sref="registries" ui-sref-active="active">Registries <span class="menu-icon fa fa-database"></span></a>
+      <a ui-sref="registries" ui-sref-active="active">Реестры <span class="menu-icon fa fa-database"></span></a>
     </li>
     <li class="sidebar-list" ng-if="!applicationState.application.authentication || isAdmin">
-      <a ui-sref="settings" ui-sref-active="active">Settings <span class="menu-icon fa fa-cogs"></span></a>
+      <a ui-sref="settings" ui-sref-active="active">Настройки <span class="menu-icon fa fa-cogs"></span></a>
     </li>
   </ul>
   <div class="sidebar-footer">
