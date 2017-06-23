@@ -1,6 +1,6 @@
 <rd-header>
-  <rd-header-title title="Cluster overview">
-    <a data-toggle="tooltip" title="Refresh" ui-sref="swarm" ui-sref-opts="{reload: true}">
+  <rd-header-title title="Обзор кластеров">
+    <a data-toggle="tooltip" title="Обновление" ui-sref="swarm" ui-sref-opts="{reload: true}">
       <i class="fa fa-refresh" aria-hidden="true"></i>
     </a>
     <i id="loadingViewSpinner" class="fa fa-cog fa-spin" style="margin-left: 5px;"></i>
@@ -11,17 +11,17 @@
 <div class="row">
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
     <rd-widget>
-      <rd-widget-header icon="fa-object-group" title="Cluster status"></rd-widget-header>
+      <rd-widget-header icon="fa-object-group" title="Статус кластера"></rd-widget-header>
       <rd-widget-body classes="no-padding">
         <table class="table">
           <tbody>
             <tr>
-              <td>Nodes</td>
+              <td>Узлы</td>
               <td ng-if="applicationState.endpoint.mode.provider === 'DOCKER_SWARM'">{{ swarm.Nodes }}</td>
               <td ng-if="applicationState.endpoint.mode.provider === 'DOCKER_SWARM_MODE'">{{ info.Swarm.Nodes }}</td>
             </tr>
             <tr ng-if="applicationState.endpoint.mode.provider === 'DOCKER_SWARM'">
-              <td>Images</td>
+              <td>Образы</td>
               <td>{{ info.Images }}</td>
             </tr>
             <tr ng-if="applicationState.endpoint.mode.provider === 'DOCKER_SWARM'">
@@ -29,33 +29,33 @@
               <td>{{ docker.Version|swarmversion }}</td>
             </tr>
             <tr>
-              <td>Docker API version</td>
+              <td>Версия Docker API</td>
               <td>{{ docker.ApiVersion }}</td>
             </tr>
             <tr ng-if="applicationState.endpoint.mode.provider === 'DOCKER_SWARM'">
-              <td>Strategy</td>
+              <td>Стратегия</td>
               <td>{{ swarm.Strategy }}</td>
             </tr>
             <tr>
-              <td>Total CPU</td>
+              <td>Максимальный CPU</td>
               <td ng-if="applicationState.endpoint.mode.provider === 'DOCKER_SWARM'">{{ info.NCPU }}</td>
               <td ng-if="applicationState.endpoint.mode.provider === 'DOCKER_SWARM_MODE'">{{ totalCPU }}</td>
             </tr>
             <tr>
-              <td>Total memory</td>
+              <td>Максимальная память</td>
               <td ng-if="applicationState.endpoint.mode.provider === 'DOCKER_SWARM'">{{ info.MemTotal|humansize: 2 }}</td>
               <td ng-if="applicationState.endpoint.mode.provider === 'DOCKER_SWARM_MODE'">{{ totalMemory|humansize: 2 }}</td>
             </tr>
             <tr ng-if="applicationState.endpoint.mode.provider === 'DOCKER_SWARM'">
-              <td>Operating system</td>
+              <td>Операционная система</td>
               <td>{{ info.OperatingSystem }}</td>
             </tr>
             <tr ng-if="applicationState.endpoint.mode.provider === 'DOCKER_SWARM'">
-              <td>Kernel version</td>
+              <td>Версия Kernel</td>
               <td>{{ info.KernelVersion }}</td>
             </tr>
             <tr ng-if="applicationState.endpoint.mode.provider === 'DOCKER_SWARM'">
-              <td>Go version</td>
+              <td>Версия Go</td>
               <td>{{ docker.GoVersion }}</td>
             </tr>
           </tbody>
@@ -68,11 +68,11 @@
 <div class="row">
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" ng-if="applicationState.endpoint.mode.provider === 'DOCKER_SWARM'">
     <rd-widget>
-      <rd-widget-header icon="fa-hdd-o" title="Node status">
+      <rd-widget-header icon="fa-hdd-o" title="Статус узла">
         <div class="pull-right">
-          Items per page:
+          Количество элементов на странице:
           <select ng-model="state.pagination_count" ng-change="changePaginationCount()">
-            <option value="0">All</option>
+            <option value="0">Все</option>
             <option value="10">10</option>
             <option value="25">25</option>
             <option value="50">50</option>
@@ -86,7 +86,7 @@
             <tr>
               <th>
                 <a ui-sref="swarm" ng-click="order('name')">
-                  Name
+                  Имя
                   <span ng-show="sortType == 'name' && !sortReverse" class="glyphicon glyphicon-chevron-down"></span>
                   <span ng-show="sortType == 'name' && sortReverse" class="glyphicon glyphicon-chevron-up"></span>
                 </a>
@@ -100,7 +100,7 @@
               </th>
               <th>
                 <a ui-sref="swarm" ng-click="order('memory')">
-                  Memory
+                  Память
                   <span ng-show="sortType == 'memory' && !sortReverse" class="glyphicon glyphicon-chevron-down"></span>
                   <span ng-show="sortType == 'memory' && sortReverse" class="glyphicon glyphicon-chevron-up"></span>
                 </a>
@@ -114,14 +114,14 @@
               </th>
               <th>
                 <a ui-sref="swarm" ng-click="order('version')">
-                  Engine
+                  Движок
                   <span ng-show="sortType == 'version' && !sortReverse" class="glyphicon glyphicon-chevron-down"></span>
                   <span ng-show="sortType == 'version' && sortReverse" class="glyphicon glyphicon-chevron-up"></span>
                 </a>
               </th>
               <th>
                 <a ui-sref="swarm" ng-click="order('status')">
-                  Status
+                  Статус
                   <span ng-show="sortType == 'status' && !sortReverse" class="glyphicon glyphicon-chevron-down"></span>
                   <span ng-show="sortType == 'status' && sortReverse" class="glyphicon glyphicon-chevron-up"></span>
                 </a>
@@ -147,11 +147,11 @@
   </div>
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" ng-if="applicationState.endpoint.mode.provider === 'DOCKER_SWARM_MODE'">
     <rd-widget>
-      <rd-widget-header icon="fa-hdd-o" title="Node status">
+      <rd-widget-header icon="fa-hdd-o" title="Статус узла">
         <div class="pull-right">
-          Items per page:
+          Количество элементов на странице:
           <select ng-model="state.pagination_count" ng-change="changePaginationCount()">
-            <option value="0">All</option>
+            <option value="0">Все</option>
             <option value="10">10</option>
             <option value="25">25</option>
             <option value="50">50</option>
@@ -165,14 +165,14 @@
             <tr>
               <th>
                 <a ui-sref="swarm" ng-click="order('Hostname')">
-                  Name
+                  Имя
                   <span ng-show="sortType == 'Hostname' && !sortReverse" class="glyphicon glyphicon-chevron-down"></span>
                   <span ng-show="sortType == 'Hostname' && sortReverse" class="glyphicon glyphicon-chevron-up"></span>
                 </a>
               </th>
               <th>
                 <a ui-sref="swarm" ng-click="order('Role')">
-                  Role
+                  Роль
                   <span ng-show="sortType == 'Role' && !sortReverse" class="glyphicon glyphicon-chevron-down"></span>
                   <span ng-show="sortType == 'Role' && sortReverse" class="glyphicon glyphicon-chevron-up"></span>
                 </a>
@@ -186,28 +186,28 @@
               </th>
               <th>
                 <a ui-sref="swarm" ng-click="order('Memory')">
-                  Memory
+                  Память
                   <span ng-show="sortType == 'Memory' && !sortReverse" class="glyphicon glyphicon-chevron-down"></span>
                   <span ng-show="sortType == 'Memory' && sortReverse" class="glyphicon glyphicon-chevron-up"></span>
                 </a>
               </th>
               <th>
                 <a ui-sref="swarm" ng-click="order('EngineVersion')">
-                  Engine
+                  Движок
                   <span ng-show="sortType == 'EngineVersion' && !sortReverse" class="glyphicon glyphicon-chevron-down"></span>
                   <span ng-show="sortType == 'EngineVersion' && sortReverse" class="glyphicon glyphicon-chevron-up"></span>
                 </a>
               </th>
               <th ng-if="applicationState.endpoint.apiVersion >= 1.25">
                 <a ui-sref="swarm" ng-click="order('Addr')">
-                  IP Address
+                  IP Адрес
                   <span ng-show="sortType == 'Addr' && !sortReverse" class="glyphicon glyphicon-chevron-down"></span>
                   <span ng-show="sortType == 'Addr' && sortReverse" class="glyphicon glyphicon-chevron-up"></span>
                 </a>
               </th>
               <th>
                 <a ui-sref="swarm" ng-click="order('Status')">
-                  Status
+                  Статус
                   <span ng-show="sortType == 'Status' && !sortReverse" class="glyphicon glyphicon-chevron-down"></span>
                   <span ng-show="sortType == 'Status' && sortReverse" class="glyphicon glyphicon-chevron-up"></span>
                 </a>

@@ -91,7 +91,7 @@ function ($q, $scope, SystemService, NodeService, Pagination, Notifications) {
       }
     })
     .catch(function error(err) {
-      Notifications.error('Failure', err, 'Unable to retrieve cluster details');
+      Notifications.error('Failure', err, 'Не удалось получить сведения о кластере');
     })
     .finally(function final() {
       $('#loadingViewSpinner').hide();
