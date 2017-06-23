@@ -13,7 +13,7 @@ function ($scope, $stateParams, RegistryService, Notifications) {
       $scope.registry = data;
     })
     .catch(function error(err) {
-      Notifications.error('Failure', err, 'Unable to retrieve registry details');
+      Notifications.error('Failure', err, 'Не удалось получить сведения о реестре');
     })
     .finally(function final(){
       $('#loadingViewSpinner').hide();

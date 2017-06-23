@@ -1,9 +1,9 @@
 <rd-header>
-  <rd-header-title title="Registry access">
+  <rd-header-title title="Доступ к реестру">
     <i id="loadingViewSpinner" class="fa fa-cog fa-spin"></i>
   </rd-header-title>
   <rd-header-content>
-    <a ui-sref="registries">Registries</a> > <a ui-sref="registry({id: registry.Id})">{{ registry.Name }}</a> > Access management
+    <a ui-sref="registries">Регистры</a> > <a ui-sref="registry({id: registry.Id})">{{ registry.Name }}</a> > Управление доступом
   </rd-header-content>
 </rd-header>
 
@@ -15,7 +15,7 @@
         <table class="table">
           <tbody>
             <tr>
-              <td>Name</td>
+              <td>Имя</td>
               <td>
                 {{ registry.Name }}
               </td>
@@ -29,8 +29,9 @@
             <tr>
               <td colspan="2">
                 <span class="small text-muted">
-                  You can select which user or team can access this registry by moving them to the authorized accesses table. Simply click
-                  on a user or team entry to move it from one table to the other.
+                  Вы можете выбрать, какой пользователь или команда могут получить доступ к этому реестру, переместив
+                  их в авторизованную таблицу доступа. Просто нажмите на запись пользователя или команды, чтобы
+                  переместить ее из одной таблицы в другую.
                 </span>
               </td>
             </tr>
