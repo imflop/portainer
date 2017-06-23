@@ -14,10 +14,10 @@ function ($q, $scope, $state, RegistryService, DockerHubService, ModalService, N
     var dockerhub = $scope.dockerhub;
     DockerHubService.update(dockerhub)
     .then(function success(data) {
-      Notifications.success('DockerHub registry updated');
+      Notifications.success('DockerHub реестр обновлен');
     })
     .catch(function error(err) {
-      Notifications.error('Failure', err, 'Unable to update DockerHub details');
+      Notifications.error('Failure', err, 'Не удалось обновить данные DockerHub');
     })
     .finally(function final() {
       $('#updateDockerhubSpinner').hide();
@@ -52,7 +52,7 @@ function ($q, $scope, $state, RegistryService, DockerHubService, ModalService, N
 
   $scope.removeAction = function() {
     ModalService.confirmDeletion(
-      'Do you want to remove the selected registries?',
+      'Вы хотите удалить выбранные реестры?',
       function onConfirm(confirmed) {
         if(!confirmed) { return; }
         removeRegistries();
@@ -78,10 +78,10 @@ function ($q, $scope, $state, RegistryService, DockerHubService, ModalService, N
         .then(function success(data) {
           var index = registries.indexOf(registry);
           registries.splice(index, 1);
-          Notifications.success('Registry deleted', registry.Name);
+          Notifications.success('Реестр удален', registry.Name);
         })
         .catch(function error(err) {
-          Notifications.error('Failure', err, 'Unable to remove registry');
+          Notifications.error('Failure', err, 'Не удалось удалить реестр');
         })
         .finally(function final() {
           complete();
@@ -102,7 +102,7 @@ function ($q, $scope, $state, RegistryService, DockerHubService, ModalService, N
     })
     .catch(function error(err) {
       $scope.registries = [];
-      Notifications.error('Failure', err, 'Unable to retrieve registries');
+      Notifications.error('Failure', err, 'Не удалось получить реестры');
     })
     .finally(function final() {
       $('#loadingViewSpinner').hide();
