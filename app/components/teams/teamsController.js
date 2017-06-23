@@ -50,7 +50,7 @@ function ($q, $scope, $state, TeamService, UserService, TeamMembershipService, M
       }
     }
     $scope.state.validName = valid;
-    $scope.state.teamCreationError = valid ? '' : 'Team name already existing';
+    $scope.state.teamCreationError = valid ? '' : 'Имя команды уже существует';
   };
 
   $scope.addTeam = function() {
@@ -64,11 +64,11 @@ function ($q, $scope, $state, TeamService, UserService, TeamMembershipService, M
 
     TeamService.createTeam(teamName, leaderIds)
     .then(function success(data) {
-      Notifications.success('Team successfully created', teamName);
+      Notifications.success('Команда успешно создана', teamName);
       $state.reload();
     })
     .catch(function error(err) {
-      Notifications.error('Failure', err, 'Unable to create team');
+      Notifications.error('Failure', err, 'Не удалось создать команду');
     })
     .finally(function final() {
       $('#createTeamSpinner').hide();
@@ -91,10 +91,10 @@ function ($q, $scope, $state, TeamService, UserService, TeamMembershipService, M
         .then(function success(data) {
           var index = $scope.teams.indexOf(team);
           $scope.teams.splice(index, 1);
-          Notifications.success('Team successfully deleted', team.Name);
+          Notifications.success('Команда успешно удалена', team.Name);
         })
         .catch(function error(err) {
-          Notifications.error('Failure', err, 'Unable to remove team');
+          Notifications.error('Failure', err, 'Не удалось удалить команду');
         })
         .finally(function final() {
           complete();

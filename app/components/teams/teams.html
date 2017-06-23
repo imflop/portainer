@@ -1,23 +1,23 @@
 <rd-header>
-  <rd-header-title title="Teams">
-    <a data-toggle="tooltip" title="Refresh" ui-sref="teams" ui-sref-opts="{reload: true}">
+  <rd-header-title title="Команды">
+    <a data-toggle="tooltip" title="Обновление" ui-sref="teams" ui-sref-opts="{reload: true}">
       <i class="fa fa-refresh" aria-hidden="true"></i>
     </a>
     <i id="loadingViewSpinner" class="fa fa-cog fa-spin" style="margin-left: 5px;"></i>
   </rd-header-title>
-  <rd-header-content>Teams management</rd-header-content>
+  <rd-header-content>Управление командами</rd-header-content>
 </rd-header>
 
 <div class="row" ng-if="isAdmin">
   <div class="col-lg-12 col-md-12 col-xs-12">
     <rd-widget>
-      <rd-widget-header icon="fa-plus" title="Add a new team">
+      <rd-widget-header icon="fa-plus" title="Добавить новую команду">
       </rd-widget-header>
       <rd-widget-body>
         <form class="form-horizontal">
           <!-- name-input -->
           <div class="form-group">
-            <label for="teamname" class="col-sm-1 control-label text-left">Name</label>
+            <label for="teamname" class="col-sm-1 control-label text-left">Имя</label>
             <div class="col-sm-9">
               <div class="input-group">
                 <input type="text" class="form-control" id="teamname" ng-model="formValues.Name" ng-change="checkNameValidity()" placeholder="e.g. development">
@@ -30,8 +30,8 @@
           <div class="form-group" ng-if="users.length > 0">
             <div class="col-sm-12" >
               <label class="control-label text-left">
-                Select team leader(s)
-                <portainer-tooltip position="bottom" message="You can assign one or more leaders to this team. Team leaders can manage their teams users and resources."></portainer-tooltip>
+                Выбрать лидера(ов) команды
+                <portainer-tooltip position="bottom" message="Вы можете назначить одного или нескольких лидеров этой команде. Руководители команд могут управлять своими командами пользователями и ресурсами."></portainer-tooltip>
               </label>
               <span isteven-multi-select
                ng-if="users.length > 0"
@@ -50,7 +50,7 @@
           <!-- !team-leaders -->
           <div class="form-group">
             <div class="col-sm-12">
-              <button type="button" class="btn btn-primary btn-sm" ng-disabled="!state.validName || formValues.Name === ''" ng-click="addTeam()"><i class="fa fa-plus" aria-hidden="true"></i> Add team</button>
+              <button type="button" class="btn btn-primary btn-sm" ng-disabled="!state.validName || formValues.Name === ''" ng-click="addTeam()"><i class="fa fa-plus" aria-hidden="true"></i> Добавить команду</button>
               <i id="createTeamSpinner" class="fa fa-cog fa-spin" style="margin-left: 5px; display: none;"></i>
               <span class="text-danger" ng-if="state.teamCreationError" style="margin: 5px;">
                 <i class="fa fa-exclamation-circle" aria-hidden="true"></i> {{ state.teamCreationError }}
@@ -66,11 +66,11 @@
 <div class="row">
   <div class="col-lg-12 col-md-12 col-xs-12">
     <rd-widget>
-      <rd-widget-header icon="fa-users" title="Teams">
+      <rd-widget-header icon="fa-users" title="Команды">
         <div class="pull-right">
-          Items per page:
+          Количество элементов на странице:
           <select ng-model="state.pagination_count" ng-change="changePaginationCount()">
-            <option value="0">All</option>
+            <option value="0">Все</option>
             <option value="10">10</option>
             <option value="25">25</option>
             <option value="50">50</option>
@@ -80,7 +80,7 @@
       </rd-widget-header>
       <rd-widget-taskbar classes="col-lg-12">
         <div class="pull-left" ng-if="isAdmin">
-          <button type="button" class="btn btn-danger" ng-click="removeAction()" ng-disabled="!state.selectedItemCount"><i class="fa fa-trash space-right" aria-hidden="true"></i>Remove</button>
+          <button type="button" class="btn btn-danger" ng-click="removeAction()" ng-disabled="!state.selectedItemCount"><i class="fa fa-trash space-right" aria-hidden="true"></i>Удалить</button>
         </div>
         <div class="pull-right">
           <input type="text" id="filter" ng-model="state.filter" placeholder="Filter..." class="form-control input-sm" />
@@ -96,7 +96,7 @@
                 </th>
                 <th>
                   <a ui-sref="users" ng-click="order('Name')">
-                    Name
+                    Имя
                     <span ng-show="sortType == 'Name' && !sortReverse" class="glyphicon glyphicon-chevron-down"></span>
                     <span ng-show="sortType == 'Name' && sortReverse" class="glyphicon glyphicon-chevron-up"></span>
                   </a>
@@ -109,14 +109,14 @@
                 <td ng-if="isAdmin"><input type="checkbox" ng-model="team.Checked" ng-change="selectItem(team)" /></td>
                 <td>{{ team.Name }}</td>
                 <td>
-                  <a ui-sref="team({id: team.Id})"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</a>
+                  <a ui-sref="team({id: team.Id})"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Изменить</a>
                 </td>
               </tr>
               <tr ng-if="!teams">
-                <td colspan="3" class="text-center text-muted">Loading...</td>
+                <td colspan="3" class="text-center text-muted">Загрузка...</td>
               </tr>
               <tr ng-if="teams.length == 0">
-                <td colspan="3" class="text-center text-muted">No teams available.</td>
+                <td colspan="3" class="text-center text-muted">Нет команд.</td>
               </tr>
             </tbody>
           </table>
