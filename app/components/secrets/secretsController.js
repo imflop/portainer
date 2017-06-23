@@ -43,12 +43,12 @@ function ($scope, $stateParams, $state, SecretService, Notifications, Pagination
         counter = counter + 1;
         SecretService.remove(secret.Id)
         .then(function success() {
-          Notifications.success('Secret deleted', secret.Id);
+          Notifications.success('Секрет удален', secret.Id);
           var index = $scope.secrets.indexOf(secret);
           $scope.secrets.splice(index, 1);
         })
         .catch(function error(err) {
-          Notifications.error('Failure', err, 'Unable to remove secret');
+          Notifications.error('Failure', err, 'Не удалось удалить секрет');
         })
         .finally(function final() {
           complete();
@@ -65,7 +65,7 @@ function ($scope, $stateParams, $state, SecretService, Notifications, Pagination
     })
     .catch(function error(err) {
       $scope.secrets = [];
-      Notifications.error('Failure', err, 'Unable to retrieve secrets');
+      Notifications.error('Failure', err, 'Не удалось получить секреты');
     })
     .finally(function final() {
       $('#loadingViewSpinner').hide();
