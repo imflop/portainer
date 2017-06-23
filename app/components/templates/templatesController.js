@@ -80,7 +80,7 @@ function ($scope, $q, $state, $stateParams, $anchorScroll, $filter, ContainerSer
       return ResourceControlService.applyResourceControl('container', containerIdentifier, userId, accessControlData, generatedVolumeIds);
     })
     .then(function success() {
-      Notifications.success('Container successfully created');
+      Notifications.success('Контейнер успешно создан');
       $state.go('containers', {}, {reload: true});
     })
     .catch(function error(err) {
@@ -178,7 +178,7 @@ function ($scope, $q, $state, $stateParams, $anchorScroll, $filter, ContainerSer
     })
     .catch(function error(err) {
       $scope.templates = [];
-      Notifications.error('Failure', err, 'An error occured during apps initialization.');
+      Notifications.error('Failure', err, 'Произошла ошибка во время инициализации приложений.');
     })
     .finally(function final(){
       $('#loadTemplatesSpinner').hide();
