@@ -1,31 +1,31 @@
 <rd-header>
-  <rd-header-title title="User details">
+  <rd-header-title title="Сведения о пользователе">
     <i id="loadingViewSpinner" class="fa fa-cog fa-spin"></i>
   </rd-header-title>
   <rd-header-content>
-    <a ui-sref="users">Users</a> > <a ui-sref="user({id: user.Id})">{{ user.Username }}</a>
+    <a ui-sref="users">Пользователи</a> > <a ui-sref="user({id: user.Id})">{{ user.Username }}</a>
   </rd-header-content>
 </rd-header>
 
 <div class="row">
   <div class="col-lg-12 col-md-12 col-xs-12">
     <rd-widget>
-      <rd-widget-header icon="fa-user" title="User details"></rd-widget-header>
+      <rd-widget-header icon="fa-user" title="Сведения о пользователе"></rd-widget-header>
       <rd-widget-body classes="no-padding">
         <table class="table">
           <tbody>
             <tr>
-              <td><label>Name</label></td>
+              <td><label>Имя</label></td>
               <td>
                 {{ user.Username }}
-                <button class="btn btn-xs btn-danger" ng-click="deleteUser()"><i class="fa fa-trash space-right" aria-hidden="true"></i>Delete this user</button>
+                <button class="btn btn-xs btn-danger" ng-click="deleteUser()"><i class="fa fa-trash space-right" aria-hidden="true"></i>Удалить этого пользователя</button>
               </td>
             </tr>
             <tr>
               <td colspan="2">
                 <label for="permissions" class="control-label text-left">
-                  Administrator
-                  <portainer-tooltip position="bottom" message="Administrators have access to Portainer settings management as well as full control over all defined endpoints and their resources."></portainer-tooltip>
+                  Администратор
+                  <portainer-tooltip position="bottom" message="Администраторы имеют доступ к управлению настройками Portainer, а также полный контроль над всеми определенными конечными точками и их ресурсами."></portainer-tooltip>
                 </label>
                 <label class="switch" style="margin-left: 20px;">
                   <input type="checkbox" ng-model="formValues.Administrator" ng-change="updatePermissions()"><i></i>
@@ -65,12 +65,12 @@
 <div class="row">
   <div class="col-lg-12 col-md-12 col-xs-12">
     <rd-widget>
-      <rd-widget-header icon="fa-lock" title="Change user password"></rd-widget-header>
+      <rd-widget-header icon="fa-lock" title="Изменить пароль пользователя"></rd-widget-header>
       <rd-widget-body>
         <form class="form-horizontal" style="margin-top: 15px;">
           <!-- new-password-input -->
           <div class="form-group">
-            <label for="new_password" class="col-sm-2 control-label text-left">New password</label>
+            <label for="new_password" class="col-sm-2 control-label text-left">Новый пароль</label>
             <div class="col-sm-8">
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-lock" aria-hidden="true"></i></span>
@@ -81,7 +81,7 @@
           <!-- !new-password-input -->
           <!-- confirm-password-input -->
           <div class="form-group">
-            <label for="confirm_password" class="col-sm-2 control-label text-left">Confirm password</label>
+            <label for="confirm_password" class="col-sm-2 control-label text-left">Подтвердите пароль</label>
             <div class="col-sm-8">
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-lock" aria-hidden="true"></i></span>
@@ -93,7 +93,7 @@
           <!-- !confirm-password-input -->
           <div class="form-group">
             <div class="col-sm-2">
-              <button type="submit" class="btn btn-primary btn-sm" ng-disabled="formValues.newPassword === '' || formValues.newPassword !== formValues.confirmPassword" ng-click="updatePassword()">Update password</button>
+              <button type="submit" class="btn btn-primary btn-sm" ng-disabled="formValues.newPassword === '' || formValues.newPassword !== formValues.confirmPassword" ng-click="updatePassword()">Обновить пароль</button>
             </div>
           </div>
         </form>

@@ -14,7 +14,7 @@ function ($q, $scope, $state, $stateParams, UserService, ModalService, Notificat
 
   $scope.deleteUser = function() {
     ModalService.confirmDeletion(
-      'Do you want to remove this user? This user will not be able to login into Portainer anymore.',
+      'Вы хотите удалить этого пользователя? Этот пользователь больше не сможет войти в Portainer.',
       function onConfirm(confirmed) {
         if(!confirmed) { return; }
         deleteUser();
@@ -28,11 +28,11 @@ function ($q, $scope, $state, $stateParams, UserService, ModalService, Notificat
     UserService.updateUser($scope.user.Id, undefined, role)
     .then(function success(data) {
       var newRole = role === 1 ? 'administrator' : 'user';
-      Notifications.success('Permissions successfully updated', $scope.user.Username + ' is now ' + newRole);
+      Notifications.success('Разрешения успешно обновлены', $scope.user.Username + ' is now ' + newRole);
       $state.reload();
     })
     .catch(function error(err) {
-      Notifications.error('Failure', err, 'Unable to update user permissions');
+      Notifications.error('Failure', err, 'Не удалось обновить разрешения пользователя');
     })
     .finally(function final() {
       $('#loadingViewSpinner').hide();
@@ -43,11 +43,11 @@ function ($q, $scope, $state, $stateParams, UserService, ModalService, Notificat
     $('#loadingViewSpinner').show();
     UserService.updateUser($scope.user.Id, $scope.formValues.newPassword, undefined)
     .then(function success(data) {
-      Notifications.success('Password successfully updated');
+      Notifications.success('Пароль успешно обновлен');
       $state.reload();
     })
     .catch(function error(err) {
-      Notifications.error('Failure', err, 'Unable to update user password');
+      Notifications.error('Failure', err, 'Не удалось обновить пароль пользователя');
     })
     .finally(function final() {
       $('#loadingViewSpinner').hide();
@@ -58,11 +58,11 @@ function ($q, $scope, $state, $stateParams, UserService, ModalService, Notificat
     $('#loadingViewSpinner').show();
     UserService.deleteUser($scope.user.Id)
     .then(function success(data) {
-      Notifications.success('User successfully deleted', $scope.user.Username);
+      Notifications.success('Пользователь успешно удален', $scope.user.Username);
       $state.go('users');
     })
     .catch(function error(err) {
-      Notifications.error('Failure', err, 'Unable to remove user');
+      Notifications.error('Failure', err, 'Не удалось удалить пользователя');
     })
     .finally(function final() {
       $('#loadingViewSpinner').hide();
@@ -80,7 +80,7 @@ function ($q, $scope, $state, $stateParams, UserService, ModalService, Notificat
       $scope.formValues.Administrator = user.Role === 1 ? true : false;
     })
     .catch(function error(err) {
-      Notifications.error('Failure', err, 'Unable to retrieve user information');
+      Notifications.error('Failure', err, 'Невозможно получить информацию о пользователе');
     })
     .finally(function final() {
       $('#loadingViewSpinner').hide();
