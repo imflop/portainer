@@ -53,7 +53,7 @@ function ($scope, $state, Notifications, SettingsService, StateManager, DEFAULT_
 
     SettingsService.update(settings)
     .then(function success(data) {
-      Notifications.success('Settings updated');
+      Notifications.success('Настройки обновлены');
       StateManager.updateLogo(settings.LogoURL);
       StateManager.updateExternalContributions(settings.DisplayExternalContributors);
       if (resetForm) {
@@ -61,7 +61,7 @@ function ($scope, $state, Notifications, SettingsService, StateManager, DEFAULT_
       }
     })
     .catch(function error(err) {
-      Notifications.error('Failure', err, 'Unable to update settings');
+      Notifications.error('Failure', err, 'Не удалось обновить настройки');
     })
     .finally(function final() {
       $('#loadingViewSpinner').hide();
@@ -83,7 +83,7 @@ function ($scope, $state, Notifications, SettingsService, StateManager, DEFAULT_
       $scope.formValues.externalContributions = !settings.DisplayExternalContributors;
     })
     .catch(function error(err) {
-      Notifications.error('Failure', err, 'Unable to retrieve application settings');
+      Notifications.error('Failure', err, 'Не удалось получить настройки приложения');
     })
     .finally(function final() {
       $('#loadingViewSpinner').hide();
