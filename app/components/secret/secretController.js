@@ -6,11 +6,11 @@ function ($scope, $stateParams, $state, SecretService, Notifications) {
     $('#loadingViewSpinner').show();
     SecretService.remove(secretId)
     .then(function success(data) {
-      Notifications.success('Secret successfully removed');
+      Notifications.success('Секрет успешно удален');
       $state.go('secrets', {});
     })
     .catch(function error(err) {
-      Notifications.error('Failure', err, 'Unable to remove secret');
+      Notifications.error('Failure', err, 'Невозможно удалить секрет');
     })
     .finally(function final() {
       $('#loadingViewSpinner').hide();
@@ -24,7 +24,7 @@ function ($scope, $stateParams, $state, SecretService, Notifications) {
       $scope.secret = data;
     })
     .catch(function error(err) {
-      Notifications.error('Failure', err, 'Unable to retrieve secret details');
+      Notifications.error('Failure', err, 'Не удалось получить детали секрета');
     })
     .finally(function final() {
       $('#loadingViewSpinner').hide();
