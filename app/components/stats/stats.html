@@ -1,7 +1,7 @@
 <rd-header>
-  <rd-header-title title="Container stats"></rd-header-title>
+  <rd-header-title title="Статистика контейнеров"></rd-header-title>
   <rd-header-content>
-    <a ui-sref="containers">Containers</a> > <a ui-sref="container({id: container.Id})">{{ container.Name|trimcontainername }}</a> > Stats
+    <a ui-sref="containers">Контейнерная</a> > <a ui-sref="container({id: container.Id})">{{ container.Name|trimcontainername }}</a> > статистика
   </rd-header-content>
 </rd-header>
 
@@ -14,7 +14,7 @@
         </div>
         <div class="title">{{ container.Name|trimcontainername }}</div>
         <div class="comment">
-          Name
+          Имя
         </div>
       </rd-widget-body>
     </rd-widget>
@@ -24,7 +24,7 @@
 <div class="row">
   <div class="col-lg-6">
     <rd-widget>
-      <rd-widget-header icon="fa-area-chart" title="CPU usage"></rd-widget-header>
+      <rd-widget-header icon="fa-area-chart" title="Использование CPU"></rd-widget-header>
       <rd-widget-body>
         <canvas id="cpu-stats-chart" width="770" height="230"></canvas>
       </rd-widget-body>
@@ -32,7 +32,7 @@
   </div>
   <div class="col-lg-6">
     <rd-widget>
-      <rd-widget-header icon="fa-area-chart" title="Memory usage"></rd-widget-header>
+      <rd-widget-header icon="fa-area-chart" title="Использоване памяти"></rd-widget-header>
       <rd-widget-body>
         <canvas id="memory-stats-chart" width="770" height="230"></canvas>
       </rd-widget-body>
@@ -43,7 +43,7 @@
 <div class="row">
   <div class="col-lg-6">
     <rd-widget>
-      <rd-widget-header icon="fa-area-chart" title="Network usage"></rd-widget-header>
+      <rd-widget-header icon="fa-area-chart" title="Использование сети"></rd-widget-header>
       <rd-widget-body>
         <canvas id="network-stats-chart" width="770" height="230"></canvas>
         <div class="comment">
@@ -54,11 +54,11 @@
   </div>
   <div class="col-lg-6">
     <rd-widget>
-      <rd-widget-header icon="fa-tasks" title="Processes">
+      <rd-widget-header icon="fa-tasks" title="Процессы">
         <div class="pull-right">
-          Items per page:
+          Количество элементов на странице:
           <select ng-model="state.pagination_count" ng-change="changePaginationCount()">
-            <option value="0">All</option>
+            <option value="0">Все</option>
             <option value="10">10</option>
             <option value="25">25</option>
             <option value="50">50</option>

@@ -126,7 +126,7 @@ function (Pagination, $scope, Notifications, $timeout, Container, ContainerTop, 
           return d[key];
         });
         if (arr.join('').indexOf('no such id') !== -1) {
-          Notifications.error('Unable to retrieve stats', {}, 'Is this container running?');
+          Notifications.error('Не удалось получить статистику', {}, 'Этот контейнер запущен?');
           return;
         }
 
@@ -137,7 +137,7 @@ function (Pagination, $scope, Notifications, $timeout, Container, ContainerTop, 
         updateNetworkChart(d);
         setUpdateStatsTimeout();
       }, function () {
-        Notifications.error('Unable to retrieve stats', {}, 'Is this container running?');
+        Notifications.error('Не удалось получить статистику', {}, 'Этот контейнер запущен?');
         setUpdateStatsTimeout();
       });
     }
@@ -211,7 +211,7 @@ function (Pagination, $scope, Notifications, $timeout, Container, ContainerTop, 
   Container.get({id: $stateParams.id}, function (d) {
     $scope.container = d;
   }, function (e) {
-    Notifications.error('Failure', e, 'Unable to retrieve container info');
+    Notifications.error('Failure', e, 'Не удалось получить информацию о контейнере');
   });
   $scope.getTop();
 }]);
