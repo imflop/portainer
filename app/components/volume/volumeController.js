@@ -6,11 +6,11 @@ function ($scope, $state, $stateParams, VolumeService, Notifications, Controller
     $('#loadingViewSpinner').show();
     VolumeService.remove($scope.volume)
     .then(function success(data) {
-      Notifications.success('Volume successfully removed', $stateParams.id);
+      Notifications.success('Том успешно удален', $stateParams.id);
       $state.go('volumes', {});
     })
     .catch(function error(err) {
-      Notifications.error('Failure', err, 'Unable to remove volume');
+      Notifications.error('Failure', err, 'Не удалось удалить том');
     })
     .finally(function final() {
       $('#loadingViewSpinner').hide();
@@ -26,7 +26,7 @@ function ($scope, $state, $stateParams, VolumeService, Notifications, Controller
       $scope.volume = volume;
     })
     .catch(function error(err) {
-      Notifications.error('Failure', err, 'Unable to retrieve volume details');
+      Notifications.error('Failure', err, 'Не удалось получить данные о томе');
     })
     .finally(function final() {
       $('#loadingViewSpinner').hide();

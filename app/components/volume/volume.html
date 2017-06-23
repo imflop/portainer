@@ -1,16 +1,16 @@
 <rd-header>
-  <rd-header-title title="Volume details">
+  <rd-header-title title="Детали томов">
     <i id="loadingViewSpinner" class="fa fa-cog fa-spin"></i>
   </rd-header-title>
   <rd-header-content>
-    <a ui-sref="volumes">Volumes</a> > <a ui-sref="volume({id: volume.Id})">{{ volume.Id }}</a>
+    <a ui-sref="volumes">Тома</a> > <a ui-sref="volume({id: volume.Id})">{{ volume.Id }}</a>
   </rd-header-content>
 </rd-header>
 
 <div class="row" ng-if="volume">
   <div class="col-sm-12">
     <rd-widget>
-      <rd-widget-header icon="fa-cube" title="Volume details"></rd-widget-header>
+      <rd-widget-header icon="fa-cube" title="Детали томов"></rd-widget-header>
       <rd-widget-body classes="no-padding">
         <table class="table">
           <tbody>
@@ -18,15 +18,15 @@
               <td>ID</td>
               <td>
                 {{ volume.Id }}
-                <button class="btn btn-xs btn-danger" ng-click="removeVolume()"><i class="fa fa-trash space-right" aria-hidden="true"></i>Remove this volume</button>
+                <button class="btn btn-xs btn-danger" ng-click="removeVolume()"><i class="fa fa-trash space-right" aria-hidden="true"></i>Удалить этот том</button>
               </td>
             </tr>
             <tr>
-              <td>Mount path</td>
+              <td>Путь понтирования</td>
               <td>{{ volume.Mountpoint }}</td>
             </tr>
             <tr>
-              <td>Driver</td>
+              <td>Драйвер</td>
               <td>{{ volume.Driver }}</td>
             </tr>
             <tr ng-if="!(volume.Labels | emptyobject)">
@@ -52,7 +52,7 @@
 <div class="row" ng-if="!(volume.Options | emptyobject)">
   <div class="col-lg-12 col-md-12 col-xs-12">
     <rd-widget>
-      <rd-widget-header icon="fa-cogs" title="Volume options"></rd-widget-header>
+      <rd-widget-header icon="fa-cogs" title="Опции тома"></rd-widget-header>
       <rd-widget-body classes="no-padding">
         <table class="table">
           <tbody>
