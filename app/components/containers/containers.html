@@ -1,6 +1,6 @@
 <rd-header>
   <rd-header-title title="Список агентов">
-    <a data-toggle="tooltip" title="Refresh" ui-sref="containers" ui-sref-opts="{reload: true}">
+    <a data-toggle="tooltip" title="Обновить" ui-sref="containers" ui-sref-opts="{reload: true}">
       <i class="fa fa-refresh" aria-hidden="true"></i>
     </a>
     <i id="loadContainersSpinner" class="fa fa-cog fa-spin" style="margin-left: 5px;"></i>
@@ -36,7 +36,7 @@
         <a class="btn btn-primary" type="button" ui-sref="actions.create.container"><i class="fa fa-plus space-right" aria-hidden="true"></i>Добавить агент</a>
       </div>
       <div class="pull-right">
-        <input type="checkbox" ng-model="state.displayAll" id="displayAll" ng-change="toggleGetAll()" style="margin-top: -2px; margin-right: 5px;"/><label for="displayAll">Показать все агенты</label>
+        <input type="checkbox" ng-model="state.displayAll" id="displayAll" ng-change="toggleGetAll()" style="margin-top: -2px; margin-right: 5px;"/><label for="displayAll">Показать всх агентовы</label>
         <input type="text" id="filter" ng-model="state.filter" placeholder="Filter..." class="form-control input-sm" />
       </div>
     </rd-widget-taskbar>
@@ -92,7 +92,7 @@
               </th>
               <th ng-if="applicationState.application.authentication">
                 <a ui-sref="containers" ng-click="order('ResourceControl.Ownership')">
-                  Собственность
+                  Владелец
                   <span ng-show="sortType == 'ResourceControl.Ownership' && !sortReverse" class="glyphicon glyphicon-chevron-down"></span>
                   <span ng-show="sortType == 'ResourceControl.Ownership' && sortReverse" class="glyphicon glyphicon-chevron-up"></span>
                 </a>

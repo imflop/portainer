@@ -41,21 +41,21 @@
               </th>
               <th>
                 <a ui-sref="volumes" ng-click="order('Id')">
-                  Name
+                  Имя
                   <span ng-show="sortType == 'Id' && !sortReverse" class="glyphicon glyphicon-chevron-down"></span>
                   <span ng-show="sortType == 'Id' && sortReverse" class="glyphicon glyphicon-chevron-up"></span>
                 </a>
               </th>
               <th>
                 <a ui-sref="volumes" ng-click="order('Driver')">
-                  Driver
+                  Драйвер
                   <span ng-show="sortType == 'Driver' && !sortReverse" class="glyphicon glyphicon-chevron-down"></span>
                   <span ng-show="sortType == 'Driver' && sortReverse" class="glyphicon glyphicon-chevron-up"></span>
                 </a>
               </th>
               <th ng-if="applicationState.application.authentication">
                 <a ui-sref="volumes" ng-click="order('ResourceControl.Ownership')">
-                  Ownership
+                  Право собственности
                   <span ng-show="sortType == 'ResourceControl.Ownership' && !sortReverse" class="glyphicon glyphicon-chevron-down"></span>
                   <span ng-show="sortType == 'ResourceControl.Ownership' && sortReverse" class="glyphicon glyphicon-chevron-up"></span>
                 </a>
