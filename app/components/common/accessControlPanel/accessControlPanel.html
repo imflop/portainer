@@ -1,7 +1,7 @@
 <div class="row" ng-controller="AccessControlPanelController">
   <div class="col-sm-12" ng-if="state.displayAccessControlPanel">
     <rd-widget>
-      <rd-widget-header icon="fa-eye" title="Access control"></rd-widget-header>
+      <rd-widget-header icon="fa-eye" title="Контроль доступа"></rd-widget-header>
       <rd-widget-body classes="no-padding">
         <table class="table">
           <tbody>
@@ -27,14 +27,14 @@
               <td colspan="2">
                 <i class="fa fa-info-circle" aria-hidden="true" style="margin-right: 2px;"></i>
                 Контроль доступа на этом ресурсе наследуется от следующей службы: <a ui-sref="service({ id: resourceControl.ResourceId })">{{ resourceControl.ResourceId | truncate }}</a>
-                <portainer-tooltip message="Контроль доступа, применяемый к службе, также применяется к каждому контейнеру этой службы." position="bottom" style="margin-left: 2px;"></portainer-tooltip>
+                <portainer-tooltip message="Контроль доступа, применяемый к службе, также применяется к каждому агенту этой службы." position="bottom" style="margin-left: 2px;"></portainer-tooltip>
               </td>
             </tr>
             <tr ng-if="resourceControl.Type === 1 && resourceType === 'volume'">
               <td colspan="2">
                 <i class="fa fa-info-circle" aria-hidden="true" style="margin-right: 2px;"></i>
-                Контроль доступа на этом ресурсе наследуется от следующего контейнера: <a ui-sref="container({ id: resourceControl.ResourceId })">{{ resourceControl.ResourceId | truncate }}</a>
-                <portainer-tooltip message="Контроль доступа применяется на контейнер, созданный с использованием шаблона применяется также на каждом томе, связанные в контейнер." position="bottom" style="margin-left: 2px;"></portainer-tooltip>
+                Контроль доступа на этом ресурсе наследуется от следующего агента: <a ui-sref="container({ id: resourceControl.ResourceId })">{{ resourceControl.ResourceId | truncate }}</a>
+                <portainer-tooltip message="Контроль доступа применяется на агента, созданный с использованием шаблона применяется также на каждом томе, связанные в агент." position="bottom" style="margin-left: 2px;"></portainer-tooltip>
               </td>
             </tr>
             <!-- authorized-users -->

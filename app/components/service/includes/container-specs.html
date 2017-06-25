@@ -1,6 +1,6 @@
 <div>
   <rd-widget>
-    <rd-widget-header icon="fa-list-alt" title="Спецификация контейнера"></rd-widget-header>
+    <rd-widget-header icon="fa-list-alt" title="Спецификация агента"></rd-widget-header>
     <rd-widget-body classes="no-padding">
       <table class="table">
         <tbody>
@@ -18,7 +18,7 @@
             <td><code ng-if="service.Arguments">{{ service.Arguments }}</code></td>
             <td>
               <p class="small text-muted" style="margin-top: 10px;">
-                Аргументы передаются команде в контейнер.
+                Аргументы передаются команде в агент.
               </p>
             </td>
           </tr>
@@ -36,7 +36,7 @@
             <td>{{ service.Dir }}</td>
             <td>
               <p class="small text-muted" style="margin-top: 10px;">
-                Рабочаяя директория внутри контейнера.
+                Рабочаяя директория внутри агента.
               </p>
             </td>
           </tr>
@@ -45,7 +45,7 @@
             <td>{{ service.StopGracePeriod }}</td>
             <td>
               <p class="small text-muted" style="margin-top: 10px;">
-                Время ожидания перед убийством контейнера (по умолчанию none).
+                Время ожидания перед убийством агента (по умолчанию none).
               </p>
             </td>
           </tr>

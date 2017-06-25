@@ -58,10 +58,10 @@
             <label for="field_{{ $index }}" class="col-sm-2 control-label text-left">{{ var.label }}</label>
             <div class="col-sm-10">
               <select ng-if="applicationState.endpoint.mode.provider !== 'DOCKER_SWARM' && var.type === 'container'" ng-options="container|containername for container in runningContainers" class="form-control" ng-model="var.value">
-                <option selected disabled hidden value="">Выбор контейнера</option>
+                <option selected disabled hidden value="">Выбор агента</option>
               </select>
               <select ng-if="applicationState.endpoint.mode.provider === 'DOCKER_SWARM' && var.type === 'container'" ng-options="container|swarmcontainername for container in runningContainers" class="form-control" ng-model="var.value">
-                <option selected disabled hidden value="">Выбор контейнера</option>
+                <option selected disabled hidden value="">Выбор агента</option>
               </select>
               <input ng-if="!var.type || !var.type === 'container'" type="text" class="form-control" ng-model="var.value" id="field_{{ $index }}">
             </div>
@@ -108,7 +108,7 @@
                     </span>
                     <!-- container-port -->
                     <div class="input-group col-sm-4 input-group-sm">
-                      <span class="input-group-addon">контейнер</span>
+                      <span class="input-group-addon">агент</span>
                       <input type="text" class="form-control" ng-model="portBinding.containerPort" placeholder="e.g. 80">
                     </div>
                     <!-- !container-port -->
@@ -145,7 +145,7 @@
                   <div class="col-sm-12 form-inline">
                     <!-- container-path -->
                     <div class="input-group input-group-sm col-sm-6">
-                      <span class="input-group-addon">контейнер</span>
+                      <span class="input-group-addon">агент</span>
                       <input type="text" class="form-control" ng-model="volume.containerPath" placeholder="e.g. /path/in/container">
                     </div>
                     <!-- !container-path -->
@@ -203,11 +203,11 @@
               <button type="button" class="btn btn-primary btn-sm" ng-disabled="!formValues.network" ng-click="createTemplate()">Создать</button>
               <i id="createContainerSpinner" class="fa fa-cog fa-spin" style="margin-left: 5px; display: none;"></i>
               <span class="small text-muted" style="margin-left: 10px" ng-if="globalNetworkCount === 0 && applicationState.endpoint.mode.provider === 'DOCKER_SWARM'">
-                При использовании Swarm мы рекомендуем развертывать контейнеры в общей сети. Похоже, что у вас нет общей сети, перейдите на  <a ui-sref="networks">экран сети</a>, чтобы создать один.
+                При использовании Swarm мы рекомендуем развертывать агенты в общей сети. Похоже, что у вас нет общей сети, перейдите на  <a ui-sref="networks">экран сети</a>, чтобы создать один.
               </span>
               <span ng-if="applicationState.endpoint.mode.provider === 'DOCKER_SWARM_MODE'" style="margin-left: 10px">
                 <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
-                <span class="small text-muted" style="margin-left: 5px;">Шаблоны приложений не могут быть развернуты как службы Swarm Mode на данный момент. Вы можете использовать их для быстрого развертывания контейнеров на хосте Docker.</span>
+                <span class="small text-muted" style="margin-left: 5px;">Шаблоны приложений не могут быть развернуты как службы Swarm Mode на данный момент. Вы можете использовать их для быстрого развертывания агентов на хосте Docker.</span>
               </span>
             </div>
           </div>

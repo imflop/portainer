@@ -15,7 +15,7 @@
         <thead>
           <tr>
             <th>Порт хоста</th>
-            <th>Порт контенера</th>
+            <th>Порт агента</th>
             <th>Протокол</th>
             <th>Открытый режим</th>
             <th>Действия</th>
@@ -31,7 +31,7 @@
             </td>
             <td>
               <div class="input-group input-group-sm">
-                <span class="input-group-addon">контейнерr</span>
+                <span class="input-group-addon">агент</span>
                 <input type="number" class="form-control" ng-model="portBinding.TargetPort" placeholder="e.g. 80" ng-change="updatePublishedPort(service, mapping)" ng-disabled="isUpdating">
               </div>
             </td>

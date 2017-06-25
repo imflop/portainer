@@ -1,16 +1,16 @@
 <rd-header>
-  <rd-header-title title="Список контейнеров">
+  <rd-header-title title="Список агентов">
     <a data-toggle="tooltip" title="Refresh" ui-sref="containers" ui-sref-opts="{reload: true}">
       <i class="fa fa-refresh" aria-hidden="true"></i>
     </a>
     <i id="loadContainersSpinner" class="fa fa-cog fa-spin" style="margin-left: 5px;"></i>
   </rd-header-title>
-  <rd-header-content>Контейнеры</rd-header-content>
+  <rd-header-content>Агенты</rd-header-content>
 </rd-header>
 
 <div class="col-lg-12">
   <rd-widget>
-    <rd-widget-header icon="fa-server" title="Контейнеры">
+    <rd-widget-header icon="fa-server" title="Агенты">
       <div class="pull-right">
         Количество элементов на странице:
         <select ng-model="state.pagination_count" ng-change="changePaginationCount()">
@@ -33,10 +33,10 @@
           <button type="button" class="btn btn-primary btn-responsive" ng-click="unpauseAction()" ng-disabled="!state.selectedItemCount"><i class="fa fa-play space-right" aria-hidden="true"></i>Продолжить</button>
           <button type="button" class="btn btn-danger btn-responsive" ng-click="confirmRemoveAction()" ng-disabled="!state.selectedItemCount"><i class="fa fa-trash space-right" aria-hidden="true"></i>Удалить</button>
         </div>
-        <a class="btn btn-primary" type="button" ui-sref="actions.create.container"><i class="fa fa-plus space-right" aria-hidden="true"></i>Добавить контейнер</a>
+        <a class="btn btn-primary" type="button" ui-sref="actions.create.container"><i class="fa fa-plus space-right" aria-hidden="true"></i>Добавить агент</a>
       </div>
       <div class="pull-right">
-        <input type="checkbox" ng-model="state.displayAll" id="displayAll" ng-change="toggleGetAll()" style="margin-top: -2px; margin-right: 5px;"/><label for="displayAll">Показать все контейнеры</label>
+        <input type="checkbox" ng-model="state.displayAll" id="displayAll" ng-change="toggleGetAll()" style="margin-top: -2px; margin-right: 5px;"/><label for="displayAll">Показать все агенты</label>
         <input type="text" id="filter" ng-model="state.filter" placeholder="Filter..." class="form-control input-sm" />
       </div>
     </rd-widget-taskbar>
@@ -128,7 +128,7 @@
               <td colspan="9" class="text-center text-muted">Загрузка...</td>
             </tr>
             <tr ng-if="containers.length == 0">
-              <td colspan="9" class="text-center text-muted">Нет контейнеров.</td>
+              <td colspan="9" class="text-center text-muted">Нет агентов.</td>
             </tr>
           </tbody>
         </table>

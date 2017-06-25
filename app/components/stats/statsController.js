@@ -126,7 +126,7 @@ function (Pagination, $scope, Notifications, $timeout, Container, ContainerTop, 
           return d[key];
         });
         if (arr.join('').indexOf('no such id') !== -1) {
-          Notifications.error('Не удалось получить статистику', {}, 'Этот контейнер запущен?');
+          Notifications.error('Не удалось получить статистику', {}, 'Этот агент запущен?');
           return;
         }
 
@@ -137,7 +137,7 @@ function (Pagination, $scope, Notifications, $timeout, Container, ContainerTop, 
         updateNetworkChart(d);
         setUpdateStatsTimeout();
       }, function () {
-        Notifications.error('Не удалось получить статистику', {}, 'Этот контейнер запущен?');
+        Notifications.error('Не удалось получить статистику', {}, 'Этот агент запущен?');
         setUpdateStatsTimeout();
       });
     }
@@ -211,7 +211,7 @@ function (Pagination, $scope, Notifications, $timeout, Container, ContainerTop, 
   Container.get({id: $stateParams.id}, function (d) {
     $scope.container = d;
   }, function (e) {
-    Notifications.error('Failure', e, 'Не удалось получить информацию о контейнере');
+    Notifications.error('Failure', e, 'Не удалось получить информацию об агенте');
   });
   $scope.getTop();
 }]);

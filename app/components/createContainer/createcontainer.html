@@ -1,7 +1,7 @@
 <rd-header>
-  <rd-header-title title="Создание контейнера"></rd-header-title>
+  <rd-header-title title="Создание агента"></rd-header-title>
   <rd-header-content>
-    <a ui-sref="containers">Контейнеры</a> > Добавить контейнер
+    <a ui-sref="containers">Агенты</a> > Добавить агент
   </rd-header-content>
 </rd-header>
 
@@ -30,8 +30,8 @@
           <div class="form-group">
             <div class="col-sm-12">
               <label for="ownership" class="control-label text-left">
-                Always pull the image
-                <portainer-tooltip position="bottom" message="Когда включено, Portainer автоматически попытается вытащить указанный образ перед созданием контейнера."></portainer-tooltip>
+                Всегда стягивать образы
+                <portainer-tooltip position="bottom" message="Когда включено, Portainer автоматически попытается вытащить указанный образ перед созданием агента."></portainer-tooltip>
               </label>
               <label class="switch" style="margin-left: 20px;">
                 <input type="checkbox" ng-model="formValues.alwaysPull"><i></i>
@@ -40,7 +40,7 @@
           </div>
           <!-- !always-pull -->
           <div class="col-sm-12 form-section-title">
-            Ports configuration
+            Конфигурация портов
           </div>
           <!-- publish-exposed-ports -->
           <div class="form-group">
@@ -77,7 +77,7 @@
                 </span>
                 <!-- container-port -->
                 <div class="input-group col-sm-4 input-group-sm">
-                  <span class="input-group-addon">контейнер</span>
+                  <span class="input-group-addon">агент</span>
                   <input type="text" class="form-control" ng-model="portBinding.containerPort" placeholder="e.g. 80">
                 </div>
                 <!-- !container-port -->
@@ -106,7 +106,7 @@
           </div>
           <div class="form-group">
             <div class="col-sm-12">
-              <button type="button" class="btn btn-primary btn-sm" ng-disabled="!config.Image" ng-click="create()">Запуск контейнера</button>
+              <button type="button" class="btn btn-primary btn-sm" ng-disabled="!config.Image" ng-click="create()">Запуск агента</button>
               <a type="button" class="btn btn-default btn-sm" ui-sref="containers">Отмена</a>
               <i id="createContainerSpinner" class="fa fa-cog fa-spin" style="margin-left: 5px; display: none;"></i>
               <span class="text-danger" ng-if="state.formValidationError" style="margin-left: 5px;">{{ state.formValidationError }}</span>
@@ -122,7 +122,7 @@
 <div class="row">
   <div class="col-lg-12 col-md-12 col-xs-12">
     <rd-widget>
-      <rd-widget-header icon="fa-cog" title="Расширенные настройки контейнера"></rd-widget-header>
+      <rd-widget-header icon="fa-cog" title="Расширенные настройки агента"></rd-widget-header>
       <rd-widget-body>
         <ul class="nav nav-pills nav-justified">
           <li class="active interactive"><a data-target="#command" data-toggle="tab">Команда</a></li>
@@ -220,7 +220,7 @@
                     <div class="col-sm-12 form-inline" style="margin-top: 10px;">
                       <!-- container-path -->
                       <div class="input-group input-group-sm col-sm-6">
-                        <span class="input-group-addon">контейнер</span>
+                        <span class="input-group-addon">агент</span>
                         <input type="text" class="form-control" ng-model="volume.containerPath" placeholder="e.g. /path/in/container">
                       </div>
                       <!-- !container-path -->
@@ -294,13 +294,13 @@
               <!-- !network-input -->
               <!-- container-name-input -->
               <div class="form-group" ng-if="config.HostConfig.NetworkMode == 'container'">
-                <label for="container_network_container" class="col-sm-2 col-lg-1 control-label text-left">Контейнер</label>
+                <label for="container_network_container" class="col-sm-2 col-lg-1 control-label text-left">Агент</label>
                 <div class="col-sm-9">
                   <select ng-if="applicationState.endpoint.mode.provider !== 'DOCKER_SWARM'" ng-options="container|containername for container in runningContainers" class="form-control" ng-model="formValues.NetworkContainer">
-                    <option selected disabled hidden value="">Установить контейнер</option>
+                    <option selected disabled hidden value="">Установить агент</option>
                   </select>
                   <select ng-if="applicationState.endpoint.mode.provider === 'DOCKER_SWARM'" ng-options="container|swarmcontainername for container in runningContainers" class="form-control" ng-model="formValues.NetworkContainer">
-                    <option selected disabled hidden value="">Установить контейнер</option>
+                    <option selected disabled hidden value="">Установить агент</option>
                   </select>
                 </div>
               </div>
@@ -489,7 +489,7 @@
                       <input type="text" class="form-control" ng-model="device.pathOnHost" placeholder="e.g. /dev/tty0">
                     </div>
                     <div class="input-group col-sm-5 input-group-sm">
-                      <span class="input-group-addon">контейнер</span>
+                      <span class="input-group-addon">агент</span>
                       <input type="text" class="form-control" ng-model="device.pathInContainer" placeholder="e.g. /dev/tty0">
                     </div>
                     <button class="btn btn-sm btn-danger" type="button" ng-click="removeDevice($index)">

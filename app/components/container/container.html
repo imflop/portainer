@@ -1,9 +1,9 @@
 <rd-header>
-  <rd-header-title title="Детали контейнера">
+  <rd-header-title title="Детали агента">
     <i id="loadingViewSpinner" class="fa fa-cog fa-spin"></i>
   </rd-header-title>
   <rd-header-content>
-    <a ui-sref="containers">Контейнеры</a> > <a ui-sref="container({id: container.Id})">{{ container.Name|trimcontainername }}</a>
+    <a ui-sref="containers">Агенты</a> > <a ui-sref="container({id: container.Id})">{{ container.Name|trimcontainername }}</a>
   </rd-header-content>
 </rd-header>
 
@@ -29,7 +29,7 @@
 <div class="row">
   <div class="col-lg-12 col-md-12 col-xs-12">
     <rd-widget>
-      <rd-widget-header icon="fa-server" title="Статус контейнера"></rd-widget-header>
+      <rd-widget-header icon="fa-server" title="Статус агенты"></rd-widget-header>
       <rd-widget-body classes="no-padding">
         <table class="table">
           <tbody>
@@ -37,7 +37,7 @@
               <td>Name</td>
               <td ng-if="!container.edit">
                 {{ container.Name|trimcontainername }}
-                <a href="" data-toggle="tooltip" title="Изменить имя контейнера" ng-click="container.edit = true;"><i class="fa fa-edit"></i></a>
+                <a href="" data-toggle="tooltip" title="Изменить имя агента" ng-click="container.edit = true;"><i class="fa fa-edit"></i></a>
               </td>
               <td ng-if="container.edit">
                 <form ng-submit="renameContainer()">
@@ -92,7 +92,7 @@
 <div ng-if="container.State.Health" class="row">
   <div class="col-lg-12 col-md-12 col-xs-12">
     <rd-widget>
-      <rd-widget-header icon="fa-server" title="Состояние контейнера"></rd-widget-header>
+      <rd-widget-header icon="fa-server" title="Состояние агента"></rd-widget-header>
       <rd-widget-body classes="no-padding">
         <table class="table">
           <tbody>
@@ -128,9 +128,9 @@
           <div class="form-group">
             <div class="col-sm-12">
               <span class="small text-muted">
-                Вы можете создать образ из этого контейнера, это позволит вам делать резервные копии
+                Вы можете создать образ из этого агента, это позволит вам делать резервные копии
                 важных данных или сохранять полезные конфигурации. После этого вы сможете развернуть еще
-                один контейнер на основе этого образа.
+                один агент на основе этого образа.
               </span>
             </div>
           </div>
@@ -162,7 +162,7 @@
 <div class="row">
   <div class="col-lg-12 col-md-12 col-xs-12">
     <rd-widget>
-      <rd-widget-header icon="fa-server" title="Детали контейнера"></rd-widget-header>
+      <rd-widget-header icon="fa-server" title="Детали агента"></rd-widget-header>
       <rd-widget-body classes="no-padding">
         <table class="table">
           <tbody>
@@ -237,7 +237,7 @@
           <thead>
             <tr>
               <th>Хост</th>
-              <th>Контейнер</th>
+              <th>Агент</th>
             </tr>
           </thead>
           <tbody>

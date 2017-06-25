@@ -45,7 +45,7 @@ function ($scope, $state, $stateParams, $filter, Container, ContainerCommit, Con
       $('#loadingViewSpinner').hide();
     }, function (e) {
       $('#loadingViewSpinner').hide();
-      Notifications.error('Failure', e, 'Не удалось получить информацию о контейнере');
+      Notifications.error('Failure', e, 'Не удалось получить информацию об агенте');
     });
   };
 
@@ -53,10 +53,10 @@ function ($scope, $state, $stateParams, $filter, Container, ContainerCommit, Con
     $('#loadingViewSpinner').show();
     Container.start({id: $scope.container.Id}, {}, function (d) {
       update();
-      Notifications.success('Контенер запущен', $stateParams.id);
+      Notifications.success('Агент запущен', $stateParams.id);
     }, function (e) {
       update();
-      Notifications.error('Failure', e, 'Не удалось запустить контейнер');
+      Notifications.error('Failure', e, 'Не удалось запустить агента');
     });
   };
 
@@ -64,10 +64,10 @@ function ($scope, $state, $stateParams, $filter, Container, ContainerCommit, Con
     $('#loadingViewSpinner').show();
     Container.stop({id: $stateParams.id}, function (d) {
       update();
-      Notifications.success('Контейнер остановлен', $stateParams.id);
+      Notifications.success('Агент остановлен', $stateParams.id);
     }, function (e) {
       update();
-      Notifications.error('Failure', e, 'Не удалось остановить контейнер');
+      Notifications.error('Failure', e, 'Не удалось остановить агент');
     });
   };
 
@@ -75,10 +75,10 @@ function ($scope, $state, $stateParams, $filter, Container, ContainerCommit, Con
     $('#loadingViewSpinner').show();
     Container.kill({id: $stateParams.id}, function (d) {
       update();
-      Notifications.success('Container killed', $stateParams.id);
+      Notifications.success('Агент убит', $stateParams.id);
     }, function (e) {
       update();
-      Notifications.error('Failure', e, 'Не удалось убить контейнер');
+      Notifications.error('Failure', e, 'Не удалось убить агента');
     });
   };
 
@@ -90,11 +90,11 @@ function ($scope, $state, $stateParams, $filter, Container, ContainerCommit, Con
     ContainerCommit.commit({id: $stateParams.id, tag: imageConfig.tag, repo: imageConfig.repo}, function (d) {
       $('#createImageSpinner').hide();
       update();
-      Notifications.success('Контенер зафиксирован', $stateParams.id);
+      Notifications.success('Агент зафиксирован', $stateParams.id);
     }, function (e) {
       $('#createImageSpinner').hide();
       update();
-      Notifications.error('Failure', e, 'Не удалось фиксировать контейнер');
+      Notifications.error('Failure', e, 'Не удалось фиксировать агент');
     });
   };
 
@@ -102,10 +102,10 @@ function ($scope, $state, $stateParams, $filter, Container, ContainerCommit, Con
     $('#loadingViewSpinner').show();
     Container.pause({id: $stateParams.id}, function (d) {
       update();
-      Notifications.success('Контейнер приостановлен', $stateParams.id);
+      Notifications.success('Агент приостановлен', $stateParams.id);
     }, function (e) {
       update();
-      Notifications.error('Failure', e, 'Не удается приостановить контейнер');
+      Notifications.error('Failure', e, 'Не удается приостановить агент');
     });
   };
 
@@ -113,17 +113,17 @@ function ($scope, $state, $stateParams, $filter, Container, ContainerCommit, Con
     $('#loadingViewSpinner').show();
     Container.unpause({id: $stateParams.id}, function (d) {
       update();
-      Notifications.success('Контейнер сняли с паузы', $stateParams.id);
+      Notifications.success('Агент сняли с паузы', $stateParams.id);
     }, function (e) {
       update();
-      Notifications.error('Failure', e, 'Не удалось возобновить контейнер');
+      Notifications.error('Failure', e, 'Не удалось возобновить агент');
     });
   };
 
   $scope.confirmRemove = function () {
-    var title = 'Вы собираетесь удалить контейнер.';
+    var title = 'Вы собираетесь удалить агента.';
     if ($scope.container.State.Running) {
-      title = 'Вы собираетесь удалить запущенный контейнер.';
+      title = 'Вы собираетесь удалить запущенный агент.';
     }
     ModalService.confirmContainerDeletion(
       title,
@@ -142,11 +142,11 @@ function ($scope, $state, $stateParams, $filter, Container, ContainerCommit, Con
     $('#loadingViewSpinner').show();
     ContainerService.remove($scope.container, cleanAssociatedVolumes)
     .then(function success() {
-      Notifications.success('Контейнер успешно удален');
+      Notifications.success('Агент успешно удален');
       $state.go('containers', {}, {reload: true});
     })
     .catch(function error(err) {
-      Notifications.error('Failure', err, 'Не удалось удалить контейнер');
+      Notifications.error('Failure', err, 'Не удалось удалить агент');
     })
     .finally(function final() {
       $('#loadingViewSpinner').hide();
@@ -157,10 +157,10 @@ function ($scope, $state, $stateParams, $filter, Container, ContainerCommit, Con
     $('#loadingViewSpinner').show();
     Container.restart({id: $stateParams.id}, function (d) {
       update();
-      Notifications.success('Контейнер перезагружен', $stateParams.id);
+      Notifications.success('Агент перезагружен', $stateParams.id);
     }, function (e) {
       update();
-      Notifications.error('Failure', e, 'Не удалось перезагрузить контейнер');
+      Notifications.error('Failure', e, 'Не удалось перезагрузить агент');
     });
   };
 
@@ -169,13 +169,13 @@ function ($scope, $state, $stateParams, $filter, Container, ContainerCommit, Con
     Container.rename({id: $stateParams.id, 'name': container.newContainerName}, function (d) {
       if (d.message) {
         container.newContainerName = container.Name;
-        Notifications.error('Не удалось переименовать контейнер', {}, d.message);
+        Notifications.error('Не удалось переименовать агент', {}, d.message);
       } else {
         container.Name = container.newContainerName;
-        Notifications.success('Контейнер успешно переименован', container.Name);
+        Notifications.success('Агент успешно переименован', container.Name);
       }
     }, function (e) {
-      Notifications.error('Failure', e, 'Невозможно переименовать контейнер');
+      Notifications.error('Failure', e, 'Невозможно переименовать агент');
     });
     $scope.container.edit = false;
   };
@@ -185,15 +185,15 @@ function ($scope, $state, $stateParams, $filter, Container, ContainerCommit, Con
     Network.disconnect({id: networkId}, { Container: $stateParams.id, Force: false }, function (d) {
       if (container.message) {
         $('#loadingViewSpinner').hide();
-        Notifications.error('Error', d, 'Не удается отключить контейнер от сети');
+        Notifications.error('Error', d, 'Не удается отключить агент от сети');
       } else {
         $('#loadingViewSpinner').hide();
-        Notifications.success('Контейнер покинул сеть', $stateParams.id);
+        Notifications.success('Агент покинул сеть', $stateParams.id);
         $state.go('container', {id: $stateParams.id}, {reload: true});
       }
     }, function (e) {
       $('#loadingViewSpinner').hide();
-      Notifications.error('Failure', e, 'Не удается отключить контейнер от сети');
+      Notifications.error('Failure', e, 'Не удается отключить агент от сети');
     });
   };
 

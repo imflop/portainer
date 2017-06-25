@@ -42,7 +42,7 @@ function ($q, $scope, $stateParams, $state, Service, ServiceService, ServiceHelp
 
   $scope.removeAction = function() {
     ModalService.confirmDeletion(
-      'Вы хотите удалить выбранные службы? Все контейнеры, связанные с выбранными службами, также будут удалены.',
+      'Вы хотите удалить выбранные службы? Все агенты, связанные с выбранными службами, также будут удалены.',
       function onConfirm(confirmed) {
         if(!confirmed) { return; }
         removeServices();

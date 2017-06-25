@@ -80,7 +80,7 @@ function ($scope, $q, $state, $stateParams, $anchorScroll, $filter, ContainerSer
       return ResourceControlService.applyResourceControl('container', containerIdentifier, userId, accessControlData, generatedVolumeIds);
     })
     .then(function success() {
-      Notifications.success('Контейнер успешно создан');
+      Notifications.success('Агент успешно создан');
       $state.go('containers', {}, {reload: true});
     })
     .catch(function error(err) {

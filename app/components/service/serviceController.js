@@ -238,7 +238,7 @@ function ($q, $scope, $stateParams, $state, $location, $timeout, $anchorScroll, 
 
   $scope.removeService = function() {
     ModalService.confirmDeletion(
-      'Вы хотите удалить эту услугу? Все контейнеры, связанные с этой службой, также будут удалены.',
+      'Вы хотите удалить эту услугу? Все агенты, связанные с этой службой, также будут удалены.',
       function onConfirm(confirmed) {
         if(!confirmed) { return; }
         removeService();

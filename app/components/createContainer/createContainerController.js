@@ -265,7 +265,7 @@ function ($q, $scope, $state, $stateParams, $filter, Container, ContainerHelper,
       var containers = d;
       $scope.runningContainers = containers;
     }, function(e) {
-      Notifications.error('Failure', e, 'Не удалось получить запущенные контейнеры');
+      Notifications.error('Failure', e, 'Не удалось получить запущенные агенты');
     });
 
   }
@@ -308,11 +308,11 @@ function ($q, $scope, $state, $stateParams, $filter, Container, ContainerHelper,
         return ResourceControlService.applyResourceControl('container', containerIdentifier, userId, accessControlData, []);
       })
       .then(function success() {
-        Notifications.success('Контейнер успешно создан');
+        Notifications.success('Агент успешно создан');
         $state.go('containers', {}, {reload: true});
       })
       .catch(function error(err) {
-        Notifications.error('Failure', err, 'Не удалось создать контейнер');
+        Notifications.error('Failure', err, 'Не удалось создать агент');
       })
       .finally(function final() {
         $('#createContainerSpinner').hide();

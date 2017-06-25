@@ -24,15 +24,15 @@ function ($scope, $state, $stateParams, $filter, Network, Container, ContainerHe
     Network.disconnect({id: $stateParams.id}, { Container: containerId, Force: false }, function (d) {
       if (d.message) {
         $('#loadingViewSpinner').hide();
-        Notifications.error('Error', d, 'Невозможно отключить контейнер от сети');
+        Notifications.error('Error', d, 'Невозможно отключить агент от сети');
       } else {
         $('#loadingViewSpinner').hide();
-        Notifications.success('Контейнер покинул сеть', $stateParams.id);
+        Notifications.success('Агент покинул сеть', $stateParams.id);
         $state.go('network', {id: network.Id}, {reload: true});
       }
     }, function (e) {
       $('#loadingViewSpinner').hide();
-      Notifications.error('Failure', e, 'Невозможно отключить контейнер от сети');
+      Notifications.error('Failure', e, 'Невозможно отключить агент от сети');
     });
   };
 
@@ -63,7 +63,7 @@ function ($scope, $state, $stateParams, $filter, Network, Container, ContainerHe
           $('#loadingViewSpinner').hide();
         }, function error(err) {
           $('#loadingViewSpinner').hide();
-          Notifications.error('Failure', err, 'Невозможно получить контейнеры в сети');
+          Notifications.error('Failure', err, 'Невозможно получить агенты в сети');
         });
       } else {
         Container.query({
@@ -73,7 +73,7 @@ function ($scope, $state, $stateParams, $filter, Network, Container, ContainerHe
           $('#loadingViewSpinner').hide();
         }, function error(err) {
           $('#loadingViewSpinner').hide();
-          Notifications.error('Failure', err, 'Невозможно получить контейнеры в сети');
+          Notifications.error('Failure', err, 'Невозможно получить агенты в сети');
         });
       }
     }

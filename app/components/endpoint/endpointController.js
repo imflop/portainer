@@ -32,7 +32,7 @@ function ($scope, $state, $stateParams, $filter, EndpointService, Notifications)
 
     EndpointService.updateEndpoint(ID, endpointParams)
     .then(function success(data) {
-      Notifications.success('Endpoint updated', $scope.endpoint.Name);
+      Notifications.success('Эндпоинт обновлен', $scope.endpoint.Name);
       $state.go('endpoints');
     }, function error(err) {
       $scope.state.error = err.msg;

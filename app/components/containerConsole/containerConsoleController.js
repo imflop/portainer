@@ -17,7 +17,7 @@ function ($scope, $stateParams, Container, Image, Exec, $timeout, EndpointProvid
   Container.get({id: $stateParams.id}, function(d) {
     $scope.container = d;
     if (d.message) {
-      Notifications.error('Error', d, 'Не удалось получить сведения о контейнере');
+      Notifications.error('Error', d, 'Не удалось получить сведения об агенте');
       $('#loadingViewSpinner').hide();
     } else {
       Image.get({id: d.Image}, function(imgData) {
@@ -31,7 +31,7 @@ function ($scope, $stateParams, Container, Image, Exec, $timeout, EndpointProvid
       });
     }
   }, function (e) {
-    Notifications.error('Failure', e, 'Не удалось получить сведения о контейнере');
+    Notifications.error('Failure', e, 'Не удалось получить сведения об агенте');
     $('#loadingViewSpinner').hide();
   });
 

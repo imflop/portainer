@@ -1,14 +1,14 @@
 <div id="service-container-labels">
   <rd-widget>
-    <rd-widget-header icon="fa-tasks" title="Метки контейнера">
+    <rd-widget-header icon="fa-tasks" title="Метки агента">
       <div class="nopadding">
         <a class="btn btn-default btn-sm pull-right" ng-click="isUpdating ||addContainerLabel(service)" ng-disabled="isUpdating">
-          <i class="fa fa-plus-circle" aria-hidden="true"></i> Метки контенера
+          <i class="fa fa-plus-circle" aria-hidden="true"></i> Метки агента
         </a>
       </div>
     </rd-widget-header>
     <rd-widget-body ng-if="service.ServiceContainerLabels.length === 0">
-      <p>Для этого сервиса нет меток контейнера</p>
+      <p>Для этого сервиса нет меток агента</p>
     </rd-widget-body>
     <rd-widget-body ng-if="service.ServiceContainerLabels.length > 0" classes="no-padding">
       <table class="table" >

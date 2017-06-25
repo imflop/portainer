@@ -44,7 +44,7 @@ angular.module('containers', [])
       $('#loadContainersSpinner').hide();
     }, function (e) {
       $('#loadContainersSpinner').hide();
-      Notifications.error('Failure', e, 'Не удалось извлечь контейнеры');
+      Notifications.error('Failure', e, 'Не удалось извлечь агенты');
       $scope.containers = [];
     });
   };
@@ -67,17 +67,17 @@ angular.module('containers', [])
             Notifications.success('Container ' + msg, c.Id);
             complete();
           }, function (e) {
-            Notifications.error('Failure', e, 'Не удалось запустить контейнер');
+            Notifications.error('Failure', e, 'Не удалось запустить агент');
             complete();
           });
         }
         else if (action === Container.remove) {
           ContainerService.remove(c, $scope.cleanAssociatedVolumes)
           .then(function success() {
-            Notifications.success('Контейнер успешно удален');
+            Notifications.success('Агент успешно удален');
           })
           .catch(function error(err) {
-            Notifications.error('Failure', err, 'Не удалось удалить контейнер');
+            Notifications.error('Failure', err, 'Не удалось удалить агент');
           })
           .finally(function final() {
             complete();
@@ -86,13 +86,13 @@ angular.module('containers', [])
         else if (action === Container.pause) {
           action({id: c.Id}, function (d) {
             if (d.message) {
-              Notifications.success('Контейнер уже приостановлен', c.Id);
+              Notifications.success('Агент уже приостановлен', c.Id);
             } else {
-              Notifications.success('Контейнер ' + msg, c.Id);
+              Notifications.success('Агент ' + msg, c.Id);
             }
             complete();
           }, function (e) {
-            Notifications.error('Failure', e, 'Не удается приостановить контейнер');
+            Notifications.error('Failure', e, 'Не удается приостановить агент');
             complete();
           });
         }
@@ -170,9 +170,9 @@ angular.module('containers', [])
         return;
       }
     });
-    var title = 'Вы собираетесь удалить один или несколько контейнеров.';
+    var title = 'Вы собираетесь удалить один или несколько агентов.';
     if (isOneContainerRunning) {
-      title = 'Вы собираетесь удалить один или несколько запущенных контейнеров.';
+      title = 'Вы собираетесь удалить один или несколько запущенных агентов.';
     }
     ModalService.confirmContainerDeletion(
       title,
