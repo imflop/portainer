@@ -17,7 +17,7 @@
     </li>
     <li class="sidebar-title"><span>Действия эндпоинта</span></li>
     <li class="sidebar-list">
-      <a ui-sref="dashboard" ui-sref-active="active">Доска мониторинга <span class="menu-icon fa fa-tachometer"></span></a>
+      <a ui-sref="dashboard" ui-sref-active="active">Мониторинг <span class="menu-icon fa fa-tachometer"></span></a>
     </li>
     <li class="sidebar-list">
       <a ui-sref="templates" ui-sref-active="active">Шаблоны приложения <span class="menu-icon fa fa-rocket"></span></a>
@@ -53,10 +53,10 @@
       <a ui-sref="docker" ui-sref-active="active">Docker <span class="menu-icon fa fa-th"></span></a>
     </li>
     <li class="sidebar-title" ng-if="!applicationState.application.authentication || isAdmin || isTeamLeader">
-      <span>Portainer settings</span>
+      <span>Настройки Portainer </span>
     </li>
     <li class="sidebar-list" ng-if="applicationState.application.authentication && (isAdmin || isTeamLeader)">
-      <a ui-sref="users" ui-sref-active="active">Управление пользователями <span class="menu-icon fa fa-users"></span></a>
+      <a ui-sref="users" ui-sref-active="active">Пользователи <span class="menu-icon fa fa-users"></span></a>
       <div class="sidebar-sublist" ng-if="toggle && ($state.current.name === 'users' || $state.current.name === 'user' || $state.current.name === 'teams' || $state.current.name === 'team')">
         <a ui-sref="teams" ui-sref-active="active">Команды</span></a>
       </div>
