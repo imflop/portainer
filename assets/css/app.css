@@ -87,7 +87,7 @@ a[ng-click]{
 }
 
 .tooltip.portainer-tooltip .tooltip-inner {
-  font-family: Montserrat;
+  font-family: 'Roboto', sans-serif;
   background-color: #ffffff;
   padding: .833em 1em;
   color: #333333;

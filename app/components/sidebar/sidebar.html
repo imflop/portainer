@@ -20,7 +20,7 @@
       <a ui-sref="dashboard" ui-sref-active="active">Мониторинг <span class="menu-icon fa fa-tachometer"></span></a>
     </li>
     <li class="sidebar-list">
-      <a ui-sref="templates" ui-sref-active="active">Шаблоны приложения <span class="menu-icon fa fa-rocket"></span></a>
+      <a ui-sref="templates" ui-sref-active="active" style="display: none">Шаблоны приложения <span class="menu-icon fa fa-rocket"></span></a>
       <div class="sidebar-sublist" ng-if="toggle && displayExternalContributors && ($state.current.name === 'templates' || $state.current.name === 'templates_linuxserver')">
         <a ui-sref="templates_linuxserver" ui-sref-active="active">LinuxServer.io</a>
       </div>
