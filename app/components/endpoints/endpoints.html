@@ -115,7 +115,7 @@
           <!-- !tls-certs -->
           <div class="form-group">
             <div class="col-sm-12">
-              <button type="button" class="btn btn-primary btn-sm" ng-disabled="!formValues.Name || !formValues.URL || (formValues.TLS && (!formValues.TLSCACert || !formValues.TLSCert || !formValues.TLSKey))" ng-click="addEndpoint()">Add endpoint</button>
+              <button type="button" class="btn btn-primary btn-sm" ng-disabled="!formValues.Name || !formValues.URL || (formValues.TLS && (!formValues.TLSCACert || !formValues.TLSCert || !formValues.TLSKey))" ng-click="addEndpoint()">Добавить узел</button>
               <i id="createEndpointSpinner" class="fa fa-cog fa-spin" style="margin-left: 5px; display: none;"></i>
               <span class="text-danger" ng-if="state.error" style="margin: 5px;">
                 <i class="fa fa-exclamation-circle" aria-hidden="true"></i> {{ state.error }}

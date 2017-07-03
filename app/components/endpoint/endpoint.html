@@ -103,7 +103,7 @@
           <!-- !tls-certs -->
           <div class="form-group">
             <div class="col-sm-12">
-              <button type="button" class="btn btn-primary btn-sm" ng-disabled="!endpoint.Name || !endpoint.URL || (endpoint.TLS && (!formValues.TLSCACert || !formValues.TLSCert || !formValues.TLSKey))" ng-click="updateEndpoint()">Update endpoint</button>
+              <button type="button" class="btn btn-primary btn-sm" ng-disabled="!endpoint.Name || !endpoint.URL || (endpoint.TLS && (!formValues.TLSCACert || !formValues.TLSCert || !formValues.TLSKey))" ng-click="updateEndpoint()">Обновить узел</button>
               <a type="button" class="btn btn-default btn-sm" ui-sref="endpoints">Отмена</a>
               <i id="updateEndpointSpinner" class="fa fa-cog fa-spin" style="margin-left: 5px; display: none;"></i>
               <span class="text-danger" ng-if="state.error" style="margin: 5px;">
