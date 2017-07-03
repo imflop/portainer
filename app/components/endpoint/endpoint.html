@@ -1,9 +1,9 @@
 <rd-header>
-  <rd-header-title title="Детали эндпоинта">
+  <rd-header-title title="Детали узла">
     <i id="loadingViewSpinner" class="fa fa-cog fa-spin"></i>
   </rd-header-title>
   <rd-header-content>
-    <a ui-sref="endpoints">Эндпоинты</a> > <a ui-sref="endpoint({id: endpoint.Id})">{{ endpoint.Name }}</a>
+    <a ui-sref="endpoints">Узлы</a> > <a ui-sref="endpoint({id: endpoint.Id})">{{ endpoint.Name }}</a>
   </rd-header-content>
 </rd-header>
 
@@ -23,7 +23,7 @@
           <!-- endpoint-url-input -->
           <div class="form-group">
             <label for="endpoint_url" class="col-sm-3 col-lg-2 control-label text-left">
-              URL эндпоинта
+              URL узла
               <portainer-tooltip position="bottom" message="URL или IP-адрес хоста Docker. API Docker должен быть открыт через TCP-порт. Для его настройки обратитесь к документации Docker."></portainer-tooltip>
             </label>
             <div class="col-sm-9 col-lg-10">
