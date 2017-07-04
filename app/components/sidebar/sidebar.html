@@ -9,13 +9,13 @@
       </a>
     </li>
     <li class="sidebar-title">
-      <span>Активные эндпоинты</span>
+      <span>Активные узлы</span>
     </li>
     <li class="sidebar-title">
       <select class="select-endpoint form-control" ng-options="endpoint.Name for endpoint in endpoints" ng-model="activeEndpoint" ng-change="switchEndpoint(activeEndpoint)">
       </select>
     </li>
-    <li class="sidebar-title"><span>Действия эндпоинта</span></li>
+    <li class="sidebar-title"><span>Действия узла</span></li>
     <li class="sidebar-list">
       <a ui-sref="dashboard" ui-sref-active="active">Мониторинг <span class="menu-icon fa fa-tachometer"></span></a>
     </li>
@@ -50,10 +50,10 @@
       <a ui-sref="swarm" ui-sref-active="active">Swarm <span class="menu-icon fa fa-object-group"></span></a>
     </li>
     <li class="sidebar-list" ng-if="applicationState.endpoint.mode.provider === 'DOCKER_STANDALONE'">
-      <a ui-sref="docker" ui-sref-active="active">О системе сбора данных <span class="menu-icon fa fa-th"></span></a>
+      <a ui-sref="docker" ui-sref-active="active">О системе <span class="menu-icon fa fa-th"></span></a>
     </li>
     <li class="sidebar-title" ng-if="!applicationState.application.authentication || isAdmin || isTeamLeader">
-      <span>Настройка системы сбора данных </span>
+      <span>Настройки системы </span>
     </li>
     <li class="sidebar-list" ng-if="applicationState.application.authentication && (isAdmin || isTeamLeader)">
       <a ui-sref="users" ui-sref-active="active">Пользователи <span class="menu-icon fa fa-users"></span></a>
@@ -62,7 +62,7 @@
       </div>
     </li>
     <li class="sidebar-list" ng-if="!applicationState.application.authentication || isAdmin">
-      <a ui-sref="endpoints" ui-sref-active="active">Эндпоинты <span class="menu-icon fa fa-plug"></span></a>
+      <a ui-sref="endpoints" ui-sref-active="active">Узлы <span class="menu-icon fa fa-plug"></span></a>
     </li>
     <li class="sidebar-list" ng-if="!applicationState.application.authentication || isAdmin">
       <a ui-sref="registries" ui-sref-active="active">Реестры <span class="menu-icon fa fa-database"></span></a>

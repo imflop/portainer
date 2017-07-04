@@ -103,7 +103,7 @@ function ($scope, $state, EndpointService, EndpointProvider, Notifications, Pagi
       $scope.endpoints = data;
     })
     .catch(function error(err) {
-      Notifications.error('Failure', err, 'Не удалось получить эндпоинты');
+      Notifications.error('Failure', err, 'Не удалось получить узлы');
       $scope.endpoints = [];
     })
     .finally(function final() {
