@@ -32,7 +32,7 @@ function ($scope, $state, $stateParams, $filter, EndpointService, Notifications)
 
     EndpointService.updateEndpoint(ID, endpointParams)
     .then(function success(data) {
-      Notifications.success('Эндпоинт обновлен', $scope.endpoint.Name);
+      Notifications.success('Узел обновлен', $scope.endpoint.Name);
       $state.go('endpoints');
     }, function error(err) {
       $scope.state.error = err.msg;
@@ -59,7 +59,7 @@ function ($scope, $state, $stateParams, $filter, EndpointService, Notifications)
       $scope.formValues.TLSKey = data.TLSKey;
     }, function error(err) {
       $('#loadingViewSpinner').hide();
-      Notifications.error('Failure', err, 'Не удалось получить сведения о эндпоинте');
+      Notifications.error('Failure', err, 'Не удалось получить сведения об узле');
     });
   }
 

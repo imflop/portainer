@@ -12,7 +12,7 @@
                 <i ng-class="resourceControl.Ownership | ownershipicon" aria-hidden="true" style="margin-right: 2px;"></i>
                 <span ng-if="!resourceControl">
                   public
-                  <portainer-tooltip message="Этот ресурс может управляться любым пользователем, имеющим доступ к этому эндпоинту." position="bottom" style="margin-left: -3px;"></portainer-tooltip>
+                  <portainer-tooltip message="Этот ресурс может управляться любым пользователем, имеющим доступ к этому узлу." position="bottom" style="margin-left: -3px;"></portainer-tooltip>
                 </span>
                 <span ng-if="resourceControl">
                   {{ resourceControl.Ownership }}
@@ -108,7 +108,7 @@
                         <i ng-class="'public' | ownershipicon" aria-hidden="true" style="margin-right: 2px;"></i>
                         Public
                       </div>
-                      <p>Я хочу, чтобы любой пользователь, имеющий доступ к этому эндпоинту, мог управлять этим ресурсом</p>
+                      <p>Я хочу, чтобы любой пользователь, имеющий доступ к этому узлу, мог управлять этим ресурсом</p>
                     </label>
                   </div>
                 </div>

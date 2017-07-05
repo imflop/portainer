@@ -74,7 +74,7 @@
   <div class="form-group" ng-if="formValues.enableAccessControl && formValues.Ownership === 'restricted' && (isAdmin || (!isAdmin && availableTeams.length > 1))" >
     <div class="col-sm-12">
       <label for="group-access" class="control-label text-left">
-        Authorized teams
+        Авторизованные команды
         <portainer-tooltip ng-if="isAdmin && availableTeams.length > 0" position="bottom" message="Вы можете выбрать, какие команды смогут управлять этим ресурсом."></portainer-tooltip>
         <portainer-tooltip ng-if="!isAdmin && availableTeams.length > 1" position="bottom" message="Поскольку вы являетесь членом нескольких команд, вы можете выбрать, какие команды смогут управлять этим ресурсом."></portainer-tooltip>
       </label>
@@ -101,7 +101,7 @@
 <div class="form-group" ng-if="formValues.enableAccessControl && formValues.Ownership === 'restricted' && isAdmin">
   <div class="col-sm-12">
     <label for="group-access" class="control-label text-left">
-      Authorized users
+      Авторизованные пользователи
       <portainer-tooltip ng-if="isAdmin && availableUsers.length > 0" position="bottom" message="Вы можете выбрать, какие пользователи смогут управлять этим ресурсом."></portainer-tooltip>
     </label>
     <span ng-if="availableUsers.length === 0" class="small text-muted" style="margin-left: 20px;">

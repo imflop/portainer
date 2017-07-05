@@ -80,7 +80,7 @@ angular.module('portainer', [
         return LocalStorage.getJWT();
       }],
       unauthenticatedRedirector: ['$state', function($state) {
-        $state.go('auth', {error: 'Your session has expired'});
+        $state.go('auth', {error: 'Время сеанса истекло'});
       }]
     });
     $httpProvider.interceptors.push('jwtInterceptor');
@@ -711,7 +711,7 @@ angular.module('portainer', [
         authManager.redirectWhenUnauthenticated();
         Authentication.init();
         $rootScope.$on('tokenHasExpired', function($state) {
-          $state.go('auth', {error: 'Your session has expired'});
+          $state.go('auth', {error: 'Время сеанса истекло'});
         });
       }
       if (state.application.analytics) {

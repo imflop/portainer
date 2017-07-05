@@ -59,7 +59,7 @@ function ($scope, $state, EndpointService, EndpointProvider, Notifications, Pagi
     var TLSCertFile = $scope.formValues.TLSCert;
     var TLSKeyFile = $scope.formValues.TLSKey;
     EndpointService.createRemoteEndpoint(name, URL, PublicURL, TLS, TLSCAFile, TLSCertFile, TLSKeyFile, false).then(function success(data) {
-      Notifications.success('Эндпоинт создан', name);
+      Notifications.success('Узел создан', name);
       $state.reload();
     }, function error(err) {
       $scope.state.uploadInProgress = false;
@@ -89,7 +89,7 @@ function ($scope, $state, EndpointService, EndpointProvider, Notifications, Pagi
           $scope.endpoints.splice(index, 1);
           complete();
         }, function error(err) {
-          Notifications.error('Failure', err, 'Не удается удалить эндпоинт');
+          Notifications.error('Failure', err, 'Не удается удалить узел');
           complete();
         });
       }

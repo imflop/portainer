@@ -13,7 +13,7 @@ function ($scope, $stateParams, EndpointService, Notifications) {
       $scope.endpoint = data;
     })
     .catch(function error(err) {
-      Notifications.error('Failure', err, 'Не удалось получить сведения о эндпоинте');
+      Notifications.error('Failure', err, 'Не удалось получить сведения об узле');
     })
     .finally(function final(){
       $('#loadingViewSpinner').hide();

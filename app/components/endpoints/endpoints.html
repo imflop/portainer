@@ -5,13 +5,13 @@
     </a>
     <i id="loadEndpointsSpinner" class="fa fa-cog fa-spin" style="margin-left: 5px;"></i>
   </rd-header-title>
-  <rd-header-content>Управление эндпоинтами</rd-header-content>
+  <rd-header-content>Управление узлами</rd-header-content>
 </rd-header>
 
 <div class="row" ng-if="!applicationState.application.endpointManagement">
   <div class="col-lg-12 col-md-12 col-xs-12">
     <rd-widget>
-      <rd-widget-header icon="fa-exclamation-triangle" title="Управление эндпоинтом недоступно">
+      <rd-widget-header icon="fa-exclamation-triangle" title="Управление узлом недоступно">
       </rd-widget-header>
       <rd-widget-body>
         <span class="small text-muted">Portainer был запущен с использованием <code>--external-endpoints</code> флага. Управление конечными точками через пользовательский интерфейс отключено. Вы все же можете управлять доступом к конечной точке.</span>
@@ -23,7 +23,7 @@
 <div class="row" ng-if="applicationState.application.endpointManagement">
   <div class="col-lg-12 col-md-12 col-xs-12">
     <rd-widget>
-      <rd-widget-header icon="fa-plus" title="Добавить новый эндпоинт">
+      <rd-widget-header icon="fa-plus" title="Добавить новый узел">
       </rd-widget-header>
       <rd-widget-body>
         <form class="form-horizontal">
@@ -38,7 +38,7 @@
           <!-- endpoint-url-input -->
           <div class="form-group">
             <label for="endpoint_url" class="col-sm-3 col-lg-2 control-label text-left">
-              Endpoint URL
+              Точка входа
               <portainer-tooltip position="bottom" message="URL или IP-адрес хоста Docker. API Docker должен быть открыт через TCP-порт. Пожалуйста, обратитесь к документации Docker, чтобы настроить ее."></portainer-tooltip>
             </label>
             <div class="col-sm-9 col-lg-10">
@@ -49,8 +49,8 @@
           <!-- endpoint-public-url-input -->
           <div class="form-group">
             <label for="endpoint_public_url" class="col-sm-3 col-lg-2 control-label text-left">
-              Public IP
-              <portainer-tooltip position="bottom" message="URL или IP-адрес, в котором доступны доступные агенты. Это поле является необязательным и по умолчанию будет использоваться URL-адрес эндпоинта."></portainer-tooltip>
+              Публичный IP
+              <portainer-tooltip position="bottom" message="URL или IP-адрес, в котором доступны доступные агенты. Это поле является необязательным и по умолчанию будет использоваться URL-адрес узла."></portainer-tooltip>
             </label>
             <div class="col-sm-9 col-lg-10">
               <input type="text" class="form-control" id="endpoint_public_url" ng-model="formValues.PublicURL" placeholder="e.g. 10.0.0.10 or mydocker.mydomain.com">
@@ -62,7 +62,7 @@
             <div class="col-sm-12">
               <label for="tls" class="control-label text-left">
                 TLS
-                <portainer-tooltip position="bottom" message="Включите эту опцию, если вам нужно указать сертификаты TLS для подключения к эндпоинту Docker."></portainer-tooltip>
+                <portainer-tooltip position="bottom" message="Включите эту опцию, если вам нужно указать сертификаты TLS для подключения к узлу Docker."></portainer-tooltip>
               </label>
               <label class="switch" style="margin-left: 20px;">
                 <input type="checkbox" ng-model="formValues.TLS"><i></i>
@@ -194,7 +194,7 @@
                 <td colspan="5" class="text-center text-muted">Загрузка...</td>
               </tr>
               <tr ng-if="endpoints.length == 0">
-                <td colspan="5" class="text-center text-muted">Нет доступных эндпоинтов.</td>
+                <td colspan="5" class="text-center text-muted">Нет доступных узлов.</td>
               </tr>
             </tbody>
           </table>
