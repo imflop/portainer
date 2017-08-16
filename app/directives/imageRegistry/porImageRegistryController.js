@@ -15,7 +15,7 @@ function ($q, RegistryService, DockerHubService, Notifications) {
       ctrl.registry = dockerhub;
     })
     .catch(function error(err) {
-      Notifications.error('Failure', err, 'Unable to retrieve registries');
+      Notifications.error('Failure', err, 'Не удается получить реестры');
     });
   }
 

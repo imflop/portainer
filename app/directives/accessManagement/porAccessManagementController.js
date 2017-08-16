@@ -85,7 +85,7 @@ function (AccessService, Pagination, Notifications) {
       Notifications.success('Accesses successfully updated');
     })
     .catch(function error(err) {
-      Notifications.error('Failure', err, 'Unable to update accesses');
+      Notifications.error('Failure', err, 'Не удалось обновить доступ');
     });
   };
 
@@ -107,7 +107,7 @@ function (AccessService, Pagination, Notifications) {
       Notifications.success('Accesses successfully updated');
     })
     .catch(function error(err) {
-      Notifications.error('Failure', err, 'Unable to update accesses');
+      Notifications.error('Failure', err, 'Не удалось обновить доступ');
     });
   };
 
@@ -119,7 +119,7 @@ function (AccessService, Pagination, Notifications) {
       Notifications.success('Accesses successfully updated');
     })
     .catch(function error(err) {
-      Notifications.error('Failure', err, 'Unable to update accesses');
+      Notifications.error('Failure', err, 'Не удалось обновить доступ');
     });
   };
 
@@ -135,7 +135,7 @@ function (AccessService, Pagination, Notifications) {
       Notifications.success('Accesses successfully updated');
     })
     .catch(function error(err) {
-      Notifications.error('Failure', err, 'Unable to update accesses');
+      Notifications.error('Failure', err, 'Не удалось обновить доступ');
     });
   };
 
@@ -149,7 +149,7 @@ function (AccessService, Pagination, Notifications) {
     .catch(function error(err) {
       ctrl.accesses = [];
       ctrl.authorizedAccesses = [];
-      Notifications.error('Failure', err, 'Unable to retrieve accesses');
+      Notifications.error('Failure', err, 'Не удалось обновить доступ');
     });
   }
 

@@ -129,7 +129,7 @@ function ($q, $scope, $state, TeamService, UserService, TeamMembershipService, M
     .catch(function error(err) {
       $scope.teams = [];
       $scope.users = [];
-      Notifications.error('Failure', err, 'Unable to retrieve teams');
+      Notifications.error('Failure', err, 'Не удается получить команды');
     })
     .finally(function final() {
       $('#loadingViewSpinner').hide();

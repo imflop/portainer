@@ -48,11 +48,11 @@ angular.module('portainer.services')
 
   service.confirmAccessControlUpdate = function(callback, msg) {
     service.confirm({
-      title: 'Are you sure ?',
-      message: 'Changing the ownership of this resource will potentially restrict its management to some users.',
+      title: 'Вы уверены ?',
+      message: 'Изменение владельца этого ресурса может ограничить его управления для некоторых пользователей.',
       buttons: {
         confirm: {
-          label: 'Change ownership',
+          label: 'Изменит владение',
           className: 'btn-primary'
         }
       },
@@ -62,11 +62,11 @@ angular.module('portainer.services')
 
   service.confirmImageForceRemoval = function(callback) {
     service.confirm({
-      title: 'Are you sure?',
-      message: 'Forcing the removal of the image will remove the image even if it has multiple tags or if it is used by stopped containers.',
+      title: 'Вы уверены ?',
+      message: 'Принудительно удалить образ, даже если оно имеет несколько тегов, или если он используется в остановленных контейнерах.',
       buttons: {
         confirm: {
-          label: 'Remove the image',
+          label: 'Удалить образ',
           className: 'btn-danger'
         }
       },
@@ -76,11 +76,11 @@ angular.module('portainer.services')
 
   service.confirmDeletion = function(message, callback) {
     service.confirm({
-      title: 'Are you sure ?',
+      title: 'Вы уверены ?',
       message: message,
       buttons: {
         confirm: {
-          label: 'Remove',
+          label: 'Удалить',
           className: 'btn-danger'
         }
       },
@@ -94,13 +94,13 @@ angular.module('portainer.services')
       inputType: 'checkbox',
       inputOptions: [
         {
-          text: 'Automatically remove non-persistent volumes<i></i>',
+          text: 'Автоматически удалить не сохраненные тома<i></i>',
           value: '1'
         }
       ],
       buttons: {
         confirm: {
-          label: 'Remove',
+          label: 'Удалить',
           className: 'btn-danger'
         }
       },

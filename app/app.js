@@ -724,7 +724,7 @@ angular.module('portainer', [
         });
       }
     }, function error(err) {
-      Notifications.error('Failure', err, 'Unable to retrieve application settings');
+      Notifications.error('Failure', err, 'Не удается получить параметры приложения');
     });
 
     $rootScope.$state = $state;
